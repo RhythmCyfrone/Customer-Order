@@ -14,6 +14,8 @@ import '../../../Styles/Animations.css'
 const BillDetails = () => {
     const [isRotated, setIsRotated] = useState(false);
     const [viewBill, setViewBill] = useState(false)
+    const [viewDetailsText, setViewDetailsText] = useState(true)
+    const [closeText, setCloseText] = useState(false)
     const [viewMore, setViewMore] = useState(false);
     
     const bottomPadding = isRotated?'pb-[16px]':'pb-[32px]'
@@ -24,6 +26,10 @@ const BillDetails = () => {
         setIsRotated(!isRotated);
         if(!viewBill)
             setViewBill(true)
+        if(!closeText)
+            setCloseText(true)
+        if(!viewDetailsText)
+            setViewDetailsText(true)
     };
   return (
     <div className='absolute bottom-[0px] z-10'>
@@ -72,11 +78,22 @@ const BillDetails = () => {
                     }`}
                     onClick={handleIconClick}
                 />
-                {
-                    isRotated 
-                    ?<span className='font-normal text-[14px] text-[#020202]'>Close</span>
-                    :<span className='font-normal text-[14px] text-[#020202]'>View Bill Details</span>
-                }
+                <div className='relative w-full'>
+                    {
+                        viewDetailsText && 
+                        <span className={`absolute left-[50%] -translate-x-[50%] text-nowrap font-normal text-[14px] text-[#020202] ${isRotated?'fade-out-right':'fade-in-left'}`} 
+                            onAnimationEnd={() => {if(isRotated) setViewDetailsText(false)}}
+                        >View Bill Details</span>
+                    }
+                    {
+                        closeText && 
+                        <span className={`absolute left-[50%] -translate-x-[50%] font-normal text-[14px] text-[#020202] transform-opacity duration-400 ${isRotated?'opacity-100':'opacity-0'}`} 
+                            onTransitionEnd={() => {if(!isRotated) setCloseText(false)}}
+                        >Close</span>
+                    }
+                </div>
+                
+                
             </div>
             <div className='flex justify-between p-0 items-center ps-[32px] pe-[32px]'>
                 <span className='font-poppins font-normal text-[16px]'>Grand Total</span>

@@ -34,3 +34,37 @@
   .fade-out {
     animation: outAnimation 400ms forwards;
   }
+
+  @keyframes inAnimationLeft {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-10%);
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes outAnimationRight {
+    0% {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%);
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-10%);
+    }
+  }
+
+  .fade-in-left {
+    animation: inAnimationLeft 400ms forwards;
+  }
+  
+  .fade-out-right {
+    animation: outAnimationRight 400ms forwards;
+  }
