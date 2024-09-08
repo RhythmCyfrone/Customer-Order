@@ -1,0 +1,36 @@
+@keyframes inAnimation {
+    0% {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(100%);
+      max-height: 0;
+    }
+    100% {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0%);
+      max-height: 200px;
+    }
+  }
+  
+  @keyframes outAnimation {
+    0% {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0%);
+      max-height: 200px;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(100%);
+      max-height: 0;
+    }
+  }
+  .fade-in {
+    animation: inAnimation 400ms forwards;
+  }
+  
+  .fade-out {
+    animation: outAnimation 400ms forwards;
+  }

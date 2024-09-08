@@ -1,0 +1,15 @@
+.fontButtonDefault {
+    @apply font-poppins tablet:text-[16px] mobile:text-[12px] font-medium leading-[24px] tracking-[0.02em] text-left text-CustomNeutral-100;
+}
+
+.fontSecondaryButtonDefault {
+    @apply font-poppins tablet:text-[16px] mobile:text-[12px] font-semibold leading-[24px] tracking-[0.02em] text-left text-CustomBrand-300;
+}
+
+.fontSidebarHeading {
+    @apply font-kanit font-normal
+}
+
+.fontSidebarSubHeading {
+    @apply font-lato font-normal
+}

@@ -1,0 +1,32 @@
+.shadow-primary-hover {
+    box-shadow: 0px 2px 6px 2px #00000026, 0px 1px 2px 0px #0000004D;
+}
+
+.hover\:ShadowPrimaryHover:hover {
+    @apply shadow-primary-hover;
+}
+.shadow-sidebar {
+    box-shadow: 4px 4px 20px 0px #4CB7FF40;
+}
+.shadow-table-selected {
+    box-shadow: -3px 4px 20px 0px #4CB7FF40;
+}
+
+.shadow-table {
+    box-shadow: 1px 2px 4px 0px #3B82F680;
+}
+
+.shadow-order-button {
+    box-shadow: 0px 4px 4px 0px #3B82F640;
+}
+
+.hover\:ShadowOrderButtonHover:hover {
+    @apply shadow-order-button;
+}
+
+.shadow-table-hover {
+    box-shadow: 2px 4px 2.58px 0px #3B82F64D;
+}
+.hover\:ShadowTableHover:hover {
+    @apply shadow-table-hover;
+}
