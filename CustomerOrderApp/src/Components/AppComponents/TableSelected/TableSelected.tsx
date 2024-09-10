@@ -5,6 +5,7 @@ import ProfilePlaceholderIcon from '../../../Assets/Icons/ProfilePlaceholder.svg
 import BillDetails from '../BillDetails/BillDetails'
 import TableDetails from '../TableDetails/TableDetails'
 import { useAppDispatch, useAppSelector } from '../../../State/hooks'
+import ItemsList from '../ItemsSelected/ItemsList'
 
 const TableSelected = () => {
   const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
@@ -24,6 +25,7 @@ const TableSelected = () => {
         <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px]' />
         <BillDetails />
         <TableDetails />
+        <ItemsList />
     </div>
   )
 }
