@@ -20,12 +20,20 @@ const TableSelected = () => {
             No Table Selected
         </span>
     </div>
-    :<div className='relative w-[420px] flex flex-col pt-[100px] items-center shadow-table-selected'>
+    :<div className='relative w-[420px] flex flex-col pt-[90px] items-center shadow-table-selected'>
         <img src={NotificationIcon} className='absolute left-[70%] top-[27px]' />
         <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px]' />
         <BillDetails />
         <TableDetails />
         <ItemsList />
+        <div className='mt-[20px] w-full ps-[16px] pe-[16px]'>
+          <button className='text-center w-full fontSecondaryButtonDefault border-[1px] border-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover
+                      hover:bg-CustomBrand-200 active:shadow-none active:bg-white'
+          >
+            Add Items
+          </button>
+        </div>
+        
     </div>
   )
 }

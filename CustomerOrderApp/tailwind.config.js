@@ -13,6 +13,8 @@ export default {
       'laptop': '1024px',
 
       'desktop': '1280px',
+
+      'tall': { 'raw': '(min-height: 900px)' }
     },
     extend: {
       fontFamily: {
