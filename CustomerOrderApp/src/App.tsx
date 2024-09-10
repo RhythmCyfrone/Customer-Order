@@ -26,7 +26,7 @@ function App() {
             <Table status='Free' floor='1' tableNumber='A2' time='30 mins' occupancy={2} />
             <Table status='Free' floor='1' tableNumber='A3' time='30 mins' occupancy={2} />
             <Table status='Free' floor='1' tableNumber='A4' time='30 mins' occupancy={2} />
-            <Table status='Order Confirm' floor='1' tableNumber='A5' time='30 mins' occupancy={2} />
+            <Table status='Ordered' floor='1' tableNumber='A5' time='30 mins' occupancy={2} />
             <Table status='Free' floor='1' tableNumber='A6' time='30 mins' occupancy={2} />
             <Table status='Free' floor='1' tableNumber='A7' time='30 mins' occupancy={2} />
             <Table status='Free' floor='1' tableNumber='A8' time='30 mins' occupancy={2} />
@@ -34,13 +34,15 @@ function App() {
             <Table status='Reserved' floor='1' tableNumber='A10' time='30 mins' occupancy={2} />
             <Table status='Free' floor='1' tableNumber='A11' time='30 mins' occupancy={2} />
             <Table status='Free' floor='1' tableNumber='A12' time='30 mins' occupancy={2} />
-            <Table status='Free' floor='1' tableNumber='A13' time='30 mins' occupancy={2} />
+            <Table status='Billed' floor='1' tableNumber='A13' time='30 mins' occupancy={2} />
             <Table status='Free' floor='1' tableNumber='A14' time='30 mins' occupancy={2} />
-            <Table status='Free' floor='1' tableNumber='A15' time='30 mins' occupancy={2} />            <Table status='Free' floor='1' tableNumber='A7' time='30 mins' occupancy={2} />
-            <Table status='Preparing' floor='1' tableNumber='A16' time='30 mins' occupancy={2} />
+            <Table status='Free' floor='1' tableNumber='A15' time='30 mins' occupancy={2} />
+            <Table status='Paid' floor='1' tableNumber='A16' time='30 mins' occupancy={2} />            
             <Table status='Free' floor='1' tableNumber='A17' time='30 mins' occupancy={2} />
-            <Table status='Generate Bill' floor='1' tableNumber='A18' time='30 mins' occupancy={2} />
+            <Table status='Billed' floor='1' tableNumber='A18' time='30 mins' occupancy={2} />
             <Table status='Free' floor='1' tableNumber='A19' time='30 mins' occupancy={2} />
+            <Table status='Free' floor='1' tableNumber='A20' time='30 mins' occupancy={2} />
+
           </div>
         </div>
         <TableSelected />
