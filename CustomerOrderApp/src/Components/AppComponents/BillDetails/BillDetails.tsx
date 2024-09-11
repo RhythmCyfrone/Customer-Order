@@ -6,6 +6,7 @@ import PriceTagIcon from '../../../Assets/Icons/price-tag.svg'
 import SplitBillIcon from '../../../Assets/Icons/SplitBIll.svg'
 import CombineBillIcon from '../../../Assets/Icons/CombineBill.svg'
 import CancelBillIcon from '../../../Assets/Icons/x-button.svg'
+import BillOptionsBack from '../../../Assets/Icons/BillOptionsBack.svg'
 import MoreIcon from '../../../Assets/Icons/More.svg'
 import '../../../Styles/Fonts.css'
 import '../../../Styles/Shadows.css'
@@ -128,6 +129,11 @@ const BillDetails = () => {
                 >
                     <img src={CancelBillIcon} />
                     <span className='font-poppins font-normal text-[8.5px] text-white'>Cancel Order</span>
+                </div>
+                <div className={`${viewMore?'':'hidden'} flex-1 flex items-center justify-end item-end pe-[24px]`}>
+                    <img src={BillOptionsBack} className='cursor-pointer'
+                        onClick={() => setViewMore(!viewMore)}
+                    />
                 </div>
             </div>
             <div className={`ps-[32px] pe-[32px] w-full mt-[12px] ${bottomPadding} transition-all duration-500`}>
