@@ -12,7 +12,6 @@ dist
 dist-ssr
 *.local
 env_git.txt
-db.json
 
 # Editor directories and files
 .vscode/*

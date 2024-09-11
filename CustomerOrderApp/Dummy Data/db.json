@@ -1,0 +1,51 @@
+{
+  "Customers": [
+    {
+      "id": 1,
+      "Name": "Rhythm",
+      "Email": "rhythm.aggarwal@cyfrone.com",
+      "Phone": 9289060374
+    },
+    {
+      "id": 2,
+      "Name": "Azam",
+      "Email": "rhythm.aggarwal@cyfrone.com",
+      "Phone": 9289060374
+    },
+    {
+      "id": 3,
+      "Name": "Tabish",
+      "Email": "rhythm.aggarwal@cyfrone.com",
+      "Phone": 9289060374
+    },
+    {
+      "id": 4,
+      "Name": "Vinodh",
+      "Email": "rhythm.aggarwal@cyfrone.com",
+      "Phone": 9289060374
+    }
+  ],
+  "Orders": [
+    {
+      "id": 100,
+      "CustomerID": 1,
+      "TableID": "A3",
+      "Order Taken By": "Waiter 1",
+      "Order Status": "Ordered"
+    },
+    {
+      "id": 101,
+      "CustomerID": 2,
+      "TableID": "A5",
+      "Order Taken By": "Waiter 2",
+      "Order Status": "Billed"
+    },
+    {
+      "id": 102,
+      "CustomerID": 3,
+      "TableID": "A6",
+      "Order Taken By": "Waiter 3",
+      "Order Status": "Ordered"
+    }
+  ]
+}
