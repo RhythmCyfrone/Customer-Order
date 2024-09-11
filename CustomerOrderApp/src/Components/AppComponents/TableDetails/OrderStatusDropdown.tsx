@@ -1,11 +1,23 @@
 import { useState } from "react"
 import { orderStatusToColors } from "../../../Assets/Constants/OrderStatusColors"
 import DropDownIcon from '../../../Assets/Icons/DropDown.svg'
+import { updateOrderStatus } from "../../../api/Orders"
 
-
-const OrderStatusDropdown = () => {
+type OrderStatusDropdownProps = {
+    orderID: number;
+    currentStatus: keyof typeof orderStatusToColors
+}
+const OrderStatusDropdown = ({orderID, currentStatus}: OrderStatusDropdownProps) => {
     const [dropDown, setDropDown] = useState(false)
-    const [orderStatus, setOrderStatus] = useState<keyof typeof orderStatusToColors>('Ordered')
+    const [orderStatus, setOrderStatus] = useState<keyof typeof orderStatusToColors>(currentStatus)
+
+    const handleUpdateOrderStatus = async (status: string) => {
+        try{
+            await updateOrderStatus(orderID, status)
+        }catch(err) {
+            console.error(err)
+        }
+    }
 
   return (
     dropDown
@@ -31,6 +43,7 @@ const OrderStatusDropdown = () => {
                                     setTimeout(() => {
                                         setOrderStatus(status as keyof typeof orderStatusToColors)
                                         setDropDown(false)
+                                        handleUpdateOrderStatus(status)
                                     }, 0)
                                 }}
                             >
