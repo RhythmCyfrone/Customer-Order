@@ -17,8 +17,3 @@ export const statusToTextColors = {
     'Billed': 'text-TableStatus-bill',
     'Paid': 'text-TableStatus-completed'
 } as const
-
-export const orderStatusColors = {
-    'Order Confirm': 'bg-[#E64980]',
-    'Served': 'bg-[#00D930]'
-} as const

@@ -26,19 +26,19 @@ const Sidebar = () => {
           <div className='bg-CustomBrand-300 rounded-[5px] flex justify-center p-[11px] cursor-pointer'>
             <img src={PosSelectedSidebarIcon} />
           </div>
-          <div className='rounded-[5px] flex justify-center ps-[8px] pe-[8px] pt-[7px] pb-[7px] cursor-pointer'
+          <div className='rounded-[5px] flex justify-center ps-[8px] pe-[8px] pt-[7px] pb-[7px] cursor-pointer hover:bg-[#EBF3FE]'
             onClick={() => dispatch(toggle())}  
           >
             <img src={TableSidebarUnselectedIcon} />
           </div>
         </>
         :<>
-          <div className='rounded-[5px] flex justify-center p-[11px] cursor-pointer'
+          <div className='rounded-[5px] flex justify-center p-[11px] cursor-pointer hover:bg-[#EBF3FE]'
             onClick={() => dispatch(toggle())}
           >
             <img src={PosUnselectedSidebarIcon} />
           </div>
-          <div className='bg-CustomBrand-300 rounded-[5px] flex justify-center ps-[8px] pe-[8px] pt-[7px] pb-[7px] cursor-pointer'>
+          <div className='bg-CustomBrand-300 rounded-[5px] flex justify-center ps-[8px] pe-[8px] pt-[7px] pb-[7px] cursor-pointer '>
             <img src={TableSidebarSelectedIcon} />
           </div>
         </>

@@ -14,7 +14,9 @@ export default {
 
       'desktop': '1280px',
 
-      'tall': { 'raw': '(min-height: 900px)' }
+      'tall': { 'raw': '(min-height: 900px)' },
+
+      'desktop-max': {'max': '1350px'},
     },
     extend: {
       fontFamily: {

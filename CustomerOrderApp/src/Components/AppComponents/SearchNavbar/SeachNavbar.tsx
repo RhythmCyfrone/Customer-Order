@@ -9,7 +9,7 @@ const SearchNavbar = () => {
         setTableName(event.target.value);
     }
   return (
-    <div className='flex gap-x-[8px]'>
+    <div className='flex gap-x-[8px] desktop-max:w-full desktop-max:justify-between'>
         <div className='flex bg-[#EBF3FE] w-[238px] rounded-[20px] p-[8px] gap-x-[8px]'>
             <img src={SearchIcon} />
             <input

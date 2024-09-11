@@ -16,12 +16,12 @@ function App() {
       <div className='flex-1 flex'>
         <div className='flex-1 flex flex-col gap-y-[24px] pt-[34px] pb-[34px] ms-[80px] me-[40px]'>
           <OrderTypeBar />
-          <div className='flex justify-between items-center'>
+          <div className='flex flex-wrap gap-y-[16px] gap-x-[16px] justify-between items-center'>
             <FloorNavbar />
             <SeachNavbar />
           </div>
           <TableSelectorNavbar />
-          <div className='flex gap-x-[61px] gap-y-[20px]  flex-wrap'>
+          <div className='flex gap-x-[61px] gap-y-[20px]  flex-wrap overflow-y-scroll'>
             <Table status='Free' floor='1' tableNumber='A1' time='30 mins' occupancy={2} />
             <Table status='Free' floor='1' tableNumber='A2' time='30 mins' occupancy={2} />
             <Table status='Free' floor='1' tableNumber='A3' time='30 mins' occupancy={2} />

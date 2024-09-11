@@ -3,7 +3,7 @@ import '../../../Styles/Fonts.css'
 import { useAppSelector, useAppDispatch } from '../../../State/hooks'
 import {selectTable} from './TableSlice'
 import TablePressedEclipse from '../../../Assets/Icons/TablePressedEclipse.svg'
-import { statusToColors, statusToTextColors } from '../../../Assets/Constants/TableColors'
+import { statusToColors, statusToTextColors } from '../../../Assets/Constants/TableStatusColors'
 import './Table.css'
 
 type Status = keyof typeof statusToColors
