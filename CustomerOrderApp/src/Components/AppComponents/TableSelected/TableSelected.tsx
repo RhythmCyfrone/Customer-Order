@@ -9,11 +9,14 @@ import ItemsList from '../ItemsSelected/ItemsList'
 import { useEffect, useState } from 'react'
 import { getOrdersByTable } from '../../../api/Orders'
 import { OrdersType } from '../../../api/types'
+import { selectScreen } from '../../../Screens/ScreensSlice'
 import { AxiosResponse } from 'axios'
 
 const TableSelected = () => {
   const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
   const currentFloor = useAppSelector(state => state.tableSelect.currentFloor)
+  const dispatch = useAppDispatch()
+
   const [order, setOrder] = useState<OrdersType[] | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
 
@@ -78,6 +81,7 @@ const TableSelected = () => {
         <div className='mt-[20px] w-full ps-[16px] pe-[16px]'>
           <button className='text-center w-full fontSecondaryButtonDefault border-[1px] border-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover
                       hover:bg-CustomBrand-200 active:shadow-none active:bg-white'
+            onClick={() => dispatch(selectScreen({screen: 'Items Select'}))}
           >
             Add Items
           </button>

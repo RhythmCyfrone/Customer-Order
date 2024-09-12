@@ -53,7 +53,7 @@ const ItemsSelect = () => {
         <FoodSelectorNavbar />
         <div className='flex flex-col gap-y-[8px]'>
             <div className={`flex flex-col gap-y-[16px]  w-full`} style={{ maxWidth: `${maxWidth}px` }}>
-                <span className='font-poppins font-medium text-[12px] leading-[18px]'>
+                <span className='font-poppins font-semibold text-[12px] leading-[18px]'>
                     Frequently Order Items
                 </span>
                 <div className='flex gap-x-[36px] overflow-x-scroll'>
@@ -67,7 +67,7 @@ const ItemsSelect = () => {
                 </div>
             </div>
             <div className={`flex flex-col gap-y-[16px]  w-full`} style={{ maxWidth: `${maxWidth}px` }}>
-                <span className='font-poppins font-medium text-[12px] leading-[18px]'>
+                <span className='font-poppins font-semibold text-[12px] leading-[18px]'>
                     Biryani
                 </span>
                 <div className='flex gap-x-[36px] overflow-x-scroll'>
@@ -81,7 +81,7 @@ const ItemsSelect = () => {
                 </div>
             </div>
             <div className={`flex flex-col gap-y-[16px]  w-full`} style={{ maxWidth: `${maxWidth}px` }}>
-                <span className='font-poppins font-medium text-[12px] leading-[18px]'>
+                <span className='font-poppins font-semibold text-[12px] leading-[18px]'>
                     Burgers
                 </span>
                 <div className='flex gap-x-[36px] overflow-x-scroll'>
