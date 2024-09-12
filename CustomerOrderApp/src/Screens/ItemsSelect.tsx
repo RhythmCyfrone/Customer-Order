@@ -10,7 +10,7 @@ import FoodItem from '../Components/AppComponents/FoodItem/FoodItem'
 const ItemsSelect = () => {
     const [itemName, setItemName] = useState<string>('')
     const screen = useAppSelector(state => state.screen.screen)
-    const [maxWidth, setMaxWidth] = useState<number>(document.body.clientWidth - 500 - 120-50);
+    const [maxWidth, setMaxWidth] = useState<number>(document.body.clientWidth - 500 - 120-40);
     const dispatch = useAppDispatch()
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,7 +18,7 @@ const ItemsSelect = () => {
     }
 
     useEffect(() => {
-        const updateMaxWidth = () => setMaxWidth(document.body.clientWidth - 500 - 120);
+        const updateMaxWidth = () => setMaxWidth(document.body.clientWidth - 500 - 120-40);
 
         window.addEventListener('resize', updateMaxWidth);
 
@@ -51,21 +51,51 @@ const ItemsSelect = () => {
             </div>
         </div>
         <FoodSelectorNavbar />
-        <div className={`flex flex-col gap-y-[16px]  w-full`} style={{ maxWidth: `${maxWidth}px` }}>
-            <span className='font-poppins font-medium text-[12px] leading-[18px]'>
-                Frequently Order Items
-            </span>
-            <div className='flex gap-x-[36px] overflow-x-scroll'>
-                <FoodItem />
-                <FoodItem />
-                <FoodItem />
-                <FoodItem />
-                <FoodItem />
-                <FoodItem />
-                <FoodItem />
+        <div className='flex flex-col gap-y-[8px]'>
+            <div className={`flex flex-col gap-y-[16px]  w-full`} style={{ maxWidth: `${maxWidth}px` }}>
+                <span className='font-poppins font-medium text-[12px] leading-[18px]'>
+                    Frequently Order Items
+                </span>
+                <div className='flex gap-x-[36px] overflow-x-scroll'>
+                    <FoodItem />
+                    <FoodItem />
+                    <FoodItem />
+                    <FoodItem />
+                    <FoodItem />
+                    <FoodItem />
+                    <FoodItem />
+                </div>
+            </div>
+            <div className={`flex flex-col gap-y-[16px]  w-full`} style={{ maxWidth: `${maxWidth}px` }}>
+                <span className='font-poppins font-medium text-[12px] leading-[18px]'>
+                    Biryani
+                </span>
+                <div className='flex gap-x-[36px] overflow-x-scroll'>
+                    <FoodItem />
+                    <FoodItem />
+                    <FoodItem />
+                    <FoodItem />
+                    <FoodItem />
+                    <FoodItem />
+                    <FoodItem />
+                </div>
+            </div>
+            <div className={`flex flex-col gap-y-[16px]  w-full`} style={{ maxWidth: `${maxWidth}px` }}>
+                <span className='font-poppins font-medium text-[12px] leading-[18px]'>
+                    Burgers
+                </span>
+                <div className='flex gap-x-[36px] overflow-x-scroll'>
+                    <FoodItem />
+                    <FoodItem />
+                    <FoodItem />
+                    <FoodItem />
+                    <FoodItem />
+                    <FoodItem />
+                    <FoodItem />
+                </div>
             </div>
         </div>
-    </div>
+    </div>    
   )
 }
 
