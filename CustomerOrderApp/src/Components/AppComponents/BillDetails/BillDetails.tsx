@@ -18,10 +18,11 @@ const BillDetails = () => {
     const [viewDetailsText, setViewDetailsText] = useState(true)
     const [closeText, setCloseText] = useState(false)
     const [viewMore, setViewMore] = useState(false);
+    const [screenHeight, setScreenHeight] = useState(window.innerHeight);
     
     const bottomPadding = isRotated?'pb-[16px]':'pb-[32px]'
-    const topPadding = isRotated || viewMore?'pt-[16px]':'pt-[32px]'
-    const translate = isRotated || viewMore?'-translate-y-[60%]':'-translate-y-[50%]'
+    const topPadding = isRotated || (screenHeight > 750 && viewMore)?'pt-[16px]':'pt-[32px]'
+    const translate = isRotated || (screenHeight > 750 && viewMore)?'-translate-y-[60%]':'-translate-y-[50%]'
 
     const handleIconClick = () => {
         setIsRotated(!isRotated);
@@ -101,43 +102,79 @@ const BillDetails = () => {
                 <span className='font-poppins font-normal text-[24px]'>1000 /-</span>
             </div>
             <img src={SeparatingLine} className='w-full' />
-            <div className='flex flex-wrap mt-[12px] gap-x-[32px] gap-y-[10px] ps-[32px] pe-[32px]'>
-                <div className='p-[5.5px] ps-[20px] pe-[20px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'>
-                    <img src={NoteIcon} />
-                    <span className='font-poppins font-normal text-[10px] text-white'>Note</span>
-                </div>
-                <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'>
-                    <img src={PriceTagIcon} />
-                    <span className='font-poppins font-normal text-[10px] text-white'>Discount</span>
-                </div>
-                <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'>
-                    <img src={SplitBillIcon} />
-                    <span className='font-poppins font-normal text-[10px] text-white'>Split Bill</span>
-                </div>
-                <div className={`${viewMore?'hidden':''} p-[5.5px] ps-[20px] pe-[20px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
-                    onClick={() => setViewMore(!viewMore)}
+            {
+                screenHeight <= 750 && viewBill && 
+                <div className={`flex flex-wrap mt-[12px] gap-x-[32px] gap-y-[10px] ps-[32px] pe-[32px] ${isRotated?'fade-in-extras ':'fade-out-extras'}`}
+                    onAnimationEnd={() => {
+                        if(!isRotated)
+                            setViewBill(false)
+                    }}
                 >
-                    <img src={MoreIcon} />
-                    <span className='font-poppins font-normal text-[10px] text-white'>More</span>
+                    <div className='p-[5.5px] ps-[20px] pe-[20px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'>
+                        <img src={NoteIcon} />
+                        <span className='font-poppins font-normal text-[10px] text-white'>Note</span>
+                    </div>
+                    <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'>
+                        <img src={PriceTagIcon} />
+                        <span className='font-poppins font-normal text-[10px] text-white'>Discount</span>
+                    </div>
+                    <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'>
+                        <img src={SplitBillIcon} />
+                        <span className='font-poppins font-normal text-[10px] text-white'>Split Bill</span>
+                    </div>
+                    <div className={`p-[5.5px] ps-[12px] pe-[12px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
+                    >
+                        <img src={CombineBillIcon} />
+                        <span className='font-poppins font-normal text-[10px] text-white'>Combine</span>
+                    </div>
+                    <div className={` p-[5.5px] ps-[5px] pe-[5px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
+                    >
+                        <img src={CancelBillIcon} />
+                        <span className='font-poppins font-normal text-[8.5px] text-white'>Cancel Order</span>
+                    </div>
                 </div>
-                <div className={`${viewMore?'':'hidden'} p-[5.5px] ps-[12px] pe-[12px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
-                >
-                    <img src={CombineBillIcon} />
-                    <span className='font-poppins font-normal text-[10px] text-white'>Combine</span>
-                </div>
-                <div className={`${viewMore?'':'hidden'} p-[5.5px] ps-[5px] pe-[5px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
-                >
-                    <img src={CancelBillIcon} />
-                    <span className='font-poppins font-normal text-[8.5px] text-white'>Cancel Order</span>
-                </div>
-                <div className={`${viewMore?'':'hidden'} flex-1 flex items-center justify-end item-end pe-[24px]`}>
-                    <img src={BillOptionsBack} className='cursor-pointer'
+            }
+            {
+                screenHeight > 750 &&
+                <div className='flex flex-wrap mt-[12px] gap-x-[32px] gap-y-[10px] ps-[32px] pe-[32px] medium:hidden'>
+                    <div className='p-[5.5px] ps-[20px] pe-[20px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'>
+                        <img src={NoteIcon} />
+                        <span className='font-poppins font-normal text-[10px] text-white'>Note</span>
+                    </div>
+                    <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'>
+                        <img src={PriceTagIcon} />
+                        <span className='font-poppins font-normal text-[10px] text-white'>Discount</span>
+                    </div>
+                    <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'>
+                        <img src={SplitBillIcon} />
+                        <span className='font-poppins font-normal text-[10px] text-white'>Split Bill</span>
+                    </div>
+                    <div className={`${viewMore?'hidden':''} p-[5.5px] ps-[20px] pe-[20px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
                         onClick={() => setViewMore(!viewMore)}
-                    />
+                    >
+                        <img src={MoreIcon} />
+                        <span className='font-poppins font-normal text-[10px] text-white'>More</span>
+                    </div>
+                    <div className={`${viewMore?'':'hidden'} p-[5.5px] ps-[12px] pe-[12px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
+                    >
+                        <img src={CombineBillIcon} />
+                        <span className='font-poppins font-normal text-[10px] text-white'>Combine</span>
+                    </div>
+                    <div className={`${viewMore?'':'hidden'} p-[5.5px] ps-[5px] pe-[5px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
+                    >
+                        <img src={CancelBillIcon} />
+                        <span className='font-poppins font-normal text-[8.5px] text-white'>Cancel Order</span>
+                    </div>
+                    <div className={`${viewMore?'':'hidden'} flex-1 flex items-center justify-end item-end pe-[24px]`}>
+                        <img src={BillOptionsBack} className='cursor-pointer'
+                            onClick={() => setViewMore(!viewMore)}
+                        />
+                    </div>
                 </div>
-            </div>
+            }
+            
             <div className={`ps-[32px] pe-[32px] w-full mt-[12px] ${bottomPadding} transition-all duration-500`}>
-                <div className='text-center fontButtonDefault bg-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover active:shadow-none'
+                <div className='text-center fontButtonDefault bg-gradient-to-r from-[#3B82F6] to-[#0053DB] cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover active:shadow-none'
                 >
                     Generate Bill
                 </div>

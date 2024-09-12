@@ -35,6 +35,14 @@
     animation: outAnimation 400ms forwards;
   }
 
+  .fade-in-extras {
+    animation: inAnimation 400ms forwards;
+  }
+  .fade-out-extras {
+    animation: outAnimation 400ms forwards;
+  }
+
+
   @keyframes inAnimationLeft {
     0% {
       opacity: 0;

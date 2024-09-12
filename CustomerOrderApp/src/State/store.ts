@@ -4,6 +4,8 @@ import tableReducer from '../Components/AppComponents/Table/TableSlice'
 import orderTypeReducer from '../Components/AppComponents/OrderType/orderTypeSlice'
 import floorReducer from '../Components/AppComponents/FloorNavbar/floorSlice'
 import TableSelectorReducer from '../Components/AppComponents/TableSelectorNavbar/TableSelectorSlice'
+import ScreensReducer from '../Screens/ScreensSlice'
+import FoodSelectorNavbarReducer from '../Components/AppComponents/FoodSelectorNavbar/FoodSelectorNavbarSlice'
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +13,9 @@ export const store = configureStore({
     tableSelect: tableReducer,
     orderType: orderTypeReducer,
     floor: floorReducer,
-    tableSelector: TableSelectorReducer
+    tableSelector: TableSelectorReducer,
+    screen: ScreensReducer,
+    foodSelector: FoodSelectorNavbarReducer
   }
 })
 
