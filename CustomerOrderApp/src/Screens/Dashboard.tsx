@@ -1,5 +1,3 @@
-import Sidebar from '../Components/AppComponents/Sidebar/Sidebar'
-import TableSelected from '../Components/AppComponents/TableSelected/TableSelected'
 import Table from '../Components/AppComponents/Table/Table'
 import OrderTypeBar from '../Components/AppComponents/OrderType/OrderType'
 import FloorNavbar from '../Components/AppComponents/FloorNavbar/FloorNavbar'

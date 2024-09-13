@@ -1,6 +1,7 @@
 import './App.css'
 import Sidebar from './Components/AppComponents/Sidebar/Sidebar'
-import TableSelected from './Components/AppComponents/TableSelected/TableSelected'
+import TableSelectedDashboard from './Components/AppComponents/TableSelectedDashboard/TableSelected'
+import TableSelectedItemsSelect from './Components/AppComponents/TableSelectedItemsSelect/TableSelected'
 import Dashboard from './Screens/Dashboard'
 import ItemsSelect from './Screens/ItemsSelect'
 import { useAppSelector } from './State/hooks'
@@ -19,7 +20,11 @@ function App() {
           ?<ItemsSelect />
           :<></>
         }
-        <TableSelected />
+        {
+          screen == 'Items Select'
+          ?<TableSelectedItemsSelect />
+          :<TableSelectedDashboard />
+        }
       </div>
     </div>
   )
