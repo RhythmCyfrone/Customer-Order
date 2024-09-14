@@ -7,11 +7,13 @@ import { selectScreen } from './ScreensSlice'
 import { useEffect, useState } from 'react'
 import FoodSelectorNavbar from '../Components/AppComponents/FoodSelectorNavbar/FoodSelectorNavbar'
 import FoodItem from '../Components/AppComponents/FoodItem/FoodItem'
+import '../Styles/Scrollbars.css'
 
 const ItemsSelect = () => {
     const [itemName, setItemName] = useState<string>('')
     const screen = useAppSelector(state => state.screen.screen)
-    const [maxWidth, setMaxWidth] = useState<number>(document.body.clientWidth - 500 - 120-40);
+    let screenWidth = document.body.clientWidth
+    const [maxWidth, setMaxWidth] = useState<number>(screenWidth < 1350? screenWidth - 500 - 40 - 10:screenWidth-500-120-40);
     const dispatch = useAppDispatch()
     const [isVisible, setIsVisible] = useState(false);
     const [startPosition, setStartPosition] = useState({ top: 0, left: 0 });
@@ -27,7 +29,10 @@ const ItemsSelect = () => {
     }
 
     useEffect(() => {
-        const updateMaxWidth = () => setMaxWidth(document.body.clientWidth - 500 - 120-40);
+        const updateMaxWidth = () => {
+            screenWidth = document.body.clientWidth
+            setMaxWidth(screenWidth < 1350? screenWidth - 500 - 40-10:screenWidth-500-120-40)
+        };
 
         window.addEventListener('resize', updateMaxWidth);
 
@@ -35,9 +40,9 @@ const ItemsSelect = () => {
     }, []);
 
   return (
-    <div className='ItemsScreen flex-1 flex flex-col gap-y-[24px] pt-[65px] pb-[34px] ms-[80px] me-[40px]'>
+    <div className='ItemsScreen flex-1 flex flex-col gap-y-[24px] pt-[65px] pb-[34px] ms-[80px] me-[40px] desktop-max:ms-[20px] desktop-max:me-[20px]'>
         <div
-                className={`z-10 backdrop absolute bg-opacity-20 bg-black flex justify-center items-center ${isVisible?'transition-all duration-200':''}
+                className={`backdrop-blur-[1px] z-10 backdrop absolute bg-opacity-20 bg-black flex justify-center items-center ${isVisible?'transition-all duration-200':''}
                 }`}
                 style={{
                     top: isVisible ? '101px' : `${startPosition.top}px`,
@@ -64,7 +69,7 @@ const ItemsSelect = () => {
         </div>
         <div className='flex ps-[4px] flex-wrap gap-x-[40px] gap-y-[16px] justify-between items-center'>
             <FoodTypeNavbar />
-            <div className='flex bg-[#EBF3FE] rounded-[20px] p-[8px] gap-x-[8px] w-[370px]'>
+            <div className='flex bg-[#EBF3FE] rounded-[20px] p-[8px] gap-x-[8px] w-[370px] desktop-max:order-first'>
                 <img src={SearchIcon} />
                 <input
                     type='text'
@@ -81,7 +86,7 @@ const ItemsSelect = () => {
                 <span className='font-poppins font-semibold text-[12px] leading-[18px]'>
                     Frequently Order Items
                 </span>
-                <div className='flex gap-x-[36px] overflow-x-scroll'>
+                <div className='flex gap-x-[24px] overflow-x-scroll scrollbar-visible'>
                     <FoodItem setStartPosition={setStartPosition} />
                     <FoodItem setStartPosition={setStartPosition} />
                     <FoodItem setStartPosition={setStartPosition} />
@@ -95,7 +100,7 @@ const ItemsSelect = () => {
                 <span className='font-poppins font-semibold text-[12px] leading-[18px]'>
                     Biryani
                 </span>
-                <div className='flex gap-x-[36px] overflow-x-scroll'>
+                <div className='flex gap-x-[24px] overflow-x-scroll'>
                     <FoodItem setStartPosition={setStartPosition} />
                     <FoodItem setStartPosition={setStartPosition} />
                     <FoodItem setStartPosition={setStartPosition} />
@@ -109,7 +114,7 @@ const ItemsSelect = () => {
                 <span className='font-poppins font-semibold text-[12px] leading-[18px]'>
                     Burgers
                 </span>
-                <div className='flex gap-x-[36px] overflow-x-scroll'>
+                <div className='flex gap-x-[24px] overflow-x-scroll'>
                     <FoodItem setStartPosition={setStartPosition} />
                     <FoodItem setStartPosition={setStartPosition} />
                     <FoodItem setStartPosition={setStartPosition} />

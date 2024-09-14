@@ -15,6 +15,7 @@ import NewItemsList from '../NewItemsSelected/NewItemsList'
 const TableSelected = () => {
   const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
   const currentFloor = useAppSelector(state => state.tableSelect.currentFloor)
+  const [viewAll, setViewAll] = useState(false)
   const dispatch = useAppDispatch()
 
   const [order, setOrder] = useState<OrdersType[] | null>(null)
@@ -70,14 +71,14 @@ const TableSelected = () => {
             No Orders
         </span>
     </div>
-    :<div className='relative w-[420px] flex flex-col pt-[90px] items-center shadow-table-selected'>
+    :<div className={`relative w-[420px] flex flex-col pt-[90px] medium:pt-[56px] items-center shadow-table-selected`}>
         <img src={NotificationIcon} className='absolute left-[70%] top-[27px]' />
         <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px]' />
         <TableDetails 
           order={order as OrdersType[]}
         />
-        <ItemsList />
-        <NewItemsList />
+        <ItemsList viewAll={viewAll} setViewAll = {setViewAll} />
+        <NewItemsList viewAll={viewAll} setViewAll = {setViewAll} />
     </div>
   )
 }

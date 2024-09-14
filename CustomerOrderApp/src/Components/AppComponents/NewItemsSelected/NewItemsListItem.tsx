@@ -8,7 +8,7 @@ type ItemsListItemProps = {
 }
 const NewItemsListItem = ({itemName, itemCount}: ItemsListItemProps) => {
   return (
-    <div className='ps-[16px] pe-[16px] pt-[8px] flex items-center'>
+    <div className='ps-[16px] pe-[16px] flex items-center'>
             <div className='p-[4px]'>
                 <Checkbox />
             </div>
