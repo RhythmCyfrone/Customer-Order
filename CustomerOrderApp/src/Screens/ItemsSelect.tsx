@@ -100,7 +100,7 @@ const ItemsSelect = () => {
                 <span className='font-poppins font-semibold text-[12px] leading-[18px]'>
                     Biryani
                 </span>
-                <div className='flex gap-x-[24px] overflow-x-scroll'>
+                <div className='flex gap-x-[24px] flex-wrap gap-y-[16px]'>
                     <FoodItem setStartPosition={setStartPosition} />
                     <FoodItem setStartPosition={setStartPosition} />
                     <FoodItem setStartPosition={setStartPosition} />
@@ -114,7 +114,7 @@ const ItemsSelect = () => {
                 <span className='font-poppins font-semibold text-[12px] leading-[18px]'>
                     Burgers
                 </span>
-                <div className='flex gap-x-[24px] overflow-x-scroll'>
+                <div className='flex gap-x-[24px] flex-wrap gap-y-[16px]'>
                     <FoodItem setStartPosition={setStartPosition} />
                     <FoodItem setStartPosition={setStartPosition} />
                     <FoodItem setStartPosition={setStartPosition} />

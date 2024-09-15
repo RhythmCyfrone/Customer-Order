@@ -11,6 +11,7 @@ import { OrdersType } from '../../../api/types'
 import { selectScreen } from '../../../Screens/ScreensSlice'
 import { AxiosResponse } from 'axios'
 import NewItemsList from '../NewItemsSelected/NewItemsList'
+import FoodPlaceOrder from '../FoodPlaceOrder/FoodPlaceOrder'
 
 const TableSelected = () => {
   const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
@@ -79,6 +80,7 @@ const TableSelected = () => {
         />
         <ItemsList viewAll={viewAll} setViewAll = {setViewAll} />
         <NewItemsList viewAll={viewAll} setViewAll = {setViewAll} />
+        <FoodPlaceOrder />
     </div>
   )
 }
