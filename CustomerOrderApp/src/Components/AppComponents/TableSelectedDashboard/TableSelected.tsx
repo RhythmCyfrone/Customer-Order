@@ -19,6 +19,7 @@ const TableSelected = () => {
 
   const [order, setOrder] = useState<OrdersType[] | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
+  const [note, setNote] = useState(false)
 
   useEffect(() => {
     setLoading(true)
@@ -73,19 +74,44 @@ const TableSelected = () => {
     :<div className='relative w-[420px] flex flex-col medium:pt-[70px] pt-[90px] items-center shadow-table-selected'>
         <img src={NotificationIcon} className='absolute left-[70%] top-[27px]' />
         <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px]' />
-        <BillDetails />
+        <BillDetails 
+          note={note}
+          setNote={setNote}
+        />
         <TableDetails 
           order={order as OrdersType[]}
         />
-        <ItemsList />
-        <div className='mt-[20px] w-full ps-[16px] pe-[16px]'>
-          <button className='text-center w-full fontSecondaryButtonDefault border-[1px] border-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover
-                      hover:bg-CustomBrand-200 active:shadow-none active:bg-white'
-            onClick={() => dispatch(selectScreen({screen: 'Items Select'}))}
-          >
-            Add Items
-          </button>
-        </div>
+        <ItemsList 
+          note={note}
+          setNote={setNote}
+        />
+        {
+          note
+          ?
+          <div className={`mt-[20px] w-full flex justify-end gap-x-[16px] ps-[16px] pe-[16px] ${note?'pb-[16px]':''}`}>
+            <button className='text-center fontSecondaryButtonDefault border-[1px] border-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover
+                        hover:bg-CustomBrand-200 active:shadow-none active:bg-white'
+              onClick={() => setNote(false)}
+            >
+              Cancel 
+            </button>
+            <button className='text-center bg-[#3B82F6] fontButtonDefault border-[1px] border-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover
+                         hover:ShadowPrimaryHover active:shadow-none'
+              onClick={() => setNote(false)}
+            >
+              Confirm
+            </button>
+          </div>
+        :
+          <div className={`mt-[20px] w-full ps-[16px] pe-[16px] ${note?'pb-[16px]':''}`}>
+            <button className='text-center w-full fontSecondaryButtonDefault border-[1px] border-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover
+                        hover:bg-CustomBrand-200 active:shadow-none active:bg-white'
+              onClick={() => dispatch(selectScreen({screen: 'Items Select'}))}
+            >
+              Add Items
+            </button>
+          </div>
+        }
     </div>
   )
 }

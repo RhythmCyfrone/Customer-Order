@@ -12,7 +12,12 @@ import '../../../Styles/Fonts.css'
 import '../../../Styles/Shadows.css'
 import '../../../Styles/Animations.css'
 
-const BillDetails = () => {
+type BillDetailsProps = {
+    note: boolean;
+    setNote: React.Dispatch<React.SetStateAction<boolean>> ;
+}
+
+const BillDetails = ({note, setNote}: BillDetailsProps) => {
     const [isRotated, setIsRotated] = useState(false);
     const [viewBill, setViewBill] = useState(false)
     const [viewDetailsText, setViewDetailsText] = useState(true)
@@ -34,7 +39,7 @@ const BillDetails = () => {
             setViewDetailsText(true)
     };
   return (
-    <div className='absolute bottom-[0px] z-10'>
+    <div className={`${note?'hidden':''} absolute bottom-[0px] z-10`}>
         <div className={`relative w-[420px] bg-[#DDEBFF] rounded-t-[32px] flex flex-col transform-padding duration-500 ${topPadding}`}>
             {viewBill && 
                 <div className={`ps-[32px] pe-[32px] flex flex-col ${isRotated?'fade-in ':'fade-out'}`} 
@@ -110,7 +115,9 @@ const BillDetails = () => {
                             setViewBill(false)
                     }}
                 >
-                    <div className='p-[5.5px] ps-[20px] pe-[20px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'>
+                    <div className='p-[5.5px] ps-[20px] pe-[20px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
+                        onClick={() => setNote(!note)}
+                    >
                         <img src={NoteIcon} />
                         <span className='font-poppins font-normal text-[10px] text-white'>Note</span>
                     </div>
@@ -137,7 +144,9 @@ const BillDetails = () => {
             {
                 screenHeight > 750 &&
                 <div className='flex flex-wrap mt-[12px] gap-x-[32px] gap-y-[10px] ps-[32px] pe-[32px] medium:hidden'>
-                    <div className='p-[5.5px] ps-[20px] pe-[20px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'>
+                    <div className='p-[5.5px] ps-[20px] pe-[20px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
+                        onClick={() => setNote(!note)}
+                    >
                         <img src={NoteIcon} />
                         <span className='font-poppins font-normal text-[10px] text-white'>Note</span>
                     </div>
