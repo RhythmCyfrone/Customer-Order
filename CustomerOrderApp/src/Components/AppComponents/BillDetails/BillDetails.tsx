@@ -15,15 +15,18 @@ import '../../../Styles/Animations.css'
 type BillDetailsProps = {
     note: boolean;
     setNote: React.Dispatch<React.SetStateAction<boolean>> ;
+    discount: boolean;
+    setDiscount: React.Dispatch<React.SetStateAction<boolean>> ;
 }
 
-const BillDetails = ({note, setNote}: BillDetailsProps) => {
+const BillDetails = ({note, setNote, discount, setDiscount}: BillDetailsProps) => {
     const [isRotated, setIsRotated] = useState(false);
     const [viewBill, setViewBill] = useState(false)
     const [viewDetailsText, setViewDetailsText] = useState(true)
     const [closeText, setCloseText] = useState(false)
     const [viewMore, setViewMore] = useState(false);
     const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+    const specialFeature = !(note || discount)
     
     const bottomPadding = isRotated?'pb-[16px]':'pb-[32px]'
     const topPadding = isRotated || (screenHeight > 750 && viewMore)?'pt-[16px]':'pt-[32px]'
@@ -39,7 +42,7 @@ const BillDetails = ({note, setNote}: BillDetailsProps) => {
             setViewDetailsText(true)
     };
   return (
-    <div className={`${note?'hidden':''} absolute bottom-[0px] z-10`}>
+    <div className={`${!specialFeature?'hidden':''} absolute bottom-[0px] z-10`}>
         <div className={`relative w-[420px] bg-[#DDEBFF] rounded-t-[32px] flex flex-col transform-padding duration-500 ${topPadding}`}>
             {viewBill && 
                 <div className={`ps-[32px] pe-[32px] flex flex-col ${isRotated?'fade-in ':'fade-out'}`} 
@@ -121,7 +124,9 @@ const BillDetails = ({note, setNote}: BillDetailsProps) => {
                         <img src={NoteIcon} />
                         <span className='font-poppins font-normal text-[10px] text-white'>Note</span>
                     </div>
-                    <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'>
+                    <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
+                        onClick={() => setDiscount(!discount)}
+                    >
                         <img src={PriceTagIcon} />
                         <span className='font-poppins font-normal text-[10px] text-white'>Discount</span>
                     </div>
@@ -150,7 +155,9 @@ const BillDetails = ({note, setNote}: BillDetailsProps) => {
                         <img src={NoteIcon} />
                         <span className='font-poppins font-normal text-[10px] text-white'>Note</span>
                     </div>
-                    <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'>
+                    <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
+                        onClick={() => setDiscount(!discount)}
+                    >
                         <img src={PriceTagIcon} />
                         <span className='font-poppins font-normal text-[10px] text-white'>Discount</span>
                     </div>

@@ -9,11 +9,13 @@ type ItemsListItemProps = {
     itemCount: number;
     note: boolean;
     setNote: React.Dispatch<React.SetStateAction<boolean>> | null;
+    discount: boolean;
+    setDiscount: React.Dispatch<React.SetStateAction<boolean>> ;
     checkedAll?: boolean
 }
-const ItemsListItem = ({itemName, itemCount, note, setNote, checkedAll = false}: ItemsListItemProps) => {
+const ItemsListItem = ({itemName, itemCount, note, setNote, checkedAll = false, discount, setDiscount}: ItemsListItemProps) => {
     const screen = useAppSelector(state => state.screen.screen)
-    const displayCheckbox = note
+    const displayCheckbox = note || discount
     const displayCounters = screen == 'Items Select' || !displayCheckbox
     const [checked, setChecked] = useState(false)
 
