@@ -18,7 +18,7 @@ type ItemsListProps = {
 
 const ItemsList = ({viewAll = null, setViewAll, note, setNote, discount, setDiscount}: ItemsListProps) => {
     const [screenHeight, setScreenHeight] = useState(document.body.clientHeight)
-    const [checkedAll, setCheckedAll] = useState<boolean>(false)
+    const [checkedAll, setCheckedAll] = useState<boolean>(true)
     const specialFeature = note || discount
 
     const handleViewAll = () => {
@@ -26,6 +26,11 @@ const ItemsList = ({viewAll = null, setViewAll, note, setNote, discount, setDisc
             setViewAll(!viewAll);
         }
     };
+
+    useEffect(() => {
+        if((note || discount) == true)
+            setCheckedAll(true)
+    }, [note, discount])
 
     useEffect(() => {
         const updateMaxHeight = () => {
@@ -36,6 +41,7 @@ const ItemsList = ({viewAll = null, setViewAll, note, setNote, discount, setDisc
 
         return () => window.removeEventListener('resize', updateMaxHeight);
     }, []);
+
   return (
     <div className={`w-full flex flex-col gap-y-[4px] ${specialFeature?'flex-1 overflow-y-scroll':''}`}>
         <ItemsNavbar />

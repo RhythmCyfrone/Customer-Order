@@ -22,6 +22,7 @@ const TableSelected = () => {
   const [note, setNote] = useState(false)
   const [discount, setDiscount] = useState(false)
 
+
   useEffect(() => {
     setLoading(true)
     if(currentTable == 'None') {

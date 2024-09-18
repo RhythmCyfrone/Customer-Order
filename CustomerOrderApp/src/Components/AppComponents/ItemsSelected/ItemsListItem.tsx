@@ -17,23 +17,23 @@ const ItemsListItem = ({itemName, itemCount, note, setNote, checkedAll = false, 
     const screen = useAppSelector(state => state.screen.screen)
     const displayCheckbox = note || discount
     const displayCounters = screen == 'Items Select' || !displayCheckbox
-    const [checked, setChecked] = useState(false)
+    const [checked, setChecked] = useState(true)
 
     useEffect(() => {
-        if(checkedAll == true)
-        {
-            setChecked(true)
-        }
+        setChecked(checkedAll)
     }, [checkedAll])
   return (
     <div className={`ps-[16px] pe-[16px] ${displayCheckbox?'':'pt-[8px]'} flex items-center`}>
             <div className='flex w-[40%]'>
-                <div className={`p-[4px] ${displayCheckbox?'':'hidden'} `}>
-                    <Checkbox 
-                        checked={checked}
-                        onChange={() => setChecked(!checked)}
-                    />
-                </div>
+                {
+                    displayCheckbox && 
+                    <div className={`p-[4px] `}>
+                        <Checkbox 
+                            checked={checked}
+                            onChange={() => setChecked(!checked)}
+                        />
+                    </div>
+                }
                 <div className='flex flex-1 flex-col'>
                     <span className='font-poppins font-medium text-[16px] leading-[24px]'>{itemName}</span>
                     <span className='font-poppins font-normal text-[10px] leading-[15px]'>(Single)</span>

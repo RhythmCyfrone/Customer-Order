@@ -30,3 +30,7 @@
 .hover\:ShadowTableHover:hover {
     @apply shadow-table-hover;
 }
+
+.login-sidebar-shadow {
+    box-shadow: 8px 0px 15px 0px #70A5FC4D;
+}
