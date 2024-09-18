@@ -6,6 +6,7 @@ import floorReducer from '../Components/AppComponents/FloorNavbar/floorSlice'
 import TableSelectorReducer from '../Components/AppComponents/TableSelectorNavbar/TableSelectorSlice'
 import ScreensReducer from '../Screens/ScreensSlice'
 import FoodSelectorNavbarReducer from '../Components/AppComponents/FoodSelectorNavbar/FoodSelectorNavbarSlice'
+import BackdropReducer from '../Screens/BackdropSlice'
 
 export const store = configureStore({
   reducer: {
@@ -15,7 +16,8 @@ export const store = configureStore({
     floor: floorReducer,
     tableSelector: TableSelectorReducer,
     screen: ScreensReducer,
-    foodSelector: FoodSelectorNavbarReducer
+    foodSelector: FoodSelectorNavbarReducer,
+    backdrop: BackdropReducer
   }
 })
 

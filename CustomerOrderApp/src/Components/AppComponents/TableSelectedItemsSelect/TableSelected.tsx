@@ -9,9 +9,11 @@ import { useEffect, useState } from 'react'
 import { getOrdersByTable } from '../../../api/Orders'
 import { OrdersType } from '../../../api/types'
 import { selectScreen } from '../../../Screens/ScreensSlice'
+import { setStartPosition } from '../../../Screens/BackdropSlice'
 import { AxiosResponse } from 'axios'
 import NewItemsList from '../NewItemsSelected/NewItemsList'
 import FoodPlaceOrder from '../FoodPlaceOrder/FoodPlaceOrder'
+import TableSelectedPlaceholder from '../TableSelectedPlaceholder/TableSelectedPlaceholder'
 
 const TableSelected = () => {
   const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
@@ -21,6 +23,14 @@ const TableSelected = () => {
 
   const [order, setOrder] = useState<OrdersType[] | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
+
+  const handleNotificationsClick = (e: React.MouseEvent<HTMLImageElement>, initiator: string) => {
+    const clickX = e.clientX;
+    const clickY = e.clientY;
+
+    dispatch(setStartPosition({ top: clickY, left: clickX, initiator: initiator }));
+
+};
 
   useEffect(() => {
     setLoading(true)
@@ -33,7 +43,6 @@ const TableSelected = () => {
         const data:AxiosResponse<OrdersType[]> = await getOrdersByTable(currentTable)
         if(data.status == 200)
         {
-          console.log(data.data)
           setOrder(data.data)
           setLoading(false)
         }
@@ -47,34 +56,29 @@ const TableSelected = () => {
   return (
     loading
     ?
-    <div className='relative w-[420px] flex flex-col justify-center items-center shadow-table-selected'>
-        <img src={NotificationIcon} className='absolute left-[70%] top-[27px]' />
-        <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px]' />
-        <span className='font-poppins text-[24px] font-semibold text-[#191919] leading-[36px] opacity-50'>
-            Loading ...
-        </span>
-    </div>
+    <TableSelectedPlaceholder 
+      content='Loading ...'
+      handleNotificationsClick={handleNotificationsClick}
+    />
     :currentTable == 'None'
     ?
-    <div className='relative w-[420px] flex flex-col justify-center items-center shadow-table-selected'>
-        <img src={NotificationIcon} className='absolute left-[70%] top-[27px]' />
-        <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px]' />
-        <span className='font-poppins text-[24px] font-semibold text-[#191919] leading-[36px] opacity-50'>
-            No Table Selected
-        </span>
-    </div>
+    <TableSelectedPlaceholder 
+      content='No table selected'
+      handleNotificationsClick={handleNotificationsClick}
+    />
     :order == null || order?.length == 0
     ?
-    <div className='relative w-[420px] flex flex-col justify-center items-center shadow-table-selected'>
-        <img src={NotificationIcon} className='absolute left-[70%] top-[27px]' />
-        <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px]' />
-        <span className='font-poppins text-[24px] font-semibold text-[#191919] leading-[36px] opacity-50'>
-            No Orders
-        </span>
-    </div>
+    <TableSelectedPlaceholder 
+      content='No Orders'
+      handleNotificationsClick={handleNotificationsClick}
+    />
     :<div className={`relative w-[420px] flex flex-col pt-[90px] medium:pt-[56px] items-center shadow-table-selected`}>
-        <img src={NotificationIcon} className='absolute left-[70%] top-[27px]' />
-        <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px]' />
+        <img src={NotificationIcon} className='absolute left-[70%] top-[27px]' 
+          onClick={(e) => handleNotificationsClick(e, 'Notifications')}
+        />
+        <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px]' 
+          onClick={(e) => handleNotificationsClick(e, 'Notifications')}
+        />
         <TableDetails 
           order={order as OrdersType[]}
         />

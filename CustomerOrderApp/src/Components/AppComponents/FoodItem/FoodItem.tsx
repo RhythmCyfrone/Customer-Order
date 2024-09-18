@@ -6,18 +6,19 @@ import InfoIcon from '../../../Assets/Icons/Info.svg'
 import NonVegIcon from '../../../Assets/Icons/NonVeg.svg'
 import VeganIcon from '../../../Assets/Icons/Vegan.svg'
 import EggIcon from '../../../Assets/Icons/Egg.svg'
+import { useAppDispatch, useAppSelector } from '../../../State/hooks'
+import { setStartPosition } from '../../../Screens/BackdropSlice'
 
-type FoodItemProps = {
-  setStartPosition: any;
-}
-const FoodItem = ({setStartPosition}: FoodItemProps) => {
+
+const FoodItem = () => {
+  const dispatch = useAppDispatch()
   const [selected, setSelected] = useState(false)
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const clickX = e.clientX;
     const clickY = e.clientY;
 
-    setStartPosition({ top: clickY, left: clickX });
+    dispatch(setStartPosition({ top: clickY, left: clickX, initiator: 'Food Item' }));
 
 };
   return (

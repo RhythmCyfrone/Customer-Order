@@ -18,7 +18,6 @@ const TableDetails = ({order}: TableDetailsProps) => {
         const fetchCustomerByID = async () => {
             try{
                 const data:AxiosResponse<CustomersType[]> = await getCustomerByID(order[0]?.CustomerID)
-                console.log(data)
                 if(data.status == 200)
                 {
                     setCustomerName(data.data[0]?.Name)
