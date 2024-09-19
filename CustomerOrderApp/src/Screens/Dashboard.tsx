@@ -7,6 +7,7 @@ import FloorNavbar from '../Components/AppComponents/FloorNavbar/FloorNavbar'
 import SeachNavbar from '../Components/AppComponents/SearchNavbar/SeachNavbar'
 import TableSelectorNavbar from '../Components/AppComponents/TableSelectorNavbar/TableSelectorNavbar'
 import { resetStartPosition, initialState } from './BackdropSlice'
+import ProfileBackdrop from '../Components/AppComponents/Backdrops/ProfileBackdrop'
 
 function Dashboard() {
   const [isNotificationsVisible, setIsNotificationsVisible] = useState(false);
@@ -20,25 +21,10 @@ function Dashboard() {
     }, [startPosition]);
     return (
         <div className='flex-1 flex flex-col gap-y-[24px] pt-[34px] pb-[34px] ms-[80px] me-[40px]'>
-          <div
-                className={`backdrop-blur-[1px] z-20 backdrop absolute bg-opacity-20 bg-black flex justify-center items-center ${isNotificationsVisible?'transition-all duration-200':''}
-                }`}
-                style={{
-                    top: isNotificationsVisible ? '95px' : `${startPosition.startPosition.top}px`,
-                    left: isNotificationsVisible ? '81px' : `${startPosition.startPosition.left}px`,
-                    right: isNotificationsVisible ? '0' : `${document.body.clientWidth - startPosition.startPosition.left}px`,
-                    bottom: isNotificationsVisible ? '0px' : `${document.body.clientHeight - startPosition.startPosition.top}px`,
-                }}
-            >
-                <div className='relative w-[300px] h-[400px] bg-white rounded-[10px]'>
-                    <img src={CrossIcon} className='absolute top-[8px] right-[8px]' 
-                        onClick={() => {
-                          dispatch(resetStartPosition(initialState))
-                          setIsNotificationsVisible(false)
-                      }}
-                    />
-                </div>
-            </div>
+          <ProfileBackdrop
+            isNotificationsVisible={isNotificationsVisible}
+            setIsNotificationsVisible={setIsNotificationsVisible}
+          />
           <OrderTypeBar />
           <div className='flex flex-wrap gap-y-[16px] gap-x-[16px] justify-between items-center'>
             <FloorNavbar />
