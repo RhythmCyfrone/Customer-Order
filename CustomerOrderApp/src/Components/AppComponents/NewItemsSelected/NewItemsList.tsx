@@ -58,7 +58,7 @@ const NewItemsList = ({viewAll = null, setViewAll}: NewItemsListProps) => {
                 />
                 <NewItemsListItem
                     itemName='Veg Salads'
-                    itemCount={5}
+                    itemCount={55}
                 />
                 <NewItemsListItem
                     itemName='Veg Salads'

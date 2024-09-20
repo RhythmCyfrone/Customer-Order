@@ -41,7 +41,7 @@ const ItemsListItem = ({itemName, itemCount, note, setNote, checkedAll = false, 
             </div>
             <div className='flex w-[25%] gap-x-[12px]'>
                 <img src={DeleteItemCountIcon} className={`cursor-pointer ${displayCounters?'':'hidden'}`}/>
-                <div className={`text-center ${displayCounters?'':'flex-1'}`}> 
+                <div className={`text-center ${displayCounters?'flex-1':'flex-1'}`}> 
                     <span className='font-poppins font-medium text-[16px] leading-[24px]'>{itemCount}</span>
                 </div>
                 <img src={AddItemCountIcon} className={`cursor-pointer ${displayCounters?'':'hidden'}`}/>

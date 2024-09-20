@@ -16,9 +16,9 @@ const NewItemsListItem = ({itemName, itemCount}: ItemsListItemProps) => {
                 <span className='font-poppins font-medium text-[16px] leading-[24px]'>{itemName}</span>
                 <span className='font-poppins font-normal text-[10px] leading-[15px]'>(Single)</span>
             </div>
-            <div className='flex w-[22%] gap-x-[12px]'>
+            <div className='flex w-[23%] gap-x-[12px]'>
                 <img src={DeleteItemCountIcon} className='cursor-pointer'/>
-                <div className='text-center'> 
+                <div className='text-center flex-1'> 
                     <span className='font-poppins font-medium text-[16px] leading-[24px]'>{itemCount}</span>
                 </div>
                 <img src={AddItemCountIcon} className='cursor-pointer'/>

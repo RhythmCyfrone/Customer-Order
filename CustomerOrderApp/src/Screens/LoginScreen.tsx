@@ -7,8 +7,8 @@ const LoginScreen = () => {
     const [showPassword, setShowPassword] = useState(false)
   return (
     <div className='w-full h-full flex'>
-        <div className='h-full w-[40%] bg-[#3B82F6] rounded-r-[30px] flex justify-center login-sidebar-shadow'>
-            <div className='w-[60%] max-h-max flex flex-col justify-center'>
+        <div className='h-full w-[40%] bg-[#3B82F6] rounded-r-[30px] flex justify-center items-center login-sidebar-shadow'>
+            <div className='w-[60%] max-h-max flex flex-col justify-center '>
                 <img src={ZuciTitle} className='w-full'/>
                 <span className='font-quicksand text-center font-medium text-[25px] leading-[32px] text-white'>
                     Jubilee Hills

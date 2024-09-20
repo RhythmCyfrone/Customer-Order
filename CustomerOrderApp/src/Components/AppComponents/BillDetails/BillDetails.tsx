@@ -59,20 +59,20 @@ const BillDetails = ({note, setNote, discount, setDiscount}: BillDetailsProps) =
                         <div className='flex justify-between p-0 items-center'>
                             <span className='font-poppins font-normal text-[16px]'>Discount (10%)</span>
                             <span className='font-poppins font-normal text-[16px] text-[#FF4F4F] cursor-pointer'>Remove</span>
-                            <span className='font-poppins font-normal text-[12px]'>171</span>
+                            <span className='font-poppins font-normal text-[16px]'>171</span>
                         </div>
                         <div className='flex justify-between p-0 items-center'>
                             <span className='font-poppins font-normal text-[16px]'>Service Charge (2%)</span>
                             <span className='font-poppins font-normal text-[16px] text-[#FF4F4F] cursor-pointer'>Remove</span>
-                            <span className='font-poppins font-normal text-[12px]'>34.22</span>
+                            <span className='font-poppins font-normal text-[16px]'>34.22</span>
                         </div>
                         <div className='flex justify-between p-0 items-center'>
                             <span className='font-poppins font-normal text-[16px]'>SGST (13%)</span>
-                            <span className='font-poppins font-normal text-[12px]'>50.6</span>
+                            <span className='font-poppins font-normal text-[16px]'>50.6</span>
                         </div>
                         <div className='flex justify-between mb-[16px] p-0 items-center'>
                             <span className='font-poppins font-normal text-[16px]'>CGST (13%)</span>
-                            <span className='font-poppins font-normal text-[12px]'>90.71</span>
+                            <span className='font-poppins font-normal text-[16px]'>90.71</span>
                         </div>
                     </div>
                     
