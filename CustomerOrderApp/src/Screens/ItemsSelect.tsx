@@ -10,6 +10,8 @@ import FoodSelectorNavbar from '../Components/AppComponents/FoodSelectorNavbar/F
 import FoodItem from '../Components/AppComponents/FoodItem/FoodItem'
 import '../Styles/Scrollbars.css'
 import ProfileBackdrop from '../Components/AppComponents/Backdrops/ProfileBackdrop'
+import NotificationsBackdrop from '../Components/AppComponents/Backdrops/NotificationsBackdrop'
+import BackdropHandler from '../Components/AppComponents/Backdrops/BackdropHandler'
 
 const ItemsSelect = () => {
     const [itemName, setItemName] = useState<string>('')
@@ -24,7 +26,7 @@ const ItemsSelect = () => {
     useEffect(() => {
         if (startPosition.initiator == 'Food Item' && (startPosition.startPosition.top !== 0 || startPosition.startPosition.left !== 0)) {
             setIsFoodItemBackdropVisible(true);
-        }else if(startPosition.initiator == 'Notifications' && (startPosition.startPosition.top !== 0 || startPosition.startPosition.left !== 0)) {
+        }else if((startPosition.initiator == 'Notifications' || startPosition.initiator == 'Profile') && (startPosition.startPosition.top !== 0 || startPosition.startPosition.left !== 0)) {
             setIsNotificationsVisible(true)
         }
     }, [startPosition]);
@@ -65,7 +67,7 @@ const ItemsSelect = () => {
                     />
                 </div>
             </div>
-        <ProfileBackdrop
+        <BackdropHandler 
             isNotificationsVisible={isNotificationsVisible}
             setIsNotificationsVisible={setIsNotificationsVisible}
         />

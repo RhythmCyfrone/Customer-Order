@@ -34,3 +34,8 @@
 .login-sidebar-shadow {
     box-shadow: 8px 0px 15px 0px #70A5FC4D;
 }
+
+.notifications-shadow {
+    box-shadow: -10px 2px 10px 0px #0044B31A, 4px 2px 10px 0px #0044B340;    
+
+}

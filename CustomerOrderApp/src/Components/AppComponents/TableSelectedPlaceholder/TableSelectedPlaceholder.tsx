@@ -14,7 +14,7 @@ type placeholderProps = {
             onClick={(e) => handleNotificationsClick(e, 'Notifications')}
           />
           <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px]' 
-            onClick={(e) => handleNotificationsClick(e, 'Notifications')}
+            onClick={(e) => handleNotificationsClick(e, 'Profile')}
           />
           <span className='font-poppins text-[24px] font-semibold text-[#191919] leading-[36px] opacity-50'>
               {content}
