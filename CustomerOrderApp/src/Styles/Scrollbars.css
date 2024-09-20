@@ -1,5 +1,5 @@
 .scrollbar-visible::-webkit-scrollbar {
-    height: 12px; /* Adjust height for horizontal scrollbar */
+    height: 0px; /* Adjust height for horizontal scrollbar */
   }
   
   .scrollbar-visible::-webkit-scrollbar-thumb {
@@ -12,6 +12,6 @@
   }
   
   .scrollbar-visible {
-    scrollbar-width: thin;
+    scrollbar-width: none;
     scrollbar-color: #888 #f1f1f1;
   }

@@ -24,7 +24,7 @@ const SelectorButton = ({selectorName}: {selectorName: selectorType}) => {
 
 const FoodSelectorNavbar = () => {
   return (
-    <div className='flex gap-x-[8px]'>
+    <div className='flex gap-x-[8px] ps-[80px] desktop-max:ps-[20px]'>
         <SelectorButton selectorName='All' />
         <SelectorButton selectorName='Starters' />
         <SelectorButton selectorName='Main Course' />

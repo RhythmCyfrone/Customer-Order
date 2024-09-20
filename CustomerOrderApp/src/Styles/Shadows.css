@@ -39,3 +39,9 @@
     box-shadow: -10px 2px 10px 0px #0044B31A, 4px 2px 10px 0px #0044B340;    
 
 }
+.scroll-icons-shadow-left {
+    box-shadow: 0px 4px 4px 0px #0000001A;
+}
+.scroll-icons-shadow-right {
+    box-shadow: 0px 4px 4px 0px #0000001A;
+}

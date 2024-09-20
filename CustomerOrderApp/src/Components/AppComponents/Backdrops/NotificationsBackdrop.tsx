@@ -13,7 +13,7 @@ type BackdropProps = {
 const NotificationsBackdrop = ({isNotificationsVisible, setIsNotificationsVisible}: BackdropProps) => {
     const startPosition = useAppSelector(state => state.backdrop)
     const dispatch = useAppDispatch()
-    const [maxHeight, setMaxHeight] = useState(`${document.body.clientHeight - 180}px`)
+    const [maxHeight, setMaxHeight] = useState(`${document.body.clientHeight - 130}px`)
 
     useEffect(() => {
         const updateMaxHeight = () => {
@@ -21,14 +21,14 @@ const NotificationsBackdrop = ({isNotificationsVisible, setIsNotificationsVisibl
             setMaxHeight(`${screenHeight-180}px`)
         };
 
-        window.addEventListener('resizeHeight', updateMaxHeight);
+        window.addEventListener('resize', updateMaxHeight);
 
-        return () => window.removeEventListener('resizeHeight', updateMaxHeight);
+        return () => window.removeEventListener('resize', updateMaxHeight);
     }, []);
 
   return (
     <div
-            className={`backdrop-blur-[1px] z-20 backdrop absolute bg-opacity-20 bg-black ${isNotificationsVisible?'':''}
+            className={`backdrop-blur-[1px] z-20 backdrop absolute bg-opacity-20 bg-black ${isNotificationsVisible?'transition-all duration-100':''}
             }`}
             style={{
                 top: isNotificationsVisible ? '85px' : `${startPosition.startPosition.top}px`,
