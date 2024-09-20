@@ -47,7 +47,7 @@ const ItemsSelect = () => {
     }, []);
 
   return (
-    <div className='ItemsScreen flex-1 flex flex-col gap-y-[24px] pt-[65px] pb-[34px] ms-[80px] me-[40px] desktop-max:ms-[20px] desktop-max:me-[20px]'>
+    <div className='ItemsScreen flex-1 flex flex-col gap-y-[24px] pt-[55px] pb-[34px] ms-[80px] me-[40px] desktop-max:ms-[20px] desktop-max:me-[20px]'>
         <div
                 className={`backdrop-blur-[1px] z-10 backdrop absolute bg-opacity-20 bg-black flex justify-center items-center ${isFoodItemBackdropVisible?'transition-all duration-200':''}
                 }`}

@@ -17,10 +17,10 @@ const ProfileBackdrop = ({isNotificationsVisible, setIsNotificationsVisible}: Ba
     const [logout, setLogout] = useState(false)
   return (
     <div
-            className={`backdrop-blur-[1px] z-20 backdrop absolute bg-opacity-20 bg-black flex justify-center items-center ${isNotificationsVisible?'transition-all duration-200':''}
+            className={`backdrop-blur-[1px] z-20 backdrop absolute bg-opacity-20 bg-black flex justify-center items-center ${isNotificationsVisible?'transition-all duration-150':''}
             }`}
             style={{
-                top: isNotificationsVisible ? '95px' : `${startPosition.startPosition.top}px`,
+                top: isNotificationsVisible ? '85px' : `${startPosition.startPosition.top}px`,
                 left: isNotificationsVisible ? '81px' : `${startPosition.startPosition.left}px`,
                 right: isNotificationsVisible ? '0' : `${document.body.clientWidth - startPosition.startPosition.left}px`,
                 bottom: isNotificationsVisible ? '0px' : `${document.body.clientHeight - startPosition.startPosition.top}px`,

@@ -28,10 +28,10 @@ const NotificationsBackdrop = ({isNotificationsVisible, setIsNotificationsVisibl
 
   return (
     <div
-            className={`backdrop-blur-[1px] z-20 backdrop absolute bg-opacity-20 bg-black ${isNotificationsVisible?'transition-all duration-100':''}
+            className={`backdrop-blur-[1px] z-20 backdrop absolute bg-opacity-20 bg-black ${isNotificationsVisible?'':''}
             }`}
             style={{
-                top: isNotificationsVisible ? '95px' : `${startPosition.startPosition.top}px`,
+                top: isNotificationsVisible ? '85px' : `${startPosition.startPosition.top}px`,
                 left: isNotificationsVisible ? '81px' : `${startPosition.startPosition.left}px`,
                 right: isNotificationsVisible ? '0' : `${document.body.clientWidth - startPosition.startPosition.left}px`,
                 bottom: isNotificationsVisible ? '0px' : `${document.body.clientHeight - startPosition.startPosition.top}px`,
@@ -60,6 +60,9 @@ const NotificationsBackdrop = ({isNotificationsVisible, setIsNotificationsVisibl
                     />
                     <NotificationsItems 
                         read={true}
+                    />
+                    <NotificationsItems 
+                        read={false}
                     />
                     <NotificationsItems 
                         read={false}

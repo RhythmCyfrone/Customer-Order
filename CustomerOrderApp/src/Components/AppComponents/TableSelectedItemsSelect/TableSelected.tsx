@@ -73,10 +73,10 @@ const TableSelected = () => {
       handleNotificationsClick={handleNotificationsClick}
     />
     :<div className={`relative w-[420px] flex flex-col pt-[90px] medium:pt-[56px] items-center shadow-table-selected`}>
-        <img src={NotificationIcon} className='absolute left-[70%] top-[27px]' 
+        <img src={NotificationIcon} className='absolute left-[70%] top-[27px] cursor-pointer' 
           onClick={(e) => handleNotificationsClick(e, 'Notifications')}
         />
-        <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px]' 
+        <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px] cursor-pointer' 
           onClick={(e) => handleNotificationsClick(e, 'Profile')}
         />
         <TableDetails 
