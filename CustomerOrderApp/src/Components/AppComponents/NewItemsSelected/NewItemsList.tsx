@@ -1,6 +1,7 @@
 import NewItemsNavbar from './NewItemsNavbar'
 import NewItemsListItem from './NewItemsListItem'
 import DownIcon from '../../../Assets/Icons/Down.svg'
+import PlacedItemSeparatingLine from '../../../Assets/Icons/PlacedItemSeparatingLine.svg'
 import { useState, useEffect } from 'react'
 
 type NewItemsListProps = {
@@ -47,23 +48,27 @@ const NewItemsList = ({viewAll = null, setViewAll}: NewItemsListProps) => {
                 />
             </div>
             :
-            <div className='flex flex-col max-h-[150px] overflow-y-scroll tall:max-h-[200px]'>
+            <div className='flex flex-col max-h-[150px] overflow-y-scroll tall:max-h-[150px]'>
                 <NewItemsListItem 
                     itemName='Water Bottle'
                     itemCount={1}
                 />
+                <img src={PlacedItemSeparatingLine} />
                 <NewItemsListItem
                     itemName='Fry Mutton Biryani'
                     itemCount={1}
                 />
+                <img src={PlacedItemSeparatingLine} />
                 <NewItemsListItem
                     itemName='Veg Salads'
                     itemCount={55}
                 />
+                <img src={PlacedItemSeparatingLine} />
                 <NewItemsListItem
                     itemName='Veg Salads'
                     itemCount={9}
                 />
+                <img src={PlacedItemSeparatingLine} />
             </div>
         }
         

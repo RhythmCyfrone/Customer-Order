@@ -3,6 +3,7 @@ import AddItemCountIcon from '../../../Assets/Icons/AddItemCount.svg'
 import { Checkbox } from '@mui/material';
 import { useAppSelector } from '../../../State/hooks';
 import { useEffect, useState } from 'react';
+import ItemStatusToggle from './ItemStatusToggle';
 
 type ItemsListItemProps = {
     itemName: string;
@@ -46,10 +47,7 @@ const ItemsListItem = ({itemName, itemCount, note, setNote, checkedAll = false, 
                 </div>
                 <img src={AddItemCountIcon} className={`cursor-pointer ${displayCounters?'':'hidden'}`}/>
             </div>
-            <div className='flex w-[25%] flex-col items-center gap-y-[2px]'>
-                <div className='w-[14px] h-[14px] rounded-[50%] border-[1.5px] border-[#3B82F6] bg-[#FFFF00]'></div>
-                <span className='font-quicksand font-normal text-[8px] leading-[10px]'>Placed</span>
-            </div>
+            <ItemStatusToggle />
             <div className='w-[15%] text-right'> 
                 <span className='font-poppins font-medium text-[20px] leading-[24px]'>25/-</span>
             </div>

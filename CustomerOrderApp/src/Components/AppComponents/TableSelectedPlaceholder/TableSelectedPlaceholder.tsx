@@ -1,5 +1,5 @@
 import React from 'react'
-import NotificationIcon from '../../../Assets/Icons/Notification.svg'
+import NotificationIcon from '../NotificationIcon/NotificationIcon'
 import ProfilePlaceholderIcon from '../../../Assets/Icons/ProfilePlaceholder.svg'
 
 type placeholderProps = {
@@ -10,8 +10,8 @@ type placeholderProps = {
   const TableSelectedPlaceholder = ({content, handleNotificationsClick}: placeholderProps) => {
     return (
       <div className='relative w-[420px] flex flex-col justify-center items-center shadow-table-selected'>
-          <img src={NotificationIcon} className='absolute left-[70%] top-[27px] cursor-pointer' 
-            onClick={(e) => handleNotificationsClick(e, 'Notifications')}
+          <NotificationIcon
+            handleNotificationsClick={handleNotificationsClick}
           />
           <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px] cursor-pointer' 
             onClick={(e) => handleNotificationsClick(e, 'Profile')}

@@ -4,6 +4,7 @@ import DownIcon from '../../../Assets/Icons/Down.svg'
 import SeparatingLine from '../../../Assets/Icons/SeparatingLine.svg'
 import NoteIcon from '../../../Assets/Icons/Note.svg'
 import DiscountIcon from '../../../Assets/Icons/price-tag.svg'
+import PlacedItemSeparatingLine from '../../../Assets/Icons/PlacedItemSeparatingLine.svg'
 import ItemsListItem from './ItemsListItem'
 import { Checkbox } from '@mui/material'
 
@@ -67,7 +68,7 @@ const ItemsList = ({viewAll = null, setViewAll, note, setNote, discount, setDisc
                 />
             </div>
             :
-            <div className={`flex flex-col gap-y-[4px] ${!specialFeature?'max-h-[150px] tall:max-h-[200px]':'flex-1'} overflow-y-scroll `}>
+            <div className={`flex flex-col gap-y-[4px] ${!specialFeature?'max-h-[160px] tall:max-h-[220px]':'flex-1'} overflow-y-scroll `}>
                 <div className={`ps-[16px] pe-[16px] flex items-center ${specialFeature?'':'hidden'}`}>
                     <div className={`p-[4px]`}>
                         <Checkbox 
@@ -87,6 +88,7 @@ const ItemsList = ({viewAll = null, setViewAll, note, setNote, discount, setDisc
                     setDiscount={setDiscount}
                     checkedAll={checkedAll}
                 />
+                <img src={PlacedItemSeparatingLine} />
                 <ItemsListItem
                     itemName='Veg Salads'
                     itemCount={10}
@@ -96,6 +98,7 @@ const ItemsList = ({viewAll = null, setViewAll, note, setNote, discount, setDisc
                     setDiscount={setDiscount}
                     checkedAll={checkedAll}
                 />
+                <img src={PlacedItemSeparatingLine} />
                 <ItemsListItem
                     itemName='Veg Salads'
                     itemCount={5}
@@ -105,6 +108,7 @@ const ItemsList = ({viewAll = null, setViewAll, note, setNote, discount, setDisc
                     setDiscount={setDiscount}
                     checkedAll={checkedAll}
                 />
+                <img src={PlacedItemSeparatingLine} />
                 <ItemsListItem
                     itemName='Veg Salads'
                     itemCount={11}
@@ -114,6 +118,7 @@ const ItemsList = ({viewAll = null, setViewAll, note, setNote, discount, setDisc
                     setDiscount={setDiscount}
                     checkedAll={checkedAll}
                 />
+                <img src={PlacedItemSeparatingLine} />
                 <ItemsListItem
                     itemName='Veg Salads'
                     itemCount={11}
@@ -123,6 +128,7 @@ const ItemsList = ({viewAll = null, setViewAll, note, setNote, discount, setDisc
                     setDiscount={setDiscount}
                     checkedAll={checkedAll}
                 />
+                <img src={PlacedItemSeparatingLine} />
             </div>
         }  
         <div className={`${specialFeature?'':'hidden'} mt-[16px] ps-[70px] pe-[16px] flex flex-col gap-y-[16px]`}>

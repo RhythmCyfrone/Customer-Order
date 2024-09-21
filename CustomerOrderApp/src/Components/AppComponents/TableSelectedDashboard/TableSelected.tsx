@@ -1,6 +1,6 @@
 import '../../../Styles/Shadows.css'
 import '../../../Styles/Fonts.css'
-import NotificationIcon from '../../../Assets/Icons/Notification.svg'
+import NotificationIcon from '../NotificationIcon/NotificationIcon'
 import ProfilePlaceholderIcon from '../../../Assets/Icons/ProfilePlaceholder.svg'
 import BillDetails from '../BillDetails/BillDetails'
 import TableDetails from '../TableDetails/TableDetails'
@@ -71,9 +71,9 @@ const TableSelected = () => {
       content='No Orders'
       handleNotificationsClick={handleNotificationsClick}
     />
-    :<div className='relative w-[420px] flex flex-col medium:pt-[70px] pt-[90px] items-center shadow-table-selected'>
-        <img src={NotificationIcon} className='absolute left-[70%] top-[27px] cursor-pointer' 
-          onClick={(e) => handleNotificationsClick(e, 'Notifications')}
+    :<div className='relative w-[420px] flex flex-col medium:pt-[60px] pt-[80px] items-center shadow-table-selected'>
+        <NotificationIcon
+          handleNotificationsClick={handleNotificationsClick}
         />
         <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px] cursor-pointer' 
           onClick={(e) => handleNotificationsClick(e, 'Profile')}
