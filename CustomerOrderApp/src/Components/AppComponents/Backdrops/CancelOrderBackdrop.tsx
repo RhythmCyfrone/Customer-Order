@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../../State/hooks"
+import { resetStartPosition, initialState } from "../../../Screens/BackdropSlice"
 
 type CancelOrderBackdropProps = {
     isCancelOrderBackdrop: boolean;
@@ -8,6 +9,7 @@ const CancelOrderBackdrop = ({isCancelOrderBackdrop, setIsCancelOrderBackdrop}: 
     const startPosition = useAppSelector(state => state.backdrop)
     const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
     const currentFloor = useAppSelector(state => state.tableSelect.currentFloor)
+    const dispatch = useAppDispatch()
   return (
     <div
             className={`flex justify-center items-center gap-y-[8px] flex-col backdrop-blur-[1px] z-20 backdrop absolute bg-opacity-20 bg-[#AAB8FF] ${isCancelOrderBackdrop?'transition-all duration-100':''}
@@ -31,8 +33,20 @@ const CancelOrderBackdrop = ({isCancelOrderBackdrop, setIsCancelOrderBackdrop}: 
               </div>
             </div>
             <textarea placeholder="Enter Description" className="outline-none  w-[800px] h-[190px] align-top bg-white p-[24px] rounded-[18px]">
-
             </textarea>
+            <div className="w-[800px]">
+              <button className='text-center bg-[#FF3B5F] fontButtonDefault cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover
+                                      hover:ShadowPrimaryHover active:shadow-none'
+                  onClick={() => {
+                      dispatch(resetStartPosition(initialState))
+                      setIsCancelOrderBackdrop(false)
+                  }}
+                >
+                    Cancel Order
+              </button>
+            </div>
+            
+
           </>
           
 
