@@ -17,9 +17,10 @@ type BillDetailsProps = {
     setNote: React.Dispatch<React.SetStateAction<boolean>> ;
     discount: boolean;
     setDiscount: React.Dispatch<React.SetStateAction<boolean>> ;
+    handleNotificationsClick: (e: React.MouseEvent<HTMLImageElement | HTMLDivElement> , initiator: string) => void
 }
 
-const BillDetails = ({note, setNote, discount, setDiscount}: BillDetailsProps) => {
+const BillDetails = ({note, setNote, discount, setDiscount, handleNotificationsClick}: BillDetailsProps) => {
     const [isRotated, setIsRotated] = useState(false);
     const [viewBill, setViewBill] = useState(false)
     const [viewDetailsText, setViewDetailsText] = useState(true)
@@ -140,6 +141,7 @@ const BillDetails = ({note, setNote, discount, setDiscount}: BillDetailsProps) =
                         <span className='font-poppins font-normal text-[10px] text-white'>Combine</span>
                     </div>
                     <div className={` p-[5.5px] ps-[5px] pe-[5px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
+                        onClick={(e) => handleNotificationsClick(e, 'Cancel Order')}
                     >
                         <img src={CancelBillIcon} />
                         <span className='font-poppins font-normal text-[8.5px] text-white'>Cancel Order</span>
@@ -177,6 +179,7 @@ const BillDetails = ({note, setNote, discount, setDiscount}: BillDetailsProps) =
                         <span className='font-poppins font-normal text-[10px] text-white'>Combine</span>
                     </div>
                     <div className={`${viewMore?'':'hidden'} p-[5.5px] ps-[5px] pe-[5px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
+                        onClick={(e) => handleNotificationsClick(e, 'Cancel Order')}
                     >
                         <img src={CancelBillIcon} />
                         <span className='font-poppins font-normal text-[8.5px] text-white'>Cancel Order</span>

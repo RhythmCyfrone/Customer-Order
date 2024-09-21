@@ -4,7 +4,7 @@ import ProfilePlaceholderIcon from '../../../Assets/Icons/ProfilePlaceholder.svg
 
 type placeholderProps = {
     content: string;
-    handleNotificationsClick: (e: React.MouseEvent<HTMLImageElement>, initiator: string) => void
+    handleNotificationsClick: (e: React.MouseEvent<HTMLImageElement | HTMLDivElement>, initiator: string) => void
   }
   
   const TableSelectedPlaceholder = ({content, handleNotificationsClick}: placeholderProps) => {

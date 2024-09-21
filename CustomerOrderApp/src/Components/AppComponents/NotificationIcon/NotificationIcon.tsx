@@ -4,7 +4,7 @@ import { useAppSelector } from '../../../State/hooks'
 
 
 type NotificationIconProps = {
-    handleNotificationsClick: (e: React.MouseEvent<HTMLImageElement>, initiator: string) => void
+    handleNotificationsClick: (e: React.MouseEvent<HTMLImageElement | HTMLDivElement>, initiator: string) => void
 }
 const NotificationsIcon = ({handleNotificationsClick}: NotificationIconProps) => {
   const startPosition = useAppSelector(state => state.backdrop)

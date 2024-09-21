@@ -24,7 +24,7 @@ const TableSelected = () => {
   const [order, setOrder] = useState<OrdersType[] | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
 
-  const handleNotificationsClick = (e: React.MouseEvent<HTMLImageElement>, initiator: string) => {
+  const handleNotificationsClick = (e: React.MouseEvent<HTMLImageElement | HTMLDivElement>, initiator: string) => {
     const clickX = e.clientX;
     const clickY = e.clientY;
 

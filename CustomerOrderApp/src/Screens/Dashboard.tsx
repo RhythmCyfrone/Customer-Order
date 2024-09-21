@@ -2,13 +2,9 @@ import { useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../State/hooks'
 import Table from '../Components/AppComponents/Table/Table'
 import OrderTypeBar from '../Components/AppComponents/OrderType/OrderType'
-import CrossIcon from '../Assets/Icons/Cross.svg'
 import FloorNavbar from '../Components/AppComponents/FloorNavbar/FloorNavbar'
 import SeachNavbar from '../Components/AppComponents/SearchNavbar/SeachNavbar'
 import TableSelectorNavbar from '../Components/AppComponents/TableSelectorNavbar/TableSelectorNavbar'
-import { resetStartPosition, initialState } from './BackdropSlice'
-import ProfileBackdrop from '../Components/AppComponents/Backdrops/ProfileBackdrop'
-import NotificationsBackdrop from '../Components/AppComponents/Backdrops/NotificationsBackdrop'
 import BackdropHandler from '../Components/AppComponents/Backdrops/BackdropHandler'
 
 function Dashboard() {
@@ -17,10 +13,15 @@ function Dashboard() {
   const dispatch = useAppDispatch()
 
     useEffect(() => {
-       if((startPosition.initiator == 'Notifications' || startPosition.initiator == 'Profile') && (startPosition.startPosition.top !== 0 || startPosition.startPosition.left !== 0)) {
+       if((startPosition.initiator == 'Notifications' || 
+            startPosition.initiator == 'Profile' ||
+            startPosition.initiator == 'Cancel Order'
+          ) 
+            && (startPosition.startPosition.top !== 0 || startPosition.startPosition.left !== 0)) {
           setIsNotificationsVisible(true)
        }
     }, [startPosition]);
+
     return (
         <div className='flex-1 flex flex-col gap-y-[24px] pt-[34px] pb-[34px] ms-[80px] me-[40px]'>
           <BackdropHandler 

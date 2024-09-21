@@ -40,9 +40,13 @@ const ItemsSelect = () => {
     useEffect(() => {
         if (startPosition.initiator == 'Food Item' && (startPosition.startPosition.top !== 0 || startPosition.startPosition.left !== 0)) {
             setIsFoodItemBackdropVisible(true);
-        }else if((startPosition.initiator == 'Notifications' || startPosition.initiator == 'Profile') && (startPosition.startPosition.top !== 0 || startPosition.startPosition.left !== 0)) {
-            setIsNotificationsVisible(true)
-        }
+        }else if((startPosition.initiator == 'Notifications' || 
+            startPosition.initiator == 'Profile' ||
+            startPosition.initiator == 'Cancel Order'
+          ) 
+            && (startPosition.startPosition.top !== 0 || startPosition.startPosition.left !== 0)) {
+          setIsNotificationsVisible(true)
+       }
     }, [startPosition]);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {

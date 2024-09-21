@@ -24,7 +24,7 @@ const TableSelected = () => {
   const [note, setNote] = useState(false)
   const [discount, setDiscount] = useState(false)
 
-  const handleNotificationsClick = (e: React.MouseEvent<HTMLImageElement>, initiator: string) => {
+  const handleNotificationsClick = (e: React.MouseEvent<HTMLImageElement | HTMLDivElement>, initiator: string) => {
     const clickX = e.clientX;
     const clickY = e.clientY;
 
@@ -83,6 +83,7 @@ const TableSelected = () => {
           setNote={setNote}
           discount={discount}
           setDiscount={setDiscount}
+          handleNotificationsClick={handleNotificationsClick}
         />
         <TableDetails 
           order={order as OrdersType[]}

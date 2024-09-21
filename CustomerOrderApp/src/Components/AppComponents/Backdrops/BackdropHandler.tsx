@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../../State/hooks"
+import CancelOrderBackdrop from "./CancelOrderBackdrop";
 import NotificationsBackdrop from "./NotificationsBackdrop"
 import ProfileBackdrop from "./ProfileBackdrop"
 
@@ -15,9 +16,14 @@ const BackdropHandler = ({isNotificationsVisible, setIsNotificationsVisible}: Ba
         isNotificationsVisible={isNotificationsVisible}
         setIsNotificationsVisible={setIsNotificationsVisible}
     />
-    :<ProfileBackdrop
+    :startPosition.initiator == 'Profile'
+    ?<ProfileBackdrop
         isNotificationsVisible={isNotificationsVisible}
         setIsNotificationsVisible={setIsNotificationsVisible}
+    />
+    :<CancelOrderBackdrop
+      isCancelOrderBackdrop={isNotificationsVisible}
+      setIsCancelOrderBackdrop={setIsNotificationsVisible}
     />
   )
 }
