@@ -2,12 +2,13 @@ import { useState } from 'react'
 import NotificationItemDropDownIcon from '../../../../Assets/Icons/NotificationItemDropdown.svg'
 import NotificationItemDropUpIcon from '../../../../Assets/Icons/NotificationItemDropUp.svg'
 import SeparatingLine from '../../../../Assets/Icons/SeparatingLine.svg'
+import useNotificationsItem from './viewModel'
 
 type NotificationsItemsProps = {
     read: boolean
 }
 const NotificationsItems = ({read}: NotificationsItemsProps) => {
-    const [dropDown, setDropDown] = useState(false)
+    const {dropDown, setDropDown} = useNotificationsItem()
   return (
     <div className={`relative ${read?'bg-[#EBF3FE]':''} w-full flex flex-col pt-[8px] pe-[16px] pb-[8px] ps-[16px] rounded-[15px]`}>
         <div className='flex gap-x-[16px]'>

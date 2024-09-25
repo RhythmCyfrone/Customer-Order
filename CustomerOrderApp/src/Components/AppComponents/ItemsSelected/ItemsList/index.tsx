@@ -1,5 +1,4 @@
 import ItemsNavbar from '../ItemsNavbar'
-import { useState, useEffect } from 'react'
 import DownIcon from '../../../../Assets/Icons/Down.svg'
 import SeparatingLine from '../../../../Assets/Icons/SeparatingLine.svg'
 import NoteIcon from '../../../../Assets/Icons/Note.svg'
@@ -7,41 +6,13 @@ import DiscountIcon from '../../../../Assets/Icons/price-tag.svg'
 import PlacedItemSeparatingLine from '../../../../Assets/Icons/PlacedItemSeparatingLine.svg'
 import ItemsListItem from '../ItemsListItem'
 import { Checkbox } from '@mui/material'
-
-type ItemsListProps = {
-    viewAll?: boolean | null;
-    setViewAll?: React.Dispatch<React.SetStateAction<boolean>> | null;
-    note: boolean;
-    setNote: React.Dispatch<React.SetStateAction<boolean>> | null;
-    discount: boolean;
-    setDiscount: React.Dispatch<React.SetStateAction<boolean>>
-}
+import useItemsListViewModel from './viewModel'
+import type { ItemsListProps } from './viewModel'
 
 const ItemsList = ({viewAll = null, setViewAll, note, setNote, discount, setDiscount}: ItemsListProps) => {
-    const [screenHeight, setScreenHeight] = useState(document.body.clientHeight)
-    const [checkedAll, setCheckedAll] = useState<boolean>(true)
-    const specialFeature = note || discount
-
-    const handleViewAll = () => {
-        if (setViewAll) {
-            setViewAll(!viewAll);
-        }
-    };
-
-    useEffect(() => {
-        if((note || discount) == true)
-            setCheckedAll(true)
-    }, [note, discount])
-
-    useEffect(() => {
-        const updateMaxHeight = () => {
-            setScreenHeight(document.body.clientHeight)
-        };
-
-        window.addEventListener('resize', updateMaxHeight);
-
-        return () => window.removeEventListener('resize', updateMaxHeight);
-    }, []);
+    const {
+        screenHeight, setScreenHeight, checkedAll, setCheckedAll, specialFeature, handleViewAll
+    } = useItemsListViewModel({viewAll, setViewAll, note, discount})
 
   return (
     <div className={`w-full flex flex-col gap-y-[4px] ${specialFeature?'flex-1 overflow-y-scroll':''}`}>

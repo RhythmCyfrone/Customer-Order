@@ -1,12 +1,10 @@
 import '../../../Styles/Shadows.css'
 import '../../../Styles/Fonts.css'
-import { useAppSelector, useAppDispatch } from '../../../State/hooks'
 import {selectTable} from './TableSlice'
 import TablePressedEclipse from '../../../Assets/Icons/TablePressedEclipse.svg'
-import { statusToColors, statusToTextColors } from '../../../Assets/Constants/TableStatusColors'
 import './Table.css'
-
-type Status = keyof typeof statusToColors
+import useTableViewModel from './viewModel'
+import { Status } from './viewModel'
 
 type TableProps = {
     status: Status;
@@ -17,11 +15,10 @@ type TableProps = {
 }
 
 const Table = ({status, floor, tableNumber, time, occupancy}: TableProps) => {
-  const selectedTable = useAppSelector(state => state.tableSelect.selectedTable)
-  const currentFloor = useAppSelector(state => state.tableSelect.currentFloor)
-  const dispatch = useAppDispatch()
-  const statusColorClass = statusToColors[status];
-  const statusColorText = statusToTextColors[status];
+  const {
+      selectedTable, currentFloor, dispatch, statusColorClass, statusColorText
+  } = useTableViewModel(status)
+  
   return (
     <div className='flex w-[156px] h-[88px] cursor-pointer'
         onClick={() => dispatch(selectTable({

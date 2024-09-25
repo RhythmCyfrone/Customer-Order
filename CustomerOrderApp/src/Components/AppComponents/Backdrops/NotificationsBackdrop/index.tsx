@@ -1,25 +1,19 @@
 import NotificationsTickIcon from '../../../../Assets/Icons/NotificationsTick.svg'
 import NotificationsCancel from '../../../../Assets/Icons/NotificationsCancel.svg'
-import { useAppDispatch, useAppSelector } from '../../../../State/hooks';
 import { resetStartPosition, initialState } from '../../../../Screens/BackdropSlice';
 import '../../../../Styles/Shadows.css'
 import { useState, useEffect } from 'react'
 import NotificationsItems from '../NotificationsItems';
+import useNotificationsBackdropViewModel from './viewModel';
 
 type BackdropProps = {
     isNotificationsVisible: boolean;
     setIsNotificationsVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 const NotificationsBackdrop = ({isNotificationsVisible, setIsNotificationsVisible}: BackdropProps) => {
-    const startPosition = useAppSelector(state => state.backdrop)
-    const dispatch = useAppDispatch()
-    const [maxHeight, setMaxHeight] = useState(`${document.body.clientHeight - 130}px`)
+    const {startPosition, dispatch, maxHeight, setMaxHeight, updateMaxHeight} = useNotificationsBackdropViewModel()
 
     useEffect(() => {
-        const updateMaxHeight = () => {
-            const screenHeight = document.body.clientHeight
-            setMaxHeight(`${screenHeight-180}px`)
-        };
 
         window.addEventListener('resize', updateMaxHeight);
 

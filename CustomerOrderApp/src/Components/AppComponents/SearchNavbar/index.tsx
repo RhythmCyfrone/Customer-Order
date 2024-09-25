@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
 import SearchIcon from '../../../Assets/Icons/Search.svg'
 import SecondaryWithIcon from '../../Shared/Buttons/SecondaryWithIcon'
 import AddIcon from '../../../Assets/Icons/Add.svg'
+import useSearchNavbarViewModel from './viewModel'
 
 const SearchNavbar = () => {
-    const [tableName, setTableName] = useState<string>('')
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setTableName(event.target.value);
-    }
+    const {
+        tableName, setTableName, handleInputChange
+    } = useSearchNavbarViewModel()
+
   return (
     <div className='flex gap-x-[8px] desktop-max:w-full desktop-max:justify-between'>
         <div className='flex bg-[#EBF3FE] max-w-[160px] rounded-[20px] p-[8px] gap-x-[8px]'>

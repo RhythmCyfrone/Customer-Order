@@ -8,50 +8,17 @@ import ItemsList from '../ItemsSelected/ItemsList'
 import { useEffect, useState } from 'react'
 import { getOrdersByTable } from '../../../api/Orders'
 import { OrdersType } from '../../../api/types'
-import { selectScreen } from '../../../Screens/ScreensSlice'
 import { setStartPosition } from '../../../Screens/BackdropSlice'
 import { AxiosResponse } from 'axios'
 import NewItemsList from '../NewItemsSelected/NewItemsList'
 import FoodPlaceOrder from '../FoodPlaceOrder'
 import TableSelectedPlaceholder from '../TableSelectedPlaceholder'
+import useTableSelectedItemsViewModel from './viewModel'
 
 const TableSelected = () => {
-  const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
-  const currentFloor = useAppSelector(state => state.tableSelect.currentFloor)
-  const [viewAll, setViewAll] = useState(false)
-  const dispatch = useAppDispatch()
-
-  const [order, setOrder] = useState<OrdersType[] | null>(null)
-  const [loading, setLoading] = useState<boolean>(true)
-
-  const handleNotificationsClick = (e: React.MouseEvent<HTMLImageElement | HTMLDivElement>, initiator: string) => {
-    const clickX = e.clientX;
-    const clickY = e.clientY;
-
-    dispatch(setStartPosition({ top: clickY, left: clickX, initiator: initiator }));
-
-};
-
-  useEffect(() => {
-    setLoading(true)
-    if(currentTable == 'None') {
-      setLoading(false)
-      return
-    }
-    const fetchOrderByTableID = async () => {
-      try{
-        const data:AxiosResponse<OrdersType[]> = await getOrdersByTable(currentTable)
-        if(data.status == 200)
-        {
-          setOrder(data.data)
-          setLoading(false)
-        }
-      }catch(err) {
-        console.log(err)
-      }
-    }
-    fetchOrderByTableID()
-  }, [currentTable, currentFloor])
+  const {
+    currentFloor, currentTable, dispatch, viewAll, setViewAll, order, setOrder, loading, setLoading, handleNotificationsClick
+  } = useTableSelectedItemsViewModel()
 
   return (
     loading

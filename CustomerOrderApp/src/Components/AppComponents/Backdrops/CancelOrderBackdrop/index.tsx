@@ -1,15 +1,13 @@
 import { useAppDispatch, useAppSelector } from "../../../../State/hooks";
 import { resetStartPosition, initialState } from "../../../../Screens/BackdropSlice";
+import useCancelOrderBackdropViewModel from "./viewModel";
 
 type CancelOrderBackdropProps = {
     isCancelOrderBackdrop: boolean;
     setIsCancelOrderBackdrop: React.Dispatch<React.SetStateAction<boolean>>
 }
 const CancelOrderBackdrop = ({isCancelOrderBackdrop, setIsCancelOrderBackdrop}: CancelOrderBackdropProps) => {
-    const startPosition = useAppSelector(state => state.backdrop)
-    const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
-    const currentFloor = useAppSelector(state => state.tableSelect.currentFloor)
-    const dispatch = useAppDispatch()
+    const {startPosition, currentTable, currentFloor, dispatch} = useCancelOrderBackdropViewModel()
   return (
     <div
             className={`flex justify-center items-center gap-y-[8px] flex-col backdrop-blur-[1px] z-20 backdrop absolute bg-opacity-20 bg-[#AAB8FF] ${isCancelOrderBackdrop?'transition-all duration-100':''}

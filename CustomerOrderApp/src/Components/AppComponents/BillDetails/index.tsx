@@ -11,6 +11,7 @@ import MoreIcon from '../../../Assets/Icons/More.svg'
 import '../../../Styles/Fonts.css'
 import '../../../Styles/Shadows.css'
 import '../../../Styles/Animations.css'
+import useBillDetailsViewModel from './viewModel';
 
 type BillDetailsProps = {
     note: boolean;
@@ -21,27 +22,25 @@ type BillDetailsProps = {
 }
 
 const BillDetails = ({note, setNote, discount, setDiscount, handleNotificationsClick}: BillDetailsProps) => {
-    const [isRotated, setIsRotated] = useState(false);
-    const [viewBill, setViewBill] = useState(false)
-    const [viewDetailsText, setViewDetailsText] = useState(true)
-    const [closeText, setCloseText] = useState(false)
-    const [viewMore, setViewMore] = useState(false);
-    const [screenHeight, setScreenHeight] = useState(window.innerHeight);
-    const specialFeature = !(note || discount)
-    
-    const bottomPadding = isRotated?'pb-[16px]':'pb-[32px]'
-    const topPadding = isRotated || (screenHeight > 750 && viewMore)?'pt-[16px]':'pt-[32px]'
-    const translate = isRotated || (screenHeight > 750 && viewMore)?'-translate-y-[60%]':'-translate-y-[50%]'
-
-    const handleIconClick = () => {
-        setIsRotated(!isRotated);
-        if(!viewBill)
-            setViewBill(true)
-        if(!closeText)
-            setCloseText(true)
-        if(!viewDetailsText)
-            setViewDetailsText(true)
-    };
+    const {
+        isRotated,
+        setIsRotated,
+        viewBill,
+        setViewBill,
+        viewDetailsText,
+        setViewDetailsText,
+        closeText,
+        setCloseText,
+        viewMore,
+        setViewMore,
+        screenHeight,
+        setScreenHeight,
+        specialFeature,
+        bottomPadding,
+        topPadding,
+        translate,
+        handleIconClick
+    } = useBillDetailsViewModel(note, discount)
   return (
     <div className={`${!specialFeature?'hidden':''} absolute bottom-[0px] z-10`}>
         <div className={`relative w-[420px] bg-[#DDEBFF] rounded-t-[32px] flex flex-col transform-padding duration-500 ${topPadding}`}>

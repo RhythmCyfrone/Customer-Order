@@ -7,11 +7,13 @@ import '../../../Styles/Fonts.css'
 
 import type { OrderType } from './orderTypeSlice'
 import { selectOrderType } from './orderTypeSlice'
+import useOrderType from './viewModel'
 
 const OrderTypeButton = ({buttonType}: {buttonType:  OrderType}) => {
-    const orderType = useAppSelector(state => state.orderType.type)
-    const dispatch = useAppDispatch()
-    const isSelected = orderType === buttonType;
+    const {
+        orderType, dispatch, isSelected
+    } = useOrderType(buttonType)
+    
     return (
         isSelected
             ?<div className='flex gap-x-[8px] rounded-[3px] cursor-pointer border border-CustomBrand-300 p-[4px] justify-center items-center shadow-order-button'>

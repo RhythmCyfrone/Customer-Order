@@ -3,6 +3,7 @@ import NewItemsListItem from '../NewItemsListItem'
 import DownIcon from '../../../../Assets/Icons/Down.svg'
 import PlacedItemSeparatingLine from '../../../../Assets/Icons/PlacedItemSeparatingLine.svg'
 import { useState, useEffect } from 'react'
+import useNewItemsSelected from './viewModel'
 
 type NewItemsListProps = {
     viewAll?: boolean | null;
@@ -10,23 +11,9 @@ type NewItemsListProps = {
 }
 
 const NewItemsList = ({viewAll = null, setViewAll}: NewItemsListProps) => {
-    const [screenHeight, setScreenHeight] = useState(document.body.clientHeight)
-
-    const handleViewAll = () => {
-        if (setViewAll) {
-            setViewAll(!viewAll);
-        }
-    };
-
-    useEffect(() => {
-        const updateMaxHeight = () => {
-            setScreenHeight(document.body.clientHeight)
-        };
-
-        window.addEventListener('resize', updateMaxHeight);
-
-        return () => window.removeEventListener('resize', updateMaxHeight);
-    }, []);
+    const {
+        screenHeight, setScreenHeight, handleViewAll
+    } = useNewItemsSelected({viewAll, setViewAll})
   return (
     <div className='w-full flex flex-col gap-y-[4px]'>
         <NewItemsNavbar />

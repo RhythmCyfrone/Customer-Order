@@ -1,34 +1,15 @@
-import { useEffect, useState } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../State/hooks'
-import { CustomersType, OrdersType } from '../../../api/types'
-import { AxiosResponse } from 'axios'
+import { OrdersType } from '../../../api/types'
 import OrderStatusDropdown from './OrderStatusDropdown'
-import { getCustomerByID } from '../../../api/Customers'
+import { useTableDetailsViewModel } from './viewModel'
 
 type TableDetailsProps = {
     order: OrdersType[]
 }
 const TableDetails = ({order}: TableDetailsProps) => {
-    const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
-    const currentFloor = useAppSelector(state => state.tableSelect.currentFloor)
-    const [customerName, setCustomerName] = useState<string>()
-    const dispatch = useAppDispatch()
+    const {
+         customerName
+    } = useTableDetailsViewModel(order)
 
-    useEffect(() => {
-        const fetchCustomerByID = async () => {
-            try{
-                const data:AxiosResponse<CustomersType[]> = await getCustomerByID(order[0]?.CustomerID)
-                if(data.status == 200)
-                {
-                    setCustomerName(data.data[0]?.Name)
-                }
-            }catch(err) {
-                console.log(err)
-            }
-        }
-        fetchCustomerByID()
-
-    }, [])
   return (
     <div className='flex w-[335px] flex-col p-[4px]'>
         <div className='flex items-center'>

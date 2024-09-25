@@ -4,53 +4,18 @@ import NotificationIcon from '../NotificationIcon'
 import ProfilePlaceholderIcon from '../../../Assets/Icons/ProfilePlaceholder.svg'
 import BillDetails from '../BillDetails'
 import TableDetails from '../TableDetails'
-import { useAppDispatch, useAppSelector } from '../../../State/hooks'
 import ItemsList from '../ItemsSelected/ItemsList'
-import { useEffect, useState } from 'react'
-import { getOrdersByTable } from '../../../api/Orders'
 import { OrdersType } from '../../../api/types'
 import { selectScreen } from '../../../Screens/ScreensSlice'
-import { setStartPosition } from '../../../Screens/BackdropSlice'
-import { AxiosResponse } from 'axios'
 import TableSelectedPlaceholder from '../TableSelectedPlaceholder'
+import useTableSelectedDashboardViewModel from './viewModel'
 
 const TableSelected = () => {
-  const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
-  const currentFloor = useAppSelector(state => state.tableSelect.currentFloor)
-  const dispatch = useAppDispatch()
 
-  const [order, setOrder] = useState<OrdersType[] | null>(null)
-  const [loading, setLoading] = useState<boolean>(true)
-  const [note, setNote] = useState(false)
-  const [discount, setDiscount] = useState(false)
-
-  const handleNotificationsClick = (e: React.MouseEvent<HTMLImageElement | HTMLDivElement>, initiator: string) => {
-    const clickX = e.clientX;
-    const clickY = e.clientY;
-
-    dispatch(setStartPosition({ top: clickY, left: clickX, initiator: initiator }));
-
-};
-  useEffect(() => {
-    setLoading(true)
-    if(currentTable == 'None') {
-      setLoading(false)
-      return
-    }
-    const fetchOrderByTableID = async () => {
-      try{
-        const data:AxiosResponse<OrdersType[]> = await getOrdersByTable(currentTable)
-        if(data.status == 200)
-        {
-          setOrder(data.data)
-          setLoading(false)
-        }
-      }catch(err) {
-        console.log(err)
-      }
-    }
-    fetchOrderByTableID()
-  }, [currentTable, currentFloor])
+  const {
+    currentTable, dispatch, order, loading, note, setNote,
+    discount, setDiscount, handleNotificationsClick
+  } = useTableSelectedDashboardViewModel()
 
   return (
     loading

@@ -3,76 +3,20 @@ import FoodTypeNavbar from '../../Components/AppComponents/FoodTypeNavbar'
 import SearchIcon from '../../Assets/Icons/Search.svg'
 import CrossIcon from '../../Assets/Icons/Cross.svg'
 import SeparatingLine from '../../Assets/Icons/SeparatingLine.svg'
-import { useAppDispatch, useAppSelector } from '../../State/hooks'
 import { selectScreen } from '../ScreensSlice'
-import { useEffect, useState, useRef } from 'react'
 import { initialState, resetStartPosition } from '../BackdropSlice'
 import FoodSelectorNavbar from '../../Components/AppComponents/FoodSelectorNavbar'
 import FoodItem from '../../Components/AppComponents/FoodItem'
 import '../../Styles/Scrollbars.css'
 import BackdropHandler from '../../Components/AppComponents/Backdrops/BackdropHandler'
+import useItemsSelectViewModel from './viewModel'
 
 const ItemsSelect = () => {
-    const [itemName, setItemName] = useState<string>('')
-    const screen = useAppSelector(state => state.screen.screen)
-    let screenWidth = document.body.clientWidth
-    const [maxWidth, setMaxWidth] = useState<number>(screenWidth < 1350? screenWidth - 500 - 40 - 10:screenWidth-500-120-40);
-    const [isFoodItemBackdropVisible, setIsFoodItemBackdropVisible] = useState(false);
-    const [isNotificationsVisible, setIsNotificationsVisible] = useState(false);
-    const startPosition = useAppSelector(state => state.backdrop)
-    const dispatch = useAppDispatch()
-    const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-    const handleScrollRight = () => {
-        if (scrollContainerRef.current) {
-            const scrollAmount = scrollContainerRef.current.clientWidth + 24;
-            scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        }
-    };
-
-    const handleScrollLeft = () => {
-        if (scrollContainerRef.current) {
-            const scrollAmount = scrollContainerRef.current.clientWidth + 24;
-            scrollContainerRef.current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-        }
-    }
-
-    useEffect(() => {
-        if (startPosition.initiator == 'Food Item' && (startPosition.startPosition.top !== 0 || startPosition.startPosition.left !== 0)) {
-            setIsFoodItemBackdropVisible(true);
-        }else if((startPosition.initiator == 'Notifications' || 
-            startPosition.initiator == 'Profile' ||
-            startPosition.initiator == 'Cancel Order'
-          ) 
-            && (startPosition.startPosition.top !== 0 || startPosition.startPosition.left !== 0)) {
-          setIsNotificationsVisible(true)
-       }
-    }, [startPosition]);
-
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setItemName(event.target.value);
-    }
-
-    const modifyMaxWidth = (width: number) => {
-        const newWidth = Math.floor((width-100) / 124)*124 + 100
-        setMaxWidth(newWidth)
-    }
-
-    useEffect(() => {
-        modifyMaxWidth(maxWidth)
-        const updateMaxWidth = () => {
-            screenWidth = document.body.clientWidth
-            if (screenWidth < 1350) {
-                modifyMaxWidth(screenWidth - 500 - 40-10)
-            }else{
-                modifyMaxWidth(screenWidth-500-120-40)
-            }
-        };
-
-        window.addEventListener('resize', updateMaxWidth);
-
-        return () => window.removeEventListener('resize', updateMaxWidth);
-    }, []);
+    const {
+        itemName, maxWidth,  isFoodItemBackdropVisible, setIsFoodItemBackdropVisible,
+        isNotificationsVisible, setIsNotificationsVisible, startPosition, dispatch, scrollContainerRef,
+        handleScrollLeft, handleScrollRight, handleInputChange
+    } = useItemsSelectViewModel()
 
   return (
     <div className='ItemsScreen flex-1 flex flex-col gap-y-[24px] pt-[55px] pb-[34px] pe-[40px]  desktop-max:pe-[20px]'>

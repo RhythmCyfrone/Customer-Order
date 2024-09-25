@@ -1,9 +1,8 @@
 import DeleteItemCountIcon from '../../../../Assets/Icons/DeleteItemCount.svg'
 import AddItemCountIcon from '../../../../Assets/Icons/AddItemCount.svg'
 import { Checkbox } from '@mui/material';
-import { useAppSelector } from '../../../../State/hooks';
-import { useEffect, useState } from 'react';
 import ItemStatusToggle from '../ItemStatusToggle';
+import useItemsListItemViewModel from './viewModel';
 
 type ItemsListItemProps = {
     itemName: string;
@@ -15,14 +14,10 @@ type ItemsListItemProps = {
     checkedAll?: boolean
 }
 const ItemsListItem = ({itemName, itemCount, note, setNote, checkedAll = false, discount, setDiscount}: ItemsListItemProps) => {
-    const screen = useAppSelector(state => state.screen.screen)
-    const displayCheckbox = note || discount
-    const displayCounters = screen == 'Items Select' || !displayCheckbox
-    const [checked, setChecked] = useState(true)
-
-    useEffect(() => {
-        setChecked(checkedAll)
-    }, [checkedAll])
+    const {
+        screen, displayCheckbox, displayCounters, checked, setChecked
+    } = useItemsListItemViewModel({note, discount, checkedAll})
+    
   return (
     <div className={`ps-[16px] pe-[16px] ${displayCheckbox?'':'pt-[8px]'} flex items-center`}>
             <div className='flex w-[40%]'>

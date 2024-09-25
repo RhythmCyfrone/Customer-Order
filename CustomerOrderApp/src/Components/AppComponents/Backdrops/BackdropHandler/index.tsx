@@ -2,14 +2,14 @@ import { useAppDispatch, useAppSelector } from "../..//../../State/hooks"
 import CancelOrderBackdrop from "../CancelOrderBackdrop"
 import NotificationsBackdrop from "../NotificationsBackdrop"
 import ProfileBackdrop from "../ProfileBackdrop"
+import useBackdropHandlerViewModal from "./viewModel"
 
 type BackdropProps = {
     isNotificationsVisible: boolean;
     setIsNotificationsVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 const BackdropHandler = ({isNotificationsVisible, setIsNotificationsVisible}: BackdropProps) => {
-    const startPosition = useAppSelector(state => state.backdrop)
-    const dispatch = useAppDispatch()
+    const {startPosition} = useBackdropHandlerViewModal()
   return (
     startPosition.initiator == 'Notifications'
     ?<NotificationsBackdrop 

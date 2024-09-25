@@ -1,10 +1,13 @@
-import { useAppDispatch, useAppSelector } from '../../../State/hooks'
 import { selectFoodKind, selectorType } from './FoodSelectorNavbarSlice'
+import { useFoodSelectorNavbarViewModel } from './viewModel'
 
 const SelectorButton = ({selectorName}: {selectorName: selectorType}) => {
-    const selector = useAppSelector(state => state.foodSelector.selector)
-    const dispatch = useAppDispatch()
-    const padding = selectorName == 'All'?'ps-[20px] pe-[20px]':'ps-[10px] pe-[10px]'
+    const {
+        selector,
+        dispatch,
+        padding
+    } = useFoodSelectorNavbarViewModel(selectorName)
+    
     return (
         selector == selectorName
         ?<div className={`p-[4px] cursor-pointer ${padding} rounded-[20px] bg-[#C3DAFF] border-[1px] border-[#3B82F6]`}>

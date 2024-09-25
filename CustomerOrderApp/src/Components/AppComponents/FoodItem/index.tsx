@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import WatterBottleImage from '../../../Assets/Food Images/WaterBottle.png'
 import VegIcon from '../../../Assets/Icons/Veg.svg'
 import TickIcon from '../../../Assets/Icons/Tick.svg'
@@ -6,21 +5,12 @@ import InfoIcon from '../../../Assets/Icons/Info.svg'
 import NonVegIcon from '../../../Assets/Icons/NonVeg.svg'
 import VeganIcon from '../../../Assets/Icons/Vegan.svg'
 import EggIcon from '../../../Assets/Icons/Egg.svg'
-import { useAppDispatch, useAppSelector } from '../../../State/hooks'
-import { setStartPosition } from '../../../Screens/BackdropSlice'
+import useFoodItemViewModel from './viewModel'
 
 
 const FoodItem = () => {
-  const dispatch = useAppDispatch()
-  const [selected, setSelected] = useState(false)
+  const { dispatch, selected, setSelected, handleClick} = useFoodItemViewModel()
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    const clickX = e.clientX;
-    const clickY = e.clientY;
-
-    dispatch(setStartPosition({ top: clickY, left: clickX, initiator: 'Food Item' }));
-
-};
   return (
     <div className='flex flex-col'>
         <div className={`relative w-[100px] h-[100px] ${selected?'border-[#E1E1E1]':''} relative flex justify-center items-center rounded-[10px] border-[1px] border-[#E1E1E1]

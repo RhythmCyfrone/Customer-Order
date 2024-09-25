@@ -3,18 +3,15 @@ import ProfilePlaceholderIcon from '../../../../Assets/Icons/ProfilePlaceholderI
 import ProfileImage from '../../../../Assets/Icons/ProfilePlaceholder.svg'
 import EditIcon from '../../../../Assets/Icons/Edit.svg'
 import LogoutIcon from '../../../../Assets/Icons/Logout.svg'
-import { useAppDispatch, useAppSelector } from '../../../../State/hooks';
 import { resetStartPosition, initialState } from '../../../../Screens/BackdropSlice';
-import { useState } from 'react'
+import useProfileBackdropViewModel from './viewModel'
 
 type BackdropProps = {
     isNotificationsVisible: boolean;
     setIsNotificationsVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 const ProfileBackdrop = ({isNotificationsVisible, setIsNotificationsVisible}: BackdropProps) => {
-    const startPosition = useAppSelector(state => state.backdrop)
-    const dispatch = useAppDispatch()
-    const [logout, setLogout] = useState(false)
+   const {startPosition, dispatch, logout, setLogout} = useProfileBackdropViewModel()
   return (
     <div
             className={`backdrop-blur-[1px] z-20 backdrop absolute bg-opacity-20 bg-black flex justify-center items-center ${isNotificationsVisible?'transition-all duration-150':''}

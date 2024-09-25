@@ -1,26 +1,15 @@
-import { useState, useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../../State/hooks'
 import Table from '../../Components/AppComponents/Table'
 import OrderTypeBar from '../../Components/AppComponents/OrderType'
 import FloorNavbar from '../../Components/AppComponents/FloorNavbar'
 import SeachNavbar from '../../Components/AppComponents/SearchNavbar'
 import TableSelectorNavbar from '../../Components/AppComponents/TableSelectorNavbar'
 import BackdropHandler from '../../Components/AppComponents/Backdrops/BackdropHandler'
+import useDashboardViewModel from './viewModel'
 
 function Dashboard() {
-  const [isNotificationsVisible, setIsNotificationsVisible] = useState(false);
-  const startPosition = useAppSelector(state => state.backdrop)
-  const dispatch = useAppDispatch()
-
-    useEffect(() => {
-       if((startPosition.initiator == 'Notifications' || 
-            startPosition.initiator == 'Profile' ||
-            startPosition.initiator == 'Cancel Order'
-          ) 
-            && (startPosition.startPosition.top !== 0 || startPosition.startPosition.left !== 0)) {
-          setIsNotificationsVisible(true)
-       }
-    }, [startPosition]);
+    const {
+        isNotificationsVisible, setIsNotificationsVisible, startPosition, dispatch
+    } = useDashboardViewModel()
 
     return (
         <div className='flex-1 flex flex-col gap-y-[24px] pt-[34px] pb-[34px] ms-[80px] me-[40px]'>
