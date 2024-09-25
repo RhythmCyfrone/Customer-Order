@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
-import { useAppDispatch, useAppSelector } from '../State/hooks'
-import Table from '../Components/AppComponents/Table/Table'
-import OrderTypeBar from '../Components/AppComponents/OrderType/OrderType'
-import FloorNavbar from '../Components/AppComponents/FloorNavbar/FloorNavbar'
-import SeachNavbar from '../Components/AppComponents/SearchNavbar/SeachNavbar'
-import TableSelectorNavbar from '../Components/AppComponents/TableSelectorNavbar/TableSelectorNavbar'
-import BackdropHandler from '../Components/AppComponents/Backdrops/BackdropHandler'
+import { useAppDispatch, useAppSelector } from '../../State/hooks'
+import Table from '../../Components/AppComponents/Table'
+import OrderTypeBar from '../../Components/AppComponents/OrderType'
+import FloorNavbar from '../../Components/AppComponents/FloorNavbar'
+import SeachNavbar from '../../Components/AppComponents/SearchNavbar'
+import TableSelectorNavbar from '../../Components/AppComponents/TableSelectorNavbar'
+import BackdropHandler from '../../Components/AppComponents/Backdrops/BackdropHandler'
 
 function Dashboard() {
   const [isNotificationsVisible, setIsNotificationsVisible] = useState(false);

@@ -1,7 +1,7 @@
-import { useAppDispatch, useAppSelector } from "../../../State/hooks"
-import CancelOrderBackdrop from "./CancelOrderBackdrop";
-import NotificationsBackdrop from "./NotificationsBackdrop"
-import ProfileBackdrop from "./ProfileBackdrop"
+import { useAppDispatch, useAppSelector } from "../..//../../State/hooks"
+import CancelOrderBackdrop from "../CancelOrderBackdrop"
+import NotificationsBackdrop from "../NotificationsBackdrop"
+import ProfileBackdrop from "../ProfileBackdrop"
 
 type BackdropProps = {
     isNotificationsVisible: boolean;

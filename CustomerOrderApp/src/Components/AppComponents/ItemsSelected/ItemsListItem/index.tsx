@@ -1,9 +1,9 @@
-import DeleteItemCountIcon from '../../../Assets/Icons/DeleteItemCount.svg'
-import AddItemCountIcon from '../../../Assets/Icons/AddItemCount.svg'
+import DeleteItemCountIcon from '../../../../Assets/Icons/DeleteItemCount.svg'
+import AddItemCountIcon from '../../../../Assets/Icons/AddItemCount.svg'
 import { Checkbox } from '@mui/material';
-import { useAppSelector } from '../../../State/hooks';
+import { useAppSelector } from '../../../../State/hooks';
 import { useEffect, useState } from 'react';
-import ItemStatusToggle from './ItemStatusToggle';
+import ItemStatusToggle from '../ItemStatusToggle';
 
 type ItemsListItemProps = {
     itemName: string;

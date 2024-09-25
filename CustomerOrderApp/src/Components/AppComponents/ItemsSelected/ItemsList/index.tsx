@@ -1,11 +1,11 @@
-import ItemsNavbar from './ItemsNavbar'
+import ItemsNavbar from '../ItemsNavbar'
 import { useState, useEffect } from 'react'
-import DownIcon from '../../../Assets/Icons/Down.svg'
-import SeparatingLine from '../../../Assets/Icons/SeparatingLine.svg'
-import NoteIcon from '../../../Assets/Icons/Note.svg'
-import DiscountIcon from '../../../Assets/Icons/price-tag.svg'
-import PlacedItemSeparatingLine from '../../../Assets/Icons/PlacedItemSeparatingLine.svg'
-import ItemsListItem from './ItemsListItem'
+import DownIcon from '../../../../Assets/Icons/Down.svg'
+import SeparatingLine from '../../../../Assets/Icons/SeparatingLine.svg'
+import NoteIcon from '../../../../Assets/Icons/Note.svg'
+import DiscountIcon from '../../../../Assets/Icons/price-tag.svg'
+import PlacedItemSeparatingLine from '../../../../Assets/Icons/PlacedItemSeparatingLine.svg'
+import ItemsListItem from '../ItemsListItem'
 import { Checkbox } from '@mui/material'
 
 type ItemsListProps = {

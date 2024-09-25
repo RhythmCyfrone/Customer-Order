@@ -1,7 +1,7 @@
-import NewItemsNavbar from './NewItemsNavbar'
-import NewItemsListItem from './NewItemsListItem'
-import DownIcon from '../../../Assets/Icons/Down.svg'
-import PlacedItemSeparatingLine from '../../../Assets/Icons/PlacedItemSeparatingLine.svg'
+import NewItemsNavbar from '../NewItemsNavbar'
+import NewItemsListItem from '../NewItemsListItem'
+import DownIcon from '../../../../Assets/Icons/Down.svg'
+import PlacedItemSeparatingLine from '../../../../Assets/Icons/PlacedItemSeparatingLine.svg'
 import { useState, useEffect } from 'react'
 
 type NewItemsListProps = {

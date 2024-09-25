@@ -1,6 +1,6 @@
-import ZuciTitle from '../Assets/Icons/ZuciTitle.svg'
-import ShowPasswordIcon from '../Assets/Icons/ShowPassword.svg'
-import '../Styles/Shadows.css'
+import ZuciTitle from '../../Assets/Icons/ZuciTitle.svg'
+import ShowPasswordIcon from '../../Assets/Icons/ShowPassword.svg'
+import '../../Styles/Shadows.css'
 import { useState } from 'react'
 
 const LoginScreen = () => {

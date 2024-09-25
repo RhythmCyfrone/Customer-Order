@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { orderStatusToColors } from "../../../Assets/Constants/OrderStatusColors"
-import DropDownIcon from '../../../Assets/Icons/DropDown.svg'
-import { updateOrderStatus } from "../../../api/Orders"
+import { orderStatusToColors } from "../../../../Assets/Constants/OrderStatusColors"
+import DropDownIcon from '../../../../Assets/Icons/DropDown.svg'
+import { updateOrderStatus } from "../../../../api/Orders"
 
 type OrderStatusDropdownProps = {
     orderID: number;

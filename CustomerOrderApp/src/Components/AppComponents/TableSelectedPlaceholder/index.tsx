@@ -1,5 +1,5 @@
 import React from 'react'
-import NotificationIcon from '../NotificationIcon/NotificationIcon'
+import NotificationIcon from '../NotificationIcon'
 import ProfilePlaceholderIcon from '../../../Assets/Icons/ProfilePlaceholder.svg'
 
 type placeholderProps = {

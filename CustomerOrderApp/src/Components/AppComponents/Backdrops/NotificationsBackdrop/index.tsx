@@ -1,10 +1,10 @@
-import NotificationsTickIcon from '../../../Assets/Icons/NotificationsTick.svg'
-import NotificationsCancel from '../../../Assets/Icons/NotificationsCancel.svg'
-import { useAppDispatch, useAppSelector } from '../../../State/hooks';
-import { resetStartPosition, initialState } from '../../../Screens/BackdropSlice';
-import '../../../Styles/Shadows.css'
+import NotificationsTickIcon from '../../../../Assets/Icons/NotificationsTick.svg'
+import NotificationsCancel from '../../../../Assets/Icons/NotificationsCancel.svg'
+import { useAppDispatch, useAppSelector } from '../../../../State/hooks';
+import { resetStartPosition, initialState } from '../../../../Screens/BackdropSlice';
+import '../../../../Styles/Shadows.css'
 import { useState, useEffect } from 'react'
-import NotificationsItems from './NotificationsItems';
+import NotificationsItems from '../NotificationsItems';
 
 type BackdropProps = {
     isNotificationsVisible: boolean;

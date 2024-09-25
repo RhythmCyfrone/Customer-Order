@@ -1,10 +1,10 @@
-import CrossIcon from '../../../Assets/Icons/Cross.svg'
-import ProfilePlaceholderIcon from '../../../Assets/Icons/ProfilePlaceholderIcon.svg'
-import ProfileImage from '../../../Assets/Icons/ProfilePlaceholder.svg'
-import EditIcon from '../../../Assets/Icons/Edit.svg'
-import LogoutIcon from '../../../Assets/Icons/Logout.svg'
-import { useAppDispatch, useAppSelector } from '../../../State/hooks';
-import { resetStartPosition, initialState } from '../../../Screens/BackdropSlice';
+import CrossIcon from '../../../../Assets/Icons/Cross.svg'
+import ProfilePlaceholderIcon from '../../../../Assets/Icons/ProfilePlaceholderIcon.svg'
+import ProfileImage from '../../../../Assets/Icons/ProfilePlaceholder.svg'
+import EditIcon from '../../../../Assets/Icons/Edit.svg'
+import LogoutIcon from '../../../../Assets/Icons/Logout.svg'
+import { useAppDispatch, useAppSelector } from '../../../../State/hooks';
+import { resetStartPosition, initialState } from '../../../../Screens/BackdropSlice';
 import { useState } from 'react'
 
 type BackdropProps = {
