@@ -37,14 +37,15 @@ const CombineBills = ({note, setNote, discount, setDiscount, handleNotifications
                 <span className='font-poppins font-normal text-[16px]'>Grand Total</span>
                 <span className='font-poppins font-normal text-[24px]'>1000 /-</span>
             </div>
-            <div className='flex flex-1 justify-between mt-[32px] items-start ps-[32px] pe-[32px]'>
+            <div className='flex flex-1 overflow-y-scroll justify-between mt-[32px] items-start ps-[32px] pe-[32px]'>
                 <span className='font-poppins flex-1 font-normal text-[20px] leading-[30px]'>Select Table</span>
-                <div className='z-10 bg-white w-[140px] relative rounded-[8px] transition-height duration-200'>
-                    <div className='relative cursor-pointer rounded-[10px] p-[4px] flex justify-center items-center box-content'
+                <div className='z-10 flex flex-col bg-white w-[140px] max-h-full overflow-y-scroll relative rounded-[8px] transition-height duration-200'>
+                    <div className={`relative cursor-pointer rounded-[10px] p-[4px] flex justify-center items-center box-content
+                                     ${dropDown?'select-table-shadow':''}`}
                         onClick={() => setDropDown(!dropDown)}
                     >
                         <div className='flex w-full h-full p-[8px] rounded-[8px] gap-x-[8px] items-center'>
-                            <span className='flex-1 font-opensans text-[16px] font-medium'>
+                            <span className='flex-1 font-opensans text-[16px] font-medium text-center'>
                                 {choosenTable == ''
                                     ?'Select Table'
                                     :choosenTable
@@ -53,25 +54,86 @@ const CombineBills = ({note, setNote, discount, setDiscount, handleNotifications
                             <img src={DropDownIcon}/>
                         </div>
                     </div>
-                    <div className={`${!dropDown?'max-h-[0px] p-[0px]':'max-h-[100px] p-[8px]'} overflow-hidden flex w-full flex justify-center items-center transition-height duration-200 box-border`}>
-                        <div className='flex bg-[#EBF3FE] max-w-full rounded-[20px] p-[4px] gap-x-[8px]'>
-                            <img src={SearchIcon} className="w-[18px]"/>
-                            <input
-                                type='text'
-                                value={tableName}
-                                onChange={handleInputChange}
-                                placeholder='Search Table'
-                                className='bg-transparent font-poppins font-normal text-[12px] outline-none w-full'
-                            />
+                    <div className="flex flex-col flex-1 overflow-y-scroll">
+                        <div className={`${!dropDown?'max-h-[0px] p-[0px] overflow-hidden':'max-h-[100px] p-[8px]'} flex w-full flex justify-center items-center transition-height duration-200 box-border`}
+                        >
+                            <div className='flex bg-[#EBF3FE] max-w-full rounded-[20px] p-[4px] gap-x-[8px]'>
+                                <img src={SearchIcon} className="w-[18px]"/>
+                                <input
+                                    type='text'
+                                    value={tableName}
+                                    onChange={handleInputChange}
+                                    placeholder='Search Table'
+                                    className='bg-transparent font-poppins font-normal text-[12px] outline-none w-full'
+                                />
+                            </div>
                         </div>
+                        <div className={`${!dropDown?'max-h-[0px] p-[0px] overflow-hidden':'max-h-[100px] p-[8px]'} flex w-full h-full pt-[0px] flex flex-col gap-y-[8px] justify-center items-center transition-height duration-100
+                                        hover:bg-[#EBF3FE] cursor-pointer`}
+                                onClick={() => {
+                                    setChoosenTable('A2')
+                                    setDropDown(false)
+                                }}
+                            >
+                            <img src={TableNameSeparatingLine} />
+                            <span className='flex-1 font-opensans text-[12px] font-medium'>A2</span>
+                        </div>
+                        <div className={`${!dropDown?'max-h-[0px] p-[0px] overflow-hidden':'max-h-[100px] p-[8px]'} flex w-full h-full pt-[0px] flex flex-col gap-y-[8px] justify-center items-center transition-height duration-100
+                                        hover:bg-[#EBF3FE] cursor-pointer`}
+                                onClick={() => {
+                                    setChoosenTable('A2')
+                                    setDropDown(false)
+                                }}
+                            >
+                            <img src={TableNameSeparatingLine} />
+                            <span className='flex-1 font-opensans text-[12px] font-medium'>A3</span>
+                        </div>
+                        <div className={`${!dropDown?'max-h-[0px] p-[0px] overflow-hidden':'max-h-[100px] p-[8px]'} flex w-full h-full pt-[0px] flex flex-col gap-y-[8px] justify-center items-center transition-height duration-100
+                                        hover:bg-[#EBF3FE] cursor-pointer`}
+                                onClick={() => {
+                                    setChoosenTable('A2')
+                                    setDropDown(false)
+                                }}
+                            >
+                            <img src={TableNameSeparatingLine} />
+                            <span className='flex-1 font-opensans text-[12px] font-medium'>A4</span>
+                        </div>
+                        <div className={`${!dropDown?'max-h-[0px] p-[0px] overflow-hidden':'max-h-[100px] p-[8px]'} flex w-full h-full pt-[0px] flex flex-col gap-y-[8px] justify-center items-center transition-height duration-100
+                                        hover:bg-[#EBF3FE] cursor-pointer`}
+                                onClick={() => {
+                                    setChoosenTable('A2')
+                                    setDropDown(false)
+                                }}
+                            >
+                            <img src={TableNameSeparatingLine} />
+                            <span className='flex-1 font-opensans text-[12px] font-medium'>A4</span>
+                        </div>
+                        <div className={`${!dropDown?'max-h-[0px] p-[0px] overflow-hidden':'max-h-[100px] p-[8px]'} flex w-full h-full pt-[0px] flex flex-col gap-y-[8px] justify-center items-center transition-height duration-100
+                                        hover:bg-[#EBF3FE] cursor-pointer`}
+                                onClick={() => {
+                                    setChoosenTable('A2')
+                                    setDropDown(false)
+                                }}
+                            >
+                            <img src={TableNameSeparatingLine} />
+                            <span className='flex-1 font-opensans text-[12px] font-medium'>A4</span>
+                        </div>
+                        <div className={`${!dropDown?'max-h-[0px] p-[0px] overflow-hidden':'max-h-[100px] p-[8px]'} flex w-full h-full pt-[0px] flex flex-col gap-y-[8px] justify-center items-center transition-height duration-100
+                                        hover:bg-[#EBF3FE] cursor-pointer`}
+                                onClick={() => {
+                                    setChoosenTable('A2')
+                                    setDropDown(false)
+                                }}
+                            >
+                            <img src={TableNameSeparatingLine} />
+                            <span className='flex-1 font-opensans text-[12px] font-medium'>A4</span>
+                        </div>
+                        
                     </div>
-                    <div className='flex w-full h-full p-[8px] flex flex-col gap-y-[8px] justify-center items-center'>
-                        <img src={TableNameSeparatingLine} />
-                        <span className='flex-1 font-opensans text-[12px] font-medium'>A2</span>
-                    </div>
+                    
                 </div>
             </div>
-            <div className='flex gap-x-[16px] justify-end pe-[32px]'>
+            <div className='flex gap-x-[16px] justify-end pe-[32px] mt-[16px]'>
                 <button className='text-center fontSecondaryButtonDefault border-[1px] border-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover
                             hover:bg-CustomBrand-200 active:shadow-none active:bg-white'
                         onClick={() => setCombineBills(false)}

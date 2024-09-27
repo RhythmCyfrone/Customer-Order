@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 const useCombineBillsViewModel = () => {
-    const [dropDown, setDropDown] = useState(true)
+    const [dropDown, setDropDown] = useState(false)
     const [tableName, setTableName] = useState('')
     const [choosenTable, setChoosenTable] = useState('')
 
