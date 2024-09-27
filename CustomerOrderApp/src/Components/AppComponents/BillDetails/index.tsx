@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import BillViewIcon from '../../../Assets/Icons/BillView.svg'
 import SeparatingLine from '../../../Assets/Icons/SeparatingLine.svg'
 import NoteIcon from '../../../Assets/Icons/Note.svg'
@@ -18,10 +17,11 @@ type BillDetailsProps = {
     setNote: React.Dispatch<React.SetStateAction<boolean>> ;
     discount: boolean;
     setDiscount: React.Dispatch<React.SetStateAction<boolean>> ;
-    handleNotificationsClick: (e: React.MouseEvent<HTMLImageElement | HTMLDivElement> , initiator: string) => void
+    handleNotificationsClick: (e: React.MouseEvent<HTMLImageElement | HTMLDivElement> , initiator: string) => void;
+    setCombineBills: React.Dispatch<React.SetStateAction<boolean>> ;
 }
 
-const BillDetails = ({note, setNote, discount, setDiscount, handleNotificationsClick}: BillDetailsProps) => {
+const BillDetails = ({note, setNote, discount, setDiscount, handleNotificationsClick, setCombineBills}: BillDetailsProps) => {
     const {
         isRotated,
         setIsRotated,
@@ -135,6 +135,7 @@ const BillDetails = ({note, setNote, discount, setDiscount, handleNotificationsC
                         <span className='font-poppins font-normal text-[10px] text-white'>Split Bill</span>
                     </div>
                     <div className={`p-[5.5px] ps-[12px] pe-[12px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
+                        onClick={() => setCombineBills(true)}
                     >
                         <img src={CombineBillIcon} />
                         <span className='font-poppins font-normal text-[10px] text-white'>Combine</span>
@@ -173,6 +174,7 @@ const BillDetails = ({note, setNote, discount, setDiscount, handleNotificationsC
                         <span className='font-poppins font-normal text-[10px] text-white'>More</span>
                     </div>
                     <div className={`${viewMore?'':'hidden'} p-[5.5px] ps-[12px] pe-[12px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
+                        onClick={() => setCombineBills(true)}
                     >
                         <img src={CombineBillIcon} />
                         <span className='font-poppins font-normal text-[10px] text-white'>Combine</span>

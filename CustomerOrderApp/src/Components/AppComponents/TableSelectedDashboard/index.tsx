@@ -9,12 +9,13 @@ import { OrdersType } from '../../../api/types'
 import { selectScreen } from '../../../Screens/ScreensSlice'
 import TableSelectedPlaceholder from '../TableSelectedPlaceholder'
 import useTableSelectedDashboardViewModel from './viewModel'
+import CombineBills from '../CombineBills'
 
 const TableSelected = () => {
 
   const {
     currentTable, dispatch, order, loading, note, setNote,
-    discount, setDiscount, handleNotificationsClick
+    discount, setDiscount, handleNotificationsClick, combineBills, setCombineBills
   } = useTableSelectedDashboardViewModel()
 
   return (
@@ -43,13 +44,26 @@ const TableSelected = () => {
         <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px] cursor-pointer' 
           onClick={(e) => handleNotificationsClick(e, 'Profile')}
         />
-        <BillDetails 
-          note={note}
-          setNote={setNote}
-          discount={discount}
-          setDiscount={setDiscount}
-          handleNotificationsClick={handleNotificationsClick}
-        />
+        {combineBills == false
+          ?
+          <BillDetails 
+            note={note}
+            setNote={setNote}
+            discount={discount}
+            setDiscount={setDiscount}
+            handleNotificationsClick={handleNotificationsClick}
+            setCombineBills = {setCombineBills}
+          />
+          :<CombineBills 
+            note={note}
+            setNote={setNote}
+            discount={discount}
+            setDiscount={setDiscount}
+            handleNotificationsClick={handleNotificationsClick}
+            setCombineBills={setCombineBills}
+          />
+        }
+        
         <TableDetails 
           order={order as OrdersType[]}
         />

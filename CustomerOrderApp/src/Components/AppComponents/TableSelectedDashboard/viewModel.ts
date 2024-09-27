@@ -14,6 +14,7 @@ const useTableSelectedDashboardViewModel = () => {
   const [loading, setLoading] = useState<boolean>(true)
   const [note, setNote] = useState(false)
   const [discount, setDiscount] = useState(false)
+  const [combineBills, setCombineBills] = useState(false)
 
   const handleNotificationsClick = (e: React.MouseEvent<HTMLImageElement | HTMLDivElement>, initiator: string) => {
     const clickX = e.clientX;
@@ -45,7 +46,7 @@ const useTableSelectedDashboardViewModel = () => {
 
   return {
     currentFloor, currentTable, dispatch, order, setOrder, loading, setLoading, note, setNote,
-    discount, setDiscount, handleNotificationsClick
+    discount, setDiscount, handleNotificationsClick, combineBills, setCombineBills
   }
 }
 
