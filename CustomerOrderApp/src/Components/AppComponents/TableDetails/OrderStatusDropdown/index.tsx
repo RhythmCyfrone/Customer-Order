@@ -21,7 +21,7 @@ const OrderStatusDropdown = ({orderID, currentStatus}: OrderStatusDropdownProps)
                 </div>
             </div>
             {
-                Object.keys(orderStatusToColors).map((status: string) => {
+                Object.keys(orderStatusToColors).map((status: string, index: number) => {
                     if(status == orderStatus)
                         return <></>
                     return (
@@ -31,7 +31,7 @@ const OrderStatusDropdown = ({orderID, currentStatus}: OrderStatusDropdownProps)
                                     setTimeout(() => {
                                         setOrderStatus(status as keyof typeof orderStatusToColors)
                                         setDropDown(false)
-                                        handleUpdateOrderStatus(status)
+                                        handleUpdateOrderStatus(index+1)
                                     }, 0)
                                 }}
                             >

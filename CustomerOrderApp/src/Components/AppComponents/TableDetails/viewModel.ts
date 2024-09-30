@@ -1,32 +1,14 @@
 import { useState, useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../State/hooks"
-import { AxiosResponse } from "axios"
-import { CustomersType, OrdersType } from "../../../api/types"
-import { getCustomerByID } from "../../../api/Customers"
 import { orderStatusToColors } from "../../../Assets/Constants/OrderStatusColors"
-import { updateOrderStatus } from "../../../api/Orders"
+import { OrderDTO } from "../../../models/api/orders"
+import useOrderModel from "../../../models/useOrderModel"
 
-export const useTableDetailsViewModel = (order: OrdersType[]) => {
+export const useTableDetailsViewModel = (order: OrderDTO) => {
     const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
     const currentFloor = useAppSelector(state => state.tableSelect.currentFloor)
     const [customerName, setCustomerName] = useState<string>()
     const dispatch = useAppDispatch()
-
-    useEffect(() => {
-        const fetchCustomerByID = async () => {
-            try{
-                const data:AxiosResponse<CustomersType[]> = await getCustomerByID(order[0]?.CustomerID)
-                if(data.status == 200)
-                {
-                    setCustomerName(data.data[0]?.Name)
-                }
-            }catch(err) {
-                console.log(err)
-            }
-        }
-        fetchCustomerByID()
-
-    }, [])
 
     return {
         currentFloor, currentTable, customerName, setCustomerName, dispatch
@@ -34,21 +16,31 @@ export const useTableDetailsViewModel = (order: OrdersType[]) => {
 }
 
 export type OrderStatusDropdownProps = {
-    orderID: number;
-    currentStatus: keyof typeof orderStatusToColors
+    orderID: string;
+    currentStatus: number;
 }
 
 export const useOrderStatusDropdown = ({orderID, currentStatus}: OrderStatusDropdownProps) => {
     const [dropDown, setDropDown] = useState(false)
-    const [orderStatus, setOrderStatus] = useState<keyof typeof orderStatusToColors>(currentStatus)
+    const [orderStatus, setOrderStatus] = useState<keyof typeof orderStatusToColors>('Ordered')
+    const { getStatusById, updateOrderStatus } = useOrderModel()
 
-    const handleUpdateOrderStatus = async (status: string) => {
-        try{
-            await updateOrderStatus(orderID, status)
-        }catch(err) {
+    const handleUpdateOrderStatus = async (orderStatusId: number) => {
+        const err = await updateOrderStatus(orderID, orderStatusId)
+        if(err !== null) {
             console.error(err)
         }
     }
+
+    useEffect(() => {
+        const getStatus = async () => {
+            const err = await getStatusById({setOrderStatus, orderStatusId: currentStatus})
+            if(err !== null) {
+                console.error(err)
+            }
+        }
+        getStatus()
+    }, [])
 
     return {
         dropDown, setDropDown, orderStatus, setOrderStatus, handleUpdateOrderStatus

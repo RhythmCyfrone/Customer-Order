@@ -1,21 +1,22 @@
 import { useState, useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../State/hooks"
-import { OrdersType } from "../../../api/types"
 import { setStartPosition } from "../../../Screens/BackdropSlice"
-import { AxiosResponse } from "axios"
-import { getOrdersByTable } from "../../../api/Orders"
+import { OrderDTO } from "../../../models/api/orders"
+import useOrderModel from "../../../models/useOrderModel"
 
 const useTableSelectedDashboardViewModel = () => {
   const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
   const currentFloor = useAppSelector(state => state.tableSelect.currentFloor)
   const dispatch = useAppDispatch()
 
-  const [order, setOrder] = useState<OrdersType[] | null>(null)
+  const [order, setOrder] = useState<OrderDTO | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
   const [note, setNote] = useState(false)
   const [discount, setDiscount] = useState(false)
   const [combineBills, setCombineBills] = useState(false)
   const [splitBills, setSplitBills] = useState(false)
+
+  const {getOrderByTableId} = useOrderModel()
 
   const handleNotificationsClick = (e: React.MouseEvent<HTMLImageElement | HTMLDivElement>, initiator: string) => {
     const clickX = e.clientX;
@@ -30,19 +31,15 @@ const useTableSelectedDashboardViewModel = () => {
       setLoading(false)
       return
     }
-    const fetchOrderByTableID = async () => {
-      try{
-        const data:AxiosResponse<OrdersType[]> = await getOrdersByTable(currentTable)
-        if(data.status == 200)
-        {
-          setOrder(data.data)
-          setLoading(false)
-        }
-      }catch(err) {
-        console.log(err)
+    const getOrder = async () => {
+      const err = await getOrderByTableId({setOrder, tableId: currentTable})
+      if(err !== null) {
+        setLoading(false)
+      }else {
+        setLoading(false)
       }
     }
-    fetchOrderByTableID()
+    getOrder()
   }, [currentTable, currentFloor])
 
   return {

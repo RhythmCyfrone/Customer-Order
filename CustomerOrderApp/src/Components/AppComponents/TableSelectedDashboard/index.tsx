@@ -33,7 +33,7 @@ const TableSelected = () => {
       content='No table selected'
       handleNotificationsClick={handleNotificationsClick}
     />
-    :order == null || order?.length == 0
+    :order == null
     ?
     <TableSelectedPlaceholder 
       content='No Orders'
@@ -73,7 +73,7 @@ const TableSelected = () => {
         }
         
         <TableDetails 
-          order={order as OrdersType[]}
+          order={order}
         />
         <ItemsList 
           note={note}
