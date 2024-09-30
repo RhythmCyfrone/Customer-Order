@@ -28,9 +28,13 @@ const CombineBills = ({note, setNote, discount, setDiscount, handleNotifications
                 >
                 {note}
             </div>
-            <div className="ps-[32px] flex gap-x-[17px]">
+            <div className="ps-[32px] pe-[32px] flex gap-x-[17px]">
                 <img src={CombineBillIcon} />
                 <span className="font-poppins font-medium text-[20px] leading-[30px]">Combine Bills</span>
+                <div className="flex-1 flex justify-end gap-x-[8px] items-center ">
+                    <span className="font-poppins font-normal text-[16px] leading-[16px] cursor-pointer">Table</span>
+                    <span className="font-poppins font-normal text-[24px] leading-[24px] cursor-pointer text-[#FFB800]">A2</span>
+                </div>
             </div>
             <img src={SeparatingLine} className="pt-[8px] pb-[8px]"/>
             <div className='flex justify-between p-0 items-center ps-[32px] pe-[32px]'>

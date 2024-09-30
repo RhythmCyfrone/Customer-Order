@@ -19,9 +19,14 @@ type BillDetailsProps = {
     setDiscount: React.Dispatch<React.SetStateAction<boolean>> ;
     handleNotificationsClick: (e: React.MouseEvent<HTMLImageElement | HTMLDivElement> , initiator: string) => void;
     setCombineBills: React.Dispatch<React.SetStateAction<boolean>> ;
+    splitBills: boolean;
+    setSplitBills: React.Dispatch<React.SetStateAction<boolean>> ;
 }
 
-const BillDetails = ({note, setNote, discount, setDiscount, handleNotificationsClick, setCombineBills}: BillDetailsProps) => {
+const BillDetails = ({note, setNote, discount, setDiscount, 
+                      handleNotificationsClick, setCombineBills,
+                      splitBills, setSplitBills
+                    }: BillDetailsProps) => {
     const {
         isRotated,
         setIsRotated,
@@ -130,7 +135,9 @@ const BillDetails = ({note, setNote, discount, setDiscount, handleNotificationsC
                         <img src={PriceTagIcon} />
                         <span className='font-poppins font-normal text-[10px] text-white'>Discount</span>
                     </div>
-                    <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'>
+                    <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
+                        onClick={() => setSplitBills(true)}
+                    >
                         <img src={SplitBillIcon} />
                         <span className='font-poppins font-normal text-[10px] text-white'>Split Bill</span>
                     </div>
@@ -163,7 +170,9 @@ const BillDetails = ({note, setNote, discount, setDiscount, handleNotificationsC
                         <img src={PriceTagIcon} />
                         <span className='font-poppins font-normal text-[10px] text-white'>Discount</span>
                     </div>
-                    <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'>
+                    <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
+                        onClick={() => setSplitBills(true)}
+                    >
                         <img src={SplitBillIcon} />
                         <span className='font-poppins font-normal text-[10px] text-white'>Split Bill</span>
                     </div>

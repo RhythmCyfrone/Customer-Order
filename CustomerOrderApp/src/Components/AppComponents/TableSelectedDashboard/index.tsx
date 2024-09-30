@@ -10,12 +10,14 @@ import { selectScreen } from '../../../Screens/ScreensSlice'
 import TableSelectedPlaceholder from '../TableSelectedPlaceholder'
 import useTableSelectedDashboardViewModel from './viewModel'
 import CombineBills from '../CombineBills'
+import SplitBills from '../SplitBills'
 
 const TableSelected = () => {
 
   const {
     currentTable, dispatch, order, loading, note, setNote,
-    discount, setDiscount, handleNotificationsClick, combineBills, setCombineBills
+    discount, setDiscount, handleNotificationsClick, combineBills, setCombineBills,
+    splitBills, setSplitBills
   } = useTableSelectedDashboardViewModel()
 
   return (
@@ -44,7 +46,7 @@ const TableSelected = () => {
         <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px] cursor-pointer' 
           onClick={(e) => handleNotificationsClick(e, 'Profile')}
         />
-        {combineBills == false
+        {combineBills == false && splitBills == false
           ?
           <BillDetails 
             note={note}
@@ -53,14 +55,20 @@ const TableSelected = () => {
             setDiscount={setDiscount}
             handleNotificationsClick={handleNotificationsClick}
             setCombineBills = {setCombineBills}
+            splitBills={splitBills}
+            setSplitBills={setSplitBills}
           />
-          :<CombineBills 
+          :combineBills
+          ?<CombineBills 
             note={note}
             setNote={setNote}
             discount={discount}
             setDiscount={setDiscount}
             handleNotificationsClick={handleNotificationsClick}
             setCombineBills={setCombineBills}
+          />
+          :<SplitBills
+            setSplitBills={setSplitBills}
           />
         }
         
