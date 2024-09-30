@@ -1,5 +1,5 @@
 export const statusToColors = {
-    'Free': 'bg-TableStatus-free',
+    'free': 'bg-TableStatus-free',
     'Reserved': 'bg-TableStatus-reserved',
     'Assigned': 'bg-TableStatus-assigned',
     'Ordered': 'bg-TableStatus-confirmed',
@@ -9,7 +9,7 @@ export const statusToColors = {
 } as const
 
 export const statusToTextColors = {
-    'Free': 'text-TableStatus-free',
+    'free': 'text-TableStatus-free',
     'Reserved': 'text-TableStatus-reserved',
     'Assigned': 'text-TableStatus-assigned',
     'Ordered': 'text-TableStatus-confirmed',

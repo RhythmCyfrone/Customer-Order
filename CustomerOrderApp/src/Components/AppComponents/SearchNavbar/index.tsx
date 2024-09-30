@@ -2,11 +2,12 @@ import SearchIcon from '../../../Assets/Icons/Search.svg'
 import SecondaryWithIcon from '../../Shared/Buttons/SecondaryWithIcon'
 import AddIcon from '../../../Assets/Icons/Add.svg'
 import useSearchNavbarViewModel from './viewModel'
+import type { SearchNavbarProps } from './viewModel'
 
-const SearchNavbar = () => {
+const SearchNavbar = ({tableName, setTableName}: SearchNavbarProps) => {
     const {
-        tableName, setTableName, handleInputChange
-    } = useSearchNavbarViewModel()
+        handleInputChange
+    } = useSearchNavbarViewModel({tableName, setTableName})
 
   return (
     <div className='flex gap-x-[8px] desktop-max:w-full desktop-max:justify-between'>

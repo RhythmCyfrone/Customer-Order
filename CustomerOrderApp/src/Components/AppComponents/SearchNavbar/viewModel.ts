@@ -1,12 +1,15 @@
-import { useState } from "react";
-const useSearchNavbarViewModel = () => {
-    const [tableName, setTableName] = useState<string>('')
+export type SearchNavbarProps = {
+    tableName: string;
+    setTableName: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const useSearchNavbarViewModel = ({tableName, setTableName}: SearchNavbarProps) => {
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setTableName(event.target.value);
     }
 
     return {
-        tableName, setTableName, handleInputChange
+         handleInputChange
     }
 }
 
