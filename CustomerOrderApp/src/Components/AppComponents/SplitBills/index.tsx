@@ -37,8 +37,15 @@ const SplitBills = ({setSplitBills}: SplitBillsProps) => {
                     <img src={AddItemCountIcon} className={`cursor-pointer `}/>
                 </div>
             </div>
-            <div className='flex flex-1 overflow-y-scroll justify-between mt-[32px] items-start ps-[32px] pe-[32px]'>
-
+            <div className='flex flex-col flex-1 overflow-y-scroll gap-y-[16px] mt-[32px] items-start '>
+                <div className='flex w-full justify-between p-0 items-center ps-[32px] pe-[32px]'>
+                    <span className='font-poppins font-normal text-[16px]'>Grand Total</span>
+                    <span className='font-poppins font-normal text-[24px]'>500 /-</span>
+                </div>
+                <div className='flex w-full justify-between p-0 items-center ps-[32px] pe-[32px]'>
+                    <span className='font-poppins font-normal text-[16px]'>Grand Total</span>
+                    <span className='font-poppins font-normal text-[24px]'>500 /-</span>
+                </div>
             </div>
             <div className='flex gap-x-[16px] justify-end pe-[32px] mt-[16px]'>
                 <button className='text-center fontSecondaryButtonDefault border-[1px] border-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover
