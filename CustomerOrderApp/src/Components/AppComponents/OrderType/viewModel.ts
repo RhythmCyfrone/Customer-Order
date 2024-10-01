@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../../State/hooks";
-import { OrderType } from "./orderTypeSlice";
+import { OrderType } from "../../../State/Slices/orderTypeSlice";
 
 const useOrderType = (buttonType: OrderType) => {
     const orderType = useAppSelector(state => state.orderType.type)

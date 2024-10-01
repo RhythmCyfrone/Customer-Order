@@ -1,4 +1,4 @@
-import { getOrderByTableIdAPI, getStatusByIdAPI, updateOrderStatusAPI, OrderDTO } from "./api/orders"
+import { getOrderByTableIdAPI, getStatusByIdAPI, updateOrderStatusAPI, OrderDTO } from "../Services/HTTPServices/orders";
 import { orderStatusToColors } from "../Assets/Constants/OrderStatusColors";
 
 const useOrderModel = () => {

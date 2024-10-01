@@ -1,6 +1,6 @@
 import '../../../Styles/Shadows.css'
 import '../../../Styles/Fonts.css'
-import {selectTable} from './TableSlice'
+import {selectTable} from '../../../State/Slices/TableSlice'
 import TablePressedEclipse from '../../../Assets/Icons/TablePressedEclipse.svg'
 import './Table.css'
 import useTableViewModel from './viewModel'

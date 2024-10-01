@@ -5,7 +5,7 @@ import PosUnselectedSidebarIcon from '../../../Assets/Icons/PosUnselectedSidebar
 import TableSidebarUnselectedIcon from '../../../Assets/Icons/TableSidebarUnselected.svg'
 import TableSidebarSelectedIcon from '../../../Assets/Icons/TableSidebarSelected.svg'
 import { useAppSelector, useAppDispatch } from '../../../State/hooks'
-import { toggle } from './sidebarSlice'
+import { toggle } from '../../../State/Slices/sidebarSlice'
 
 
 

@@ -3,7 +3,7 @@ import ProfilePlaceholderIcon from '../../../../Assets/Icons/ProfilePlaceholderI
 import ProfileImage from '../../../../Assets/Icons/ProfilePlaceholder.svg'
 import EditIcon from '../../../../Assets/Icons/Edit.svg'
 import LogoutIcon from '../../../../Assets/Icons/Logout.svg'
-import { resetStartPosition, initialState } from '../../../../Screens/BackdropSlice';
+import { resetStartPosition, initialState } from '../../../../State/Slices/BackdropSlice';
 import useProfileBackdropViewModel from './viewModel'
 
 type BackdropProps = {

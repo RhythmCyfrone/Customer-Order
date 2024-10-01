@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import sidebarReducer from '../Components/AppComponents/Sidebar/sidebarSlice'
-import tableReducer from '../Components/AppComponents/Table/TableSlice'
-import orderTypeReducer from '../Components/AppComponents/OrderType/orderTypeSlice'
-import floorReducer from '../Components/AppComponents/FloorNavbar/floorSlice'
-import ScreensReducer from '../Screens/ScreensSlice'
-import FoodSelectorNavbarReducer from '../Components/AppComponents/FoodSelectorNavbar/FoodSelectorNavbarSlice'
-import BackdropReducer from '../Screens/BackdropSlice'
-import tableDataReducer from '../models/slices/tablesSlice'
+import sidebarReducer from './Slices/sidebarSlice'
+import tableReducer from './Slices/TableSlice'
+import orderTypeReducer from './Slices/orderTypeSlice'
+import floorReducer from './Slices/floorSlice'
+import ScreensReducer from './Slices/ScreensSlice'
+import FoodSelectorNavbarReducer from './Slices/FoodSelectorNavbarSlice'
+import BackdropReducer from './Slices/BackdropSlice'
+import tableDataReducer from './Slices/tablesSlice'
 
 export const store = configureStore({
   reducer: {

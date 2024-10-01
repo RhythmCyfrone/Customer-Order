@@ -5,8 +5,8 @@ import LunchBagIcon from '../../../Assets/Icons/lunch-bag.svg'
 import '../../../Styles/Shadows.css'
 import '../../../Styles/Fonts.css'
 
-import type { OrderType } from './orderTypeSlice'
-import { selectOrderType } from './orderTypeSlice'
+import type { OrderType } from '../../../State/Slices/orderTypeSlice'
+import { selectOrderType } from '../../../State/Slices/orderTypeSlice'
 import useOrderType from './viewModel'
 
 const OrderTypeButton = ({buttonType}: {buttonType:  OrderType}) => {

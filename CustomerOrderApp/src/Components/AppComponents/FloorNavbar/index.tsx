@@ -1,7 +1,7 @@
 import React from 'react'
 import { useAppDispatch, useAppSelector } from '../../../State/hooks'
-import { FloorType } from './floorSlice'
-import { selectFloor } from './floorSlice'
+import { FloorType } from '../../../State/Slices/floorSlice'
+import { selectFloor } from '../../../State/Slices/floorSlice'
 
 const Floor = ({floor}: {floor: FloorType}) => {
     const currentFloor = useAppSelector(state => state.floor.currentFloor)

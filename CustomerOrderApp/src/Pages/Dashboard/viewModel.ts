@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../State/hooks";
-import useDashboardModel from "../../models/useDashboardModel";
+import useDashboardModel from "../../Models/useDashboardModel";
 
 const useDashboardViewModel = () => {
     const [isNotificationsVisible, setIsNotificationsVisible] = useState(false);

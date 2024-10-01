@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../../State/hooks"
-import { selectorType } from "./FoodSelectorNavbarSlice"
+import { selectorType } from "../../../State/Slices/FoodSelectorNavbarSlice"
 
 export const useFoodSelectorNavbarViewModel = (selectorName: selectorType) => {
     const selector = useAppSelector(state => state.foodSelector.selector)

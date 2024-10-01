@@ -1,6 +1,6 @@
 import NotificationsTickIcon from '../../../../Assets/Icons/NotificationsTick.svg'
 import NotificationsCancel from '../../../../Assets/Icons/NotificationsCancel.svg'
-import { resetStartPosition, initialState } from '../../../../Screens/BackdropSlice';
+import { resetStartPosition, initialState } from '../../../../State/Slices/BackdropSlice';
 import '../../../../Styles/Shadows.css'
 import { useState, useEffect } from 'react'
 import NotificationsItems from '../NotificationsItems';

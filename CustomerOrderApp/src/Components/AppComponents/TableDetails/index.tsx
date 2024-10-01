@@ -1,5 +1,5 @@
 import { OrdersType } from '../../../api/types'
-import { OrderDTO } from '../../../models/api/orders'
+import { OrderDTO } from '../../../Models/api/orders'
 import OrderStatusDropdown from './OrderStatusDropdown'
 import { useTableDetailsViewModel } from './viewModel'
 

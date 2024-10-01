@@ -3,9 +3,9 @@ import './App.css'
 import Sidebar from './Components/AppComponents/Sidebar'
 import TableSelectedDashboard from './Components/AppComponents/TableSelectedDashboard'
 import TableSelectedItemsSelect from './Components/AppComponents/TableSelectedItemsSelect'
-import Dashboard from './Screens/Dashboard'
-import ItemsSelect from './Screens/ItemsSelect'
-import LoginScreen from './Screens/LoginScreen'
+import Dashboard from './Pages/Dashboard'
+import ItemsSelect from './Pages/ItemsSelect'
+import LoginScreen from './Pages/LoginScreen'
 import { useAppSelector } from './State/hooks'
 
 

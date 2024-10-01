@@ -1,6 +1,6 @@
 import { useAppSelector, useAppDispatch } from "../State/hooks"
-import { getAllTablesAPI } from "./api/tables"
-import { updateTablesList } from "./slices/tablesSlice"
+import { getAllTablesAPI } from "../Services/HTTPServices/tables"
+import { updateTablesList } from "../State/Slices/tablesSlice"
 
 const useDashboardModel = () => {
     const dispatch = useAppDispatch()

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../State/hooks"
-import { setStartPosition } from "../../../Screens/BackdropSlice"
-import { OrderDTO } from "../../../models/api/orders"
-import useOrderModel from "../../../models/useOrderModel"
+import { setStartPosition } from "../../../State/Slices/BackdropSlice"
+import { OrderDTO } from "../../../Models/api/orders"
+import useOrderModel from "../../../Models/useOrderModel"
 
 const useTableSelectedDashboardViewModel = () => {
   const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
