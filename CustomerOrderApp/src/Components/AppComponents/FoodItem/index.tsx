@@ -5,7 +5,7 @@ import InfoIcon from '../../../Assets/Icons/Info.svg'
 import NonVegIcon from '../../../Assets/Icons/NonVeg.svg'
 import VeganIcon from '../../../Assets/Icons/Vegan.svg'
 import EggIcon from '../../../Assets/Icons/Egg.svg'
-import useFoodItemViewModel from './viewModel'
+import useFoodItemViewModel from './FoodItemViewModel'
 
 
 const FoodItem = () => {

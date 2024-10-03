@@ -4,7 +4,7 @@ import { resetStartPosition, initialState } from '../../../../State/Slices/Backd
 import '../../../../Styles/Shadows.css'
 import { useState, useEffect } from 'react'
 import NotificationsItems from '../NotificationsItems';
-import useNotificationsBackdropViewModel from './viewModel';
+import useNotificationsBackdropViewModel from './NotificationsBackdropViewModel';
 
 type BackdropProps = {
     isNotificationsVisible: boolean;

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction} from '@reduxjs/toolkit'
-import { TableDTO } from '../api/tables'
+import { TableDTO } from '../../Models/HTTPServices/ResponseDTO'
 
 export type tablesList = TableDTO[]
 
@@ -10,7 +10,6 @@ export const tablesDataSlice = createSlice({
   initialState,
   reducers: {
       updateTablesList: (state, actions: PayloadAction<TableDTO[]>) => {
-        console.log('updateTablesList', actions.payload)
         return actions.payload
       }
   }

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import NotificationItemDropDownIcon from '../../../../Assets/Icons/NotificationItemDropdown.svg'
 import NotificationItemDropUpIcon from '../../../../Assets/Icons/NotificationItemDropUp.svg'
 import SeparatingLine from '../../../../Assets/Icons/SeparatingLine.svg'
-import useNotificationsItem from './viewModel'
+import useNotificationsItem from './NotificationsItemsViewModel'
 
 type NotificationsItemsProps = {
     read: boolean

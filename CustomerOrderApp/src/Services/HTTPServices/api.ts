@@ -1,8 +1,8 @@
 import axios, { AxiosInstance} from 'axios';
 
-// Define the base URL for your API
+const API_BASE_URL = import.meta.env.VITE_APP_COVIDB_BASE_URL
 export const apiClient: AxiosInstance = axios.create({
-  baseURL: 'http://localhost:8080/v1',
+  baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },

@@ -3,8 +3,8 @@ import '../../../Styles/Fonts.css'
 import {selectTable} from '../../../State/Slices/TableSlice'
 import TablePressedEclipse from '../../../Assets/Icons/TablePressedEclipse.svg'
 import './Table.css'
-import useTableViewModel from './viewModel'
-import { Status } from './viewModel'
+import useTableViewModel from './TableViewModel'
+import { Status } from './TableViewModel'
 
 type TableProps = {
     status: Status;

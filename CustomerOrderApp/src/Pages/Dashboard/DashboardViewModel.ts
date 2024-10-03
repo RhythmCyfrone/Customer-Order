@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../State/hooks";
-import useDashboardModel from "../../Models/useDashboardModel";
+import { updateTablesList } from "../../State/Slices/tablesSlice";
+import { getAllTablesAPI } from "../../Services/HTTPServices/tables";
 
 const useDashboardViewModel = () => {
     const [isNotificationsVisible, setIsNotificationsVisible] = useState(false);
     const startPosition = useAppSelector(state => state.backdrop)
-    const {getAllTables} = useDashboardModel()
     const [loading, setLoading] = useState(true)
     const dispatch = useAppDispatch()
     const tablesList = useAppSelector(state => state.tablesList)
@@ -38,8 +38,16 @@ const useDashboardViewModel = () => {
     
     useEffect(() => {
         const updateTablesListData = async () => {
-            const err = await getAllTables()
-            if(err == null) {
+            try {
+                const data = await getAllTablesAPI()
+                if(data.status == 200) {
+                    dispatch(updateTablesList(data.data))
+                }else {
+                    throw new Error('Error fetching tables list')
+                }
+            } catch (error) {
+                console.error(error)
+            } finally {
                 setLoading(false)
             }
         }

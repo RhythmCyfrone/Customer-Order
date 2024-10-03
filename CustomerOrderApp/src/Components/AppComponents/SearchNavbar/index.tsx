@@ -1,8 +1,7 @@
 import SearchIcon from '../../../Assets/Icons/Search.svg'
-import SecondaryWithIcon from '../../Shared/Buttons/SecondaryWithIcon'
 import AddIcon from '../../../Assets/Icons/Add.svg'
-import useSearchNavbarViewModel from './viewModel'
-import type { SearchNavbarProps } from './viewModel'
+import useSearchNavbarViewModel from './SearchNavbarViewModel'
+import type { SearchNavbarProps } from './SearchNavbarViewModel'
 
 const SearchNavbar = ({tableName, setTableName}: SearchNavbarProps) => {
     const {
@@ -21,10 +20,12 @@ const SearchNavbar = ({tableName, setTableName}: SearchNavbarProps) => {
                 className='bg-transparent font-poppins font-normal text-[16px] outline-none w-full'
             />
         </div>
-        <SecondaryWithIcon
-            content='Assign New Table'
-            iconSrc={AddIcon}
-        />
+        <button className='text-center flex items-center gap-x-[8px] fontSecondaryButtonDefault border-[1px] border-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[8px] pe-[16px] hover:ShadowPrimaryHover
+                    hover:bg-CustomBrand-200 active:shadow-none active:bg-white'
+        >
+            <img src={AddIcon} alt="My Icon" className="icon-class" />
+            Assign New Table
+        </button>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { useAppSelector } from "../..//../../State/hooks"
+import { useAppSelector } from "../../../../State/hooks"
 
 const useBackdropHandlerViewModal = () => {
     const startPosition = useAppSelector(state => state.backdrop)

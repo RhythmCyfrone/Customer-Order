@@ -5,10 +5,9 @@ import ProfilePlaceholderIcon from '../../../Assets/Icons/ProfilePlaceholder.svg
 import BillDetails from '../BillDetails'
 import TableDetails from '../TableDetails'
 import ItemsList from '../ItemsSelected/ItemsList'
-import { OrdersType } from '../../../api/types'
 import { selectScreen } from '../../../State/Slices/ScreensSlice'
 import TableSelectedPlaceholder from '../TableSelectedPlaceholder'
-import useTableSelectedDashboardViewModel from './viewModel'
+import useTableSelectedDashboardViewModel from './TableSelectedDashboardViewModel'
 import CombineBills from '../CombineBills'
 import SplitBills from '../SplitBills'
 

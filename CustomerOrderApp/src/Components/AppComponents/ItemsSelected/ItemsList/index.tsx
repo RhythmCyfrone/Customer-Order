@@ -6,8 +6,8 @@ import DiscountIcon from '../../../../Assets/Icons/price-tag.svg'
 import PlacedItemSeparatingLine from '../../../../Assets/Icons/PlacedItemSeparatingLine.svg'
 import ItemsListItem from '../ItemsListItem'
 import { Checkbox } from '@mui/material'
-import useItemsListViewModel from './viewModel'
-import type { ItemsListProps } from './viewModel'
+import useItemsListViewModel from './ItemsListViewModel'
+import type { ItemsListProps } from './ItemsListViewModel'
 
 const ItemsList = ({viewAll = null, setViewAll, note, setNote, discount, setDiscount}: ItemsListProps) => {
     const {

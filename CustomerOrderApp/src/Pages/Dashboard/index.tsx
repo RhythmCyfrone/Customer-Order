@@ -4,7 +4,7 @@ import FloorNavbar from '../../Components/AppComponents/FloorNavbar'
 import SeachNavbar from '../../Components/AppComponents/SearchNavbar'
 import TableSelectorNavbar from '../../Components/AppComponents/TableSelectorNavbar'
 import BackdropHandler from '../../Components/AppComponents/Backdrops/BackdropHandler'
-import useDashboardViewModel from './viewModel'
+import useDashboardViewModel from './DashboardViewModel'
 
 function Dashboard() {
     const {

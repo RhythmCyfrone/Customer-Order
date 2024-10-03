@@ -1,6 +1,6 @@
 import { orderStatusToColors } from "../../../../Assets/Constants/OrderStatusColors"
 import DropDownIcon from '../../../../Assets/Icons/DropDown.svg'
-import { useOrderStatusDropdown, type OrderStatusDropdownProps } from "../viewModel"
+import { useOrderStatusDropdown, type OrderStatusDropdownProps } from "./OrderStatusDropdownViewModel"
 
 const OrderStatusDropdown = ({orderID, currentStatus}: OrderStatusDropdownProps) => {
     const {
@@ -25,7 +25,7 @@ const OrderStatusDropdown = ({orderID, currentStatus}: OrderStatusDropdownProps)
                     if(status == orderStatus)
                         return <></>
                     return (
-                        <div className=' max-h-[100px] opacity-1 w-full  rounded-[8px] flex justify-center items-center box-content transition-height duration-200'>
+                        <div className=' max-h-[100px] opacity-1 w-full  rounded-[8px] flex justify-center items-center box-content transition-height duration-200' key={index}>
                             <div className='flex w-full h-full p-[2px] ps-[8px] pe-[8px] mt-[8px] mb-[8px]  gap-x-[8px] justify-between items-center hover:bg-[#EBF3FE] cursor-pointer'
                                 onClick={() => {
                                     setTimeout(() => {
@@ -54,11 +54,11 @@ const OrderStatusDropdown = ({orderID, currentStatus}: OrderStatusDropdownProps)
                 </div>
             </div>
             {
-                Object.keys(orderStatusToColors).map((status: string) => {
+                Object.keys(orderStatusToColors).map((status: string, index: number) => {
                     if(status == orderStatus)
                         return <></>
                     return (
-                        <div className='max-h-[0px] opacity-0 w-full  rounded-[8px] flex justify-center items-center box-content transition-height duration-200'>
+                        <div className='max-h-[0px] opacity-0 w-full  rounded-[8px] flex justify-center items-center box-content transition-height duration-200' key={index}>
                             <div className='flex w-full h-full p-[2px] ps-[8px] pe-[8px] mt-[8px] mb-[8px]  gap-x-[8px] justify-between items-center hover:bg-[#EBF3FE]'>
                                 <div className={`w-[16px] h-[16px] rounded-[50%] ${orderStatusToColors[status as keyof typeof orderStatusToColors ]}`}></div>
                                 <span className='flex-1 font-opensans text-[16px] font-medium'>{status as keyof typeof orderStatusToColors}</span>

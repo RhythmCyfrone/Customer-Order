@@ -7,7 +7,7 @@ import '../../../Styles/Fonts.css'
 
 import type { OrderType } from '../../../State/Slices/orderTypeSlice'
 import { selectOrderType } from '../../../State/Slices/orderTypeSlice'
-import useOrderType from './viewModel'
+import useOrderType from './OrderTypeViewModel'
 
 const OrderTypeButton = ({buttonType}: {buttonType:  OrderType}) => {
     const {

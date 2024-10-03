@@ -13,7 +13,7 @@ import { AxiosResponse } from 'axios'
 import NewItemsList from '../NewItemsSelected/NewItemsList'
 import FoodPlaceOrder from '../FoodPlaceOrder'
 import TableSelectedPlaceholder from '../TableSelectedPlaceholder'
-import useTableSelectedItemsViewModel from './viewModel'
+import useTableSelectedItemsViewModel from './TableSelectedItemsSelectViewModel'
 
 const TableSelected = () => {
   const {

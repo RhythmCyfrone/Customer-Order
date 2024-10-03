@@ -9,7 +9,7 @@ import FoodSelectorNavbar from '../../Components/AppComponents/FoodSelectorNavba
 import FoodItem from '../../Components/AppComponents/FoodItem'
 import '../../Styles/Scrollbars.css'
 import BackdropHandler from '../../Components/AppComponents/Backdrops/BackdropHandler'
-import useItemsSelectViewModel from './viewModel'
+import useItemsSelectViewModel from './ItemsSelectViewModel'
 
 const ItemsSelect = () => {
     const {

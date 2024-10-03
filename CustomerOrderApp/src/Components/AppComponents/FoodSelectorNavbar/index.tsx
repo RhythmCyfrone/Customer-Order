@@ -1,5 +1,5 @@
 import { selectFoodKind, selectorType } from '../../../State/Slices/FoodSelectorNavbarSlice'
-import { useFoodSelectorNavbarViewModel } from './viewModel'
+import { useFoodSelectorNavbarViewModel } from './FoodSelectorNavbarViewModel'
 
 const SelectorButton = ({selectorName}: {selectorName: selectorType}) => {
     const {

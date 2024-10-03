@@ -3,7 +3,7 @@ import NewItemsListItem from '../NewItemsListItem'
 import DownIcon from '../../../../Assets/Icons/Down.svg'
 import PlacedItemSeparatingLine from '../../../../Assets/Icons/PlacedItemSeparatingLine.svg'
 import { useState, useEffect } from 'react'
-import useNewItemsSelected from './viewModel'
+import useNewItemsSelected from './NewItemsListViewModel'
 
 type NewItemsListProps = {
     viewAll?: boolean | null;

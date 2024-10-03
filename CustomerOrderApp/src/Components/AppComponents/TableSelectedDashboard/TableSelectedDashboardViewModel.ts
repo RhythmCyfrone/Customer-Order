@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../State/hooks"
 import { setStartPosition } from "../../../State/Slices/BackdropSlice"
 import { OrderDTO } from "../../../Services/HTTPServices/orders"
-import useOrderModel from "../../../Models/useOrderModel"
+import { getOrderByTableIdAPI } from "../../../Services/HTTPServices/orders"
 
 const useTableSelectedDashboardViewModel = () => {
   const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
@@ -15,8 +15,6 @@ const useTableSelectedDashboardViewModel = () => {
   const [discount, setDiscount] = useState(false)
   const [combineBills, setCombineBills] = useState(false)
   const [splitBills, setSplitBills] = useState(false)
-
-  const {getOrderByTableId} = useOrderModel()
 
   const handleNotificationsClick = (e: React.MouseEvent<HTMLImageElement | HTMLDivElement>, initiator: string) => {
     const clickX = e.clientX;
@@ -32,10 +30,17 @@ const useTableSelectedDashboardViewModel = () => {
       return
     }
     const getOrder = async () => {
-      const err = await getOrderByTableId({setOrder, tableId: currentTable})
-      if(err !== null) {
-        setLoading(false)
-      }else {
+      try {
+          const data = await getOrderByTableIdAPI(currentTable)
+          console.log(data)
+          if(data.status == 200) {
+              setOrder(data.data)
+          }else {
+              throw new Error('Error fetching tables list')
+          }
+      } catch (error) {
+          console.error(error)
+      } finally {
         setLoading(false)
       }
     }

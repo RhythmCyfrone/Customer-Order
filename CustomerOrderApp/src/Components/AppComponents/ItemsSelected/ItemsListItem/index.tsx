@@ -2,7 +2,7 @@ import DeleteItemCountIcon from '../../../../Assets/Icons/DeleteItemCount.svg'
 import AddItemCountIcon from '../../../../Assets/Icons/AddItemCount.svg'
 import { Checkbox } from '@mui/material';
 import ItemStatusToggle from '../ItemStatusToggle';
-import useItemsListItemViewModel from './viewModel';
+import useItemsListItemViewModel from './ItemsListItemViewModel';
 
 type ItemsListItemProps = {
     itemName: string;

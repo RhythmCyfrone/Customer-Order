@@ -10,7 +10,7 @@ import MoreIcon from '../../../Assets/Icons/More.svg'
 import '../../../Styles/Fonts.css'
 import '../../../Styles/Shadows.css'
 import '../../../Styles/Animations.css'
-import useBillDetailsViewModel from './viewModel';
+import useBillDetailsViewModel from './BillDetailsViewModel';
 
 type BillDetailsProps = {
     note: boolean;

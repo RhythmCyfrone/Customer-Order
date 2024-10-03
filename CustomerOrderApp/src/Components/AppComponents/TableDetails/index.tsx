@@ -1,15 +1,10 @@
-import { OrdersType } from '../../../api/types'
-import { OrderDTO } from '../../../Models/api/orders'
+import { OrderDTO } from '../../../Services/HTTPServices/orders'
 import OrderStatusDropdown from './OrderStatusDropdown'
-import { useTableDetailsViewModel } from './viewModel'
 
 type TableDetailsProps = {
     order: OrderDTO
 }
 const TableDetails = ({order}: TableDetailsProps) => {
-    const {
-         customerName
-    } = useTableDetailsViewModel(order)
 
   return (
     <div className='flex w-[335px] flex-col p-[4px]'>

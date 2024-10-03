@@ -4,7 +4,7 @@ import ProfileImage from '../../../../Assets/Icons/ProfilePlaceholder.svg'
 import EditIcon from '../../../../Assets/Icons/Edit.svg'
 import LogoutIcon from '../../../../Assets/Icons/Logout.svg'
 import { resetStartPosition, initialState } from '../../../../State/Slices/BackdropSlice';
-import useProfileBackdropViewModel from './viewModel'
+import useProfileBackdropViewModel from './ProfileBackdropViewModel'
 
 type BackdropProps = {
     isNotificationsVisible: boolean;
