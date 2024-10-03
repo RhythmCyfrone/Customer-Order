@@ -1,14 +1,14 @@
 import BackArrowIcon from '../../Assets/Icons/BackArrow.svg'
-import FoodTypeNavbar from '../../Components/AppComponents/FoodTypeNavbar'
+import FoodTypeNavbar from '../../Components/FoodTypeNavbar'
 import SearchIcon from '../../Assets/Icons/Search.svg'
 import CrossIcon from '../../Assets/Icons/Cross.svg'
 import SeparatingLine from '../../Assets/Icons/SeparatingLine.svg'
 import { selectScreen } from '../../State/Slices/ScreensSlice'
 import { initialState, resetStartPosition } from '../../State/Slices/BackdropSlice'
-import FoodSelectorNavbar from '../../Components/AppComponents/FoodSelectorNavbar'
-import FoodItem from '../../Components/AppComponents/FoodItem'
+import FoodSelectorNavbar from '../../Components/FoodSelectorNavbar'
+import FoodItem from '../../Components/FoodItem'
 import '../../Styles/Scrollbars.css'
-import BackdropHandler from '../../Components/AppComponents/Backdrops/BackdropHandler'
+import BackdropHandler from '../../Components/Backdrops/BackdropHandler'
 import useItemsSelectViewModel from './ItemsSelectViewModel'
 
 const ItemsSelect = () => {

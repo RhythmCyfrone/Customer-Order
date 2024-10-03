@@ -1,9 +1,9 @@
-import Table from '../../Components/AppComponents/Table'
-import OrderTypeBar from '../../Components/AppComponents/OrderType'
-import FloorNavbar from '../../Components/AppComponents/FloorNavbar'
-import SeachNavbar from '../../Components/AppComponents/SearchNavbar'
-import TableSelectorNavbar from '../../Components/AppComponents/TableSelectorNavbar'
-import BackdropHandler from '../../Components/AppComponents/Backdrops/BackdropHandler'
+import Table from '../../Components/Table'
+import OrderTypeBar from '../../Components/OrderType'
+import FloorNavbar from '../../Components/FloorNavbar'
+import SeachNavbar from '../../Components/SearchNavbar'
+import TableSelectorNavbar from '../../Components/TableSelectorNavbar'
+import BackdropHandler from '../../Components/Backdrops/BackdropHandler'
 import useDashboardViewModel from './DashboardViewModel'
 
 function Dashboard() {
