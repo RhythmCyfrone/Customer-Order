@@ -1,8 +1,8 @@
-import CrossIcon from '../../../../Assets/Icons/Cross.svg'
-import ProfilePlaceholderIcon from '../../../../Assets/Icons/ProfilePlaceholderIcon.svg'
-import ProfileImage from '../../../../Assets/Icons/ProfilePlaceholder.svg'
-import EditIcon from '../../../../Assets/Icons/Edit.svg'
-import LogoutIcon from '../../../../Assets/Icons/Logout.svg'
+import CrossIcon from '../../../Assets/Icons/Cross.svg'
+import ProfilePlaceholderIcon from '../../../Assets/Icons/ProfilePlaceholderIcon.svg'
+import ProfileImage from '../../../Assets/Icons/ProfilePlaceholder.svg'
+import EditIcon from '../../../Assets/Icons/Edit.svg'
+import LogoutIcon from '../../../Assets/Icons/Logout.svg'
 import { resetStartPosition, initialState } from '../../../State/Slices/BackdropSlice';
 import useProfileBackdropViewModel from './ProfileBackdropViewModel'
 

@@ -1,7 +1,7 @@
-import VegIcon from '../../../Assets/Icons/Veg.svg'
-import NonVegIcon from '../../../Assets/Icons/NonVeg.svg'
-import VeganIcon from '../../../Assets/Icons/Vegan.svg'
-import EggIcon from '../../../Assets/Icons/Egg.svg'
+import VegIcon from '../../Assets/Icons/Veg.svg'
+import NonVegIcon from '../../Assets/Icons/NonVeg.svg'
+import VeganIcon from '../../Assets/Icons/Vegan.svg'
+import EggIcon from '../../Assets/Icons/Egg.svg'
 
 type FoodTypeProps = {
     foodTypeLabel: string

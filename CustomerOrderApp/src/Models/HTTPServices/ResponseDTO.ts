@@ -1,4 +1,4 @@
-import { statusToColors } from "../../Assets/Constants/TableStatusColors";
+import { statusToColors } from "../../Constants/TableStatusColors";
 
 type Status = keyof typeof statusToColors
 

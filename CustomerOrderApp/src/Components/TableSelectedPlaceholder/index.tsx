@@ -1,6 +1,6 @@
 import React from 'react'
 import NotificationIcon from '../NotificationIcon'
-import ProfilePlaceholderIcon from '../../../Assets/Icons/ProfilePlaceholder.svg'
+import ProfilePlaceholderIcon from '../../Assets/Icons/ProfilePlaceholder.svg'
 
 type placeholderProps = {
     content: string;

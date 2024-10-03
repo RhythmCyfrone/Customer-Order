@@ -1,7 +1,7 @@
 import '../../Styles/Shadows.css'
 import '../../Styles/Fonts.css'
 import NotificationIcon from '../NotificationIcon'
-import ProfilePlaceholderIcon from '../../Assets/ProfilePlaceholderIcon.svg'
+import ProfilePlaceholderIcon from '../../Assets/Icons/ProfilePlaceholder.svg'
 import BillDetails from '../BillDetails'
 import TableDetails from '../TableDetails'
 import ItemsList from '../ItemsSelected/ItemsList'

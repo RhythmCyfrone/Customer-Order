@@ -1,5 +1,5 @@
-import { orderStatusToColors } from "../../../Assets/Constants/OrderStatusColors"
-import DropDownIcon from '../../../../Assets/Icons/DropDown.svg'
+import { orderStatusToColors } from "../../../Constants/OrderStatusColors"
+import DropDownIcon from '../../../Assets/Icons/DropDown.svg'
 import { useOrderStatusDropdown, type OrderStatusDropdownProps } from "./OrderStatusDropdownViewModel"
 
 const OrderStatusDropdown = ({orderID, currentStatus}: OrderStatusDropdownProps) => {

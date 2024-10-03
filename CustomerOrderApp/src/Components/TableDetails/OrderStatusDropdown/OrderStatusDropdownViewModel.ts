@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { orderStatusToColors } from "../../../Assets/Constants/OrderStatusColors"
+import { orderStatusToColors } from "../../../Constants/OrderStatusColors"
 import { getStatusByIdAPI, updateOrderStatusAPI } from "../../../Services/HTTPServices/orders"
 
 export type OrderStatusDropdownProps = {

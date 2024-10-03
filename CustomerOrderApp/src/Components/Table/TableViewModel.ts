@@ -1,4 +1,4 @@
-import { statusToColors, statusToTextColors } from "../../Assets/Constants/TableStatusColors";
+import { statusToColors, statusToTextColors } from "../../Constants/TableStatusColors";
 import { useAppDispatch, useAppSelector } from "../../State/hooks";
 
 export type Status = keyof typeof statusToColors

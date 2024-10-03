@@ -1,9 +1,9 @@
-import useCombineBillsViewModel from "./viewModel"
-import CombineBillIcon from '../../../Assets/Icons/CombineBill.svg'
-import SeparatingLine from '../../../Assets/Icons/SeparatingLine.svg'
-import DropDownIcon from '../../../Assets/Icons/DropDown.svg'
-import SearchIcon from '../../../Assets/Icons/Search.svg'
-import TableNameSeparatingLine from '../../../Assets/Icons/TableNameSeparatingLine.svg'
+import useCombineBillsViewModel from "./CombineBillsViewModel"
+import CombineBillIcon from '../../Assets/Icons/CombineBill.svg'
+import SeparatingLine from '../../Assets/Icons/SeparatingLine.svg'
+import DropDownIcon from '../../Assets/Icons/DropDown.svg'
+import SearchIcon from '../../Assets/Icons/Search.svg'
+import TableNameSeparatingLine from '../../Assets/Icons/TableNameSeparatingLine.svg'
 
 type CombineBillsProps = {
     note: boolean;

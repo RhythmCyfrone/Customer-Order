@@ -1,4 +1,4 @@
-import { useAppSelector } from "../../../State/hooks"
+import { useAppSelector } from "../../../State/hooks";
 import { useState, useEffect } from "react"
 
 export type ItemsListItemProps = {

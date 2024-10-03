@@ -1,5 +1,5 @@
-import DeleteItemCountIcon from '../../../../Assets/Icons/DeleteItemCount.svg'
-import AddItemCountIcon from '../../../../Assets/Icons/AddItemCount.svg'
+import DeleteItemCountIcon from '../../../Assets/Icons/DeleteItemCount.svg'
+import AddItemCountIcon from '../../../Assets/Icons/AddItemCount.svg'
 import Checkbox from '@mui/material/Checkbox';
 
 type ItemsListItemProps = {

@@ -1,10 +1,7 @@
-import WatterBottleImage from '../../../Assets/Food Images/WaterBottle.png'
-import VegIcon from '../../../Assets/Icons/Veg.svg'
-import TickIcon from '../../../Assets/Icons/Tick.svg'
-import InfoIcon from '../../../Assets/Icons/Info.svg'
-import NonVegIcon from '../../../Assets/Icons/NonVeg.svg'
-import VeganIcon from '../../../Assets/Icons/Vegan.svg'
-import EggIcon from '../../../Assets/Icons/Egg.svg'
+import WatterBottleImage from '../../Assets/Food Images/WaterBottle.png'
+import VegIcon from '../../Assets/Icons/Veg.svg'
+import TickIcon from '../../Assets/Icons/Tick.svg'
+import InfoIcon from '../../Assets/Icons/Info.svg'
 import useFoodItemViewModel from './FoodItemViewModel'
 
 

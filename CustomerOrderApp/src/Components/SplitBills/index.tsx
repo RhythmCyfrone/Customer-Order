@@ -1,7 +1,7 @@
-import SplitBillsIcon from '../../../Assets/Icons/SplitBill.svg'
-import SeparatingLine from '../../../Assets/Icons/SeparatingLine.svg'
-import DeleteItemCountIcon from '../../../Assets/Icons/DeleteItemCount.svg'
-import AddItemCountIcon from '../../../Assets/Icons/AddItemCount.svg'
+import SplitBillsIcon from '../../Assets/Icons/SplitBill.svg'
+import SeparatingLine from '../../Assets/Icons/SeparatingLine.svg'
+import DeleteItemCountIcon from '../../Assets/Icons/DeleteItemCount.svg'
+import AddItemCountIcon from '../../Assets/Icons/AddItemCount.svg'
 
 type SplitBillsProps = {
     setSplitBills: React.Dispatch<React.SetStateAction<boolean>>;

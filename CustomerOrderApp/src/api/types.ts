@@ -1,4 +1,4 @@
-import { orderStatusToColors } from "../Assets/Constants/OrderStatusColors"
+import { orderStatusToColors } from "../Constants/OrderStatusColors"
 
 export type OrdersType = {
     "id": number,

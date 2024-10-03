@@ -1,5 +1,5 @@
-import NotificationIcon from '../../../Assets/Icons/Notification.svg'
-import NotificationFilledIcon from '../../../Assets/Icons/NotificationFilled.svg'
+import NotificationIcon from '../../Assets/Icons/Notification.svg'
+import NotificationFilledIcon from '../../Assets/Icons/NotificationFilled.svg'
 import { useAppSelector } from '../../State/hooks'
 
 

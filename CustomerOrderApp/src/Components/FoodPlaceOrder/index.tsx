@@ -1,5 +1,5 @@
-import NoteIcon from '../../../Assets/Icons/Note.svg'
-import DineInIcon from '../../../Assets/Icons/Dine-in.svg'
+import NoteIcon from '../../Assets/Icons/Note.svg'
+import DineInIcon from '../../Assets/Icons/Dine-in.svg'
 import { useState } from 'react'
 
 const FoodPlaceOrder = () => {
