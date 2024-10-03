@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../State/hooks"
 import { setStartPosition } from "../../../State/Slices/BackdropSlice"
-import { OrderDTO } from "../../../Models/api/orders"
+import { OrderDTO } from "../../../Services/HTTPServices/orders"
 import useOrderModel from "../../../Models/useOrderModel"
 
 const useTableSelectedDashboardViewModel = () => {

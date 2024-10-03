@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../../State/hooks"
 import { orderStatusToColors } from "../../../Assets/Constants/OrderStatusColors"
-import { OrderDTO } from "../../../Models/api/orders"
+import { OrderDTO } from "../../../Services/HTTPServices/orders"
 import useOrderModel from "../../../Models/useOrderModel"
 
 export const useTableDetailsViewModel = (order: OrderDTO) => {
