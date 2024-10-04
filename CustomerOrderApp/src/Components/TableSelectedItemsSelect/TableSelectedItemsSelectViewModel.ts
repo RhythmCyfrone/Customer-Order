@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../State/hooks"
-import { OrdersType } from "../../api/types"
 import { setStartPosition } from "../../State/Slices/BackdropSlice"
-import { AxiosResponse } from "axios"
-import { getOrdersByTable } from "../../api/Orders"
+import { OrderDTO } from "../../Models/HTTPServices/ResponseDTO"
+import { getOrderByTableIdAPI } from "../../Services/HTTPServices/orders"
 
 const useTableSelectedItemsViewModel = () => {
     const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
@@ -11,7 +10,7 @@ const useTableSelectedItemsViewModel = () => {
     const [viewAll, setViewAll] = useState(false)
     const dispatch = useAppDispatch()
   
-    const [order, setOrder] = useState<OrdersType[] | null>(null)
+    const [order, setOrder] = useState<OrderDTO | null>(null)
     const [loading, setLoading] = useState<boolean>(true)
   
     const handleNotificationsClick = (e: React.MouseEvent<HTMLImageElement | HTMLDivElement>, initiator: string) => {
@@ -22,26 +21,29 @@ const useTableSelectedItemsViewModel = () => {
   
   };
   
-    useEffect(() => {
-      setLoading(true)
-      if(currentTable == 'None') {
-        setLoading(false)
-        return
-      }
-      const fetchOrderByTableID = async () => {
-        try{
-          const data:AxiosResponse<OrdersType[]> = await getOrdersByTable(currentTable)
-          if(data.status == 200)
-          {
-            setOrder(data.data)
-            setLoading(false)
+  useEffect(() => {
+    setLoading(true)
+    if(currentTable == 'None') {
+      setLoading(false)
+      return
+    }
+    const getOrder = async () => {
+      try {
+          const data = await getOrderByTableIdAPI(currentTable)
+          console.log(data)
+          if(data.status == 200) {
+              setOrder(data.data)
+          }else {
+              throw new Error('Error fetching tables list')
           }
-        }catch(err) {
-          console.log(err)
-        }
+      } catch (error) {
+          console.error(error)
+      } finally {
+        setLoading(false)
       }
-      fetchOrderByTableID()
-    }, [currentTable, currentFloor])
+    }
+    getOrder()
+  }, [currentTable, currentFloor])
 
     return {
         currentFloor, currentTable, dispatch, viewAll, setViewAll, order, setOrder, loading, setLoading, handleNotificationsClick
