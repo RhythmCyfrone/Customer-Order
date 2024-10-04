@@ -1,10 +1,11 @@
-import { OrderDTO } from '../../Services/HTTPServices/orders'
+import { OrderDTO } from '../../Models/HTTPServices/ResponseDTO'
 import OrderStatusDropdown from './OrderStatusDropdown'
 
 type TableDetailsProps = {
-    order: OrderDTO
+    order: OrderDTO;
+    generateBill: boolean;
 }
-const TableDetails = ({order}: TableDetailsProps) => {
+const TableDetails = ({order, generateBill}: TableDetailsProps) => {
 
   return (
     <div className='flex w-[335px] flex-col p-[4px]'>
@@ -21,22 +22,27 @@ const TableDetails = ({order}: TableDetailsProps) => {
                 />
             </div>
         </div>
-        <div className='flex items-center mt-[8px]'>
-            <span className='flex-1 font-poppins text-[12px] font-normal'>Order Taken By</span>
-            <span className='flex-1 ms-[8px] font-quicksand text-[12px] font-normal'>Customer Name</span>
-        </div>
-        <div className='flex items-center mt-[8px]'>
-            <span className='flex-1 font-poppins text-[16px] font-medium'>{order.orderTakerName}</span>
-            <span className='flex-1 ms-[8px] font-quicksand text-[16px] font-medium'>{order.customerName}</span>
-        </div>
-        <div className='flex items-center mt-[8px]'>
-            <span className='flex-1 font-poppins text-[12px] font-normal'>Order ID</span>
-            <span className='flex-1 ms-[8px] font-quicksand text-[12px] font-normal'>Bill ID</span>
-        </div>
-        <div className='flex items-center mt-[4px]'>
-            <span className='flex-1 font-poppins text-[12px] font-semibold'>{order.orderId}</span>
-            <span className='flex-1 ms-[8px] font-quicksand text-[12px] font-semibold'>#{order.billId}</span>
-        </div>
+        {!generateBill && 
+            <>
+                <div className='flex items-center mt-[8px]'>
+                    <span className='flex-1 font-poppins text-[12px] font-normal'>Order Taken By</span>
+                    <span className='flex-1 ms-[8px] font-quicksand text-[12px] font-normal'>Customer Name</span>
+                </div>
+                <div className='flex items-center mt-[8px]'>
+                    <span className='flex-1 font-poppins text-[16px] font-medium'>{order.orderTakerName}</span>
+                    <span className='flex-1 ms-[8px] font-quicksand text-[16px] font-medium'>{order.customerName}</span>
+                </div>
+                <div className='flex items-center mt-[8px]'>
+                    <span className='flex-1 font-poppins text-[12px] font-normal'>Order ID</span>
+                    <span className='flex-1 ms-[8px] font-quicksand text-[12px] font-normal'>Bill ID</span>
+                </div>
+                <div className='flex items-center mt-[4px]'>
+                    <span className='flex-1 font-poppins text-[12px] font-semibold'>{order.orderId}</span>
+                    <span className='flex-1 ms-[8px] font-quicksand text-[12px] font-semibold'>#{order.billId}</span>
+                </div>
+            </>
+        }
+        
     </div>
   )
 }

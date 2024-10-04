@@ -15,6 +15,7 @@ const useTableSelectedDashboardViewModel = () => {
   const [discount, setDiscount] = useState(false)
   const [combineBills, setCombineBills] = useState(false)
   const [splitBills, setSplitBills] = useState(false)
+  const [generateBill, setGenerateBill] = useState(false)
 
   const handleNotificationsClick = (e: React.MouseEvent<HTMLImageElement | HTMLDivElement>, initiator: string) => {
     const clickX = e.clientX;
@@ -23,7 +24,15 @@ const useTableSelectedDashboardViewModel = () => {
     dispatch(setStartPosition({ top: clickY, left: clickX, initiator: initiator }));
 
 };
+  const resetStates = () => {
+    setNote(false)
+    setDiscount(false)
+    setCombineBills(false)
+    setSplitBills(false)
+    setGenerateBill(false)
+  }
   useEffect(() => {
+    resetStates()
     setLoading(true)
     if(currentTable == 'None') {
       setLoading(false)
@@ -49,7 +58,8 @@ const useTableSelectedDashboardViewModel = () => {
 
   return {
     currentFloor, currentTable, dispatch, order, setOrder, loading, setLoading, note, setNote,
-    discount, setDiscount, handleNotificationsClick, combineBills, setCombineBills, splitBills, setSplitBills
+    discount, setDiscount, handleNotificationsClick, combineBills, setCombineBills, splitBills, setSplitBills,
+    generateBill, setGenerateBill
   }
 }
 

@@ -21,11 +21,13 @@ type BillDetailsProps = {
     setCombineBills: React.Dispatch<React.SetStateAction<boolean>> ;
     splitBills: boolean;
     setSplitBills: React.Dispatch<React.SetStateAction<boolean>> ;
+    generateBill: boolean;
+    setGenerateBill: React.Dispatch<React.SetStateAction<boolean>> ;
 }
 
 const BillDetails = ({note, setNote, discount, setDiscount, 
                       handleNotificationsClick, setCombineBills,
-                      splitBills, setSplitBills
+                      splitBills, setSplitBills, generateBill, setGenerateBill
                     }: BillDetailsProps) => {
     const {
         isRotated,
@@ -204,6 +206,7 @@ const BillDetails = ({note, setNote, discount, setDiscount,
             
             <div className={`ps-[32px] pe-[32px] w-full mt-[12px] ${bottomPadding} transition-all duration-500`}>
                 <div className='text-center fontButtonDefault bg-gradient-to-r from-[#3B82F6] to-[#0053DB] cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover active:shadow-none'
+                    onClick={() => setGenerateBill(true)}
                 >
                     Generate Bill
                 </div>
