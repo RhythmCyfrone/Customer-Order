@@ -13,3 +13,7 @@
 .fontSidebarSubHeading {
     @apply font-lato font-normal
 }
+
+.fontBill {
+    @apply font-poppins font-[400] text-[9px] leading-[12px]
+}
