@@ -70,6 +70,7 @@ const TableSelected = () => {
               <span className='font-poppins font-normal text-[10px] text-white'>Edit</span>
           </div>
           <div className='flex-1 flex justify-center items-center fontButtonDefault bg-gradient-to-r from-[#3B82F6] to-[#0053DB] cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover active:shadow-none'
+                onClick={(e) => handleNotificationsClick(e, 'Accept Payment')}
               >
                 <span>Accept Payment</span>
               </div>

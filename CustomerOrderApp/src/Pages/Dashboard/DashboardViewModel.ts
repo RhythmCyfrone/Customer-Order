@@ -57,7 +57,8 @@ const useDashboardViewModel = () => {
     useEffect(() => {
     if((startPosition.initiator == 'Notifications' || 
             startPosition.initiator == 'Profile' ||
-            startPosition.initiator == 'Cancel Order'
+            startPosition.initiator == 'Cancel Order' || 
+            startPosition.initiator == 'Accept Payment'
         ) 
             && (startPosition.startPosition.top !== 0 || startPosition.startPosition.left !== 0)) {
         setIsNotificationsVisible(true)

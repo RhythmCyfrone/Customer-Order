@@ -1,5 +1,6 @@
 import CancelOrderBackdrop from "../CancelOrderBackdrop"
 import NotificationsBackdrop from "../NotificationsBackdrop"
+import AcceptPaymentBackdrop from "../PaymentBackdrop"
 import ProfileBackdrop from "../ProfileBackdrop"
 import useBackdropHandlerViewModal from "./BackdropHandlerViewModel"
 
@@ -19,6 +20,11 @@ const BackdropHandler = ({isNotificationsVisible, setIsNotificationsVisible}: Ba
     ?<ProfileBackdrop
         isNotificationsVisible={isNotificationsVisible}
         setIsNotificationsVisible={setIsNotificationsVisible}
+    />
+    :startPosition.initiator == 'Accept Payment'
+    ?<AcceptPaymentBackdrop
+        isAcceptPaymentBackdrop={isNotificationsVisible}
+        setIsAcceptPaymentBackdrop={setIsNotificationsVisible}
     />
     :<CancelOrderBackdrop
       isCancelOrderBackdrop={isNotificationsVisible}
