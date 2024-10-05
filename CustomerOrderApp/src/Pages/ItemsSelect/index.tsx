@@ -20,25 +20,6 @@ const ItemsSelect = () => {
 
   return (
     <div className='ItemsScreen flex-1 flex flex-col gap-y-[24px] pt-[55px] pb-[34px] pe-[40px]  desktop-max:pe-[20px]'>
-        <div
-                className={`backdrop-blur-[1px] z-10 backdrop absolute bg-opacity-20 bg-black flex justify-center items-center ${isFoodItemBackdropVisible?'transition-all duration-200':''}
-                }`}
-                style={{
-                    top: isFoodItemBackdropVisible ? '101px' : `${startPosition.startPosition.top}px`,
-                    left: isFoodItemBackdropVisible ? '81px' : `${startPosition.startPosition.left}px`,
-                    right: isFoodItemBackdropVisible ? '420px' : `${document.body.clientWidth - startPosition.startPosition.left}px`,
-                    bottom: isFoodItemBackdropVisible ? '0px' : `${document.body.clientHeight - startPosition.startPosition.top}px`,
-                }}
-            >
-                <div className='relative w-[300px] h-[400px] bg-white rounded-[10px]'>
-                    <img src={CrossIcon} className='absolute top-[8px] right-[8px]' 
-                        onClick={() => {
-                            dispatch(resetStartPosition(initialState))
-                            setIsFoodItemBackdropVisible(false)
-                        }}
-                    />
-                </div>
-            </div>
         <BackdropHandler 
             isNotificationsVisible={isNotificationsVisible}
             setIsNotificationsVisible={setIsNotificationsVisible}
@@ -79,13 +60,20 @@ const ItemsSelect = () => {
                         >
                         <img src={BackArrowIcon}  className='w-[12px]'/>
                     </div>
-                    <FoodItem />
-                    <FoodItem />
-                    <FoodItem />
-                    <FoodItem />
-                    <FoodItem />
-                    <FoodItem />
-                    <FoodItem />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
                     <div className='cursor-pointer backdrop-blur-[1px] flex justify-center  border-[#989898] absolute w-[26px] h-[26px] bg-[#EEEEEE] bg-opacity-20 z-[15] 
                                     scroll-icons-shadow-right rounded-[50%] top-[50%] right-0 -translate-y-[50%] translate-x-[50%]'
                             onClick={() => handleScrollRight()}            
@@ -100,13 +88,20 @@ const ItemsSelect = () => {
                     Biryani
                 </span>
                 <div className='flex gap-x-[24px] flex-wrap gap-y-[16px]'>
-                    <FoodItem />
-                    <FoodItem />
-                    <FoodItem />
-                    <FoodItem />
-                    <FoodItem />
-                    <FoodItem />
-                    <FoodItem />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
                 </div>
             </div>
             <div className={`flex flex-col gap-y-[16px]  w-full`} style={{ maxWidth: `${maxWidth}px` }}>
@@ -114,13 +109,20 @@ const ItemsSelect = () => {
                     Burgers
                 </span>
                 <div className='flex gap-x-[24px] flex-wrap gap-y-[16px]'>
-                    <FoodItem />
-                    <FoodItem />
-                    <FoodItem />
-                    <FoodItem />
-                    <FoodItem />
-                    <FoodItem />
-                    <FoodItem />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
+                    <FoodItem 
+                    />
                 </div>
             </div>
         </div>

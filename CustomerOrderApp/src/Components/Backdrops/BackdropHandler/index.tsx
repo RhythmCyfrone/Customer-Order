@@ -1,4 +1,5 @@
 import CancelOrderBackdrop from "../CancelOrderBackdrop"
+import MenuItemBackdrop from "../MenuItemBackdrop"
 import NotificationsBackdrop from "../NotificationsBackdrop"
 import AcceptPaymentBackdrop from "../PaymentBackdrop"
 import ProfileBackdrop from "../ProfileBackdrop"
@@ -25,6 +26,11 @@ const BackdropHandler = ({isNotificationsVisible, setIsNotificationsVisible}: Ba
     ?<AcceptPaymentBackdrop
         isAcceptPaymentBackdrop={isNotificationsVisible}
         setIsAcceptPaymentBackdrop={setIsNotificationsVisible}
+    />
+    :startPosition.initiator == 'Food Item'
+    ?<MenuItemBackdrop
+        isMenuItemBackdrop={isNotificationsVisible}
+        setIsMenuItemBackdrop={setIsNotificationsVisible}
     />
     :<CancelOrderBackdrop
       isCancelOrderBackdrop={isNotificationsVisible}

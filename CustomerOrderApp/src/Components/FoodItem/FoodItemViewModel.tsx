@@ -12,7 +12,6 @@ const useFoodItemViewModel = () => {
         const clickY = e.clientY;
 
         dispatch(setStartPosition({ top: clickY, left: clickX, initiator: 'Food Item' }));
-
     };
 
     return {

@@ -26,11 +26,10 @@ const useItemsSelectViewModel = () => {
     }
 
     useEffect(() => {
-        if (startPosition.initiator == 'Food Item' && (startPosition.startPosition.top !== 0 || startPosition.startPosition.left !== 0)) {
-            setIsFoodItemBackdropVisible(true);
-        }else if((startPosition.initiator == 'Notifications' || 
+        if((startPosition.initiator == 'Notifications' || 
             startPosition.initiator == 'Profile' ||
-            startPosition.initiator == 'Cancel Order'
+            startPosition.initiator == 'Cancel Order' || 
+            startPosition.initiator == 'Food Item'
           ) 
             && (startPosition.startPosition.top !== 0 || startPosition.startPosition.left !== 0)) {
           setIsNotificationsVisible(true)
