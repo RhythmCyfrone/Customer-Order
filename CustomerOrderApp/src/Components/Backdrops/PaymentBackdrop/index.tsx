@@ -5,6 +5,8 @@ import CardIcon from '../../../Assets/Icons/CreditCard.svg'
 import CashIcon from '../../../Assets/Icons/Cash.svg'
 import CalenderIcon from '../../../Assets/Icons/Calender.svg'
 import { resetStartPosition, initialState } from "../../../State/Slices/BackdropSlice"
+import UPI from "./UPI"
+import Cash from "./Cash"
 
 type AcceptPaymentBackdropProps = {
     isAcceptPaymentBackdrop: boolean;
@@ -13,7 +15,8 @@ type AcceptPaymentBackdropProps = {
 
 const AcceptPaymentBackdrop = ({isAcceptPaymentBackdrop, setIsAcceptPaymentBackdrop}: AcceptPaymentBackdropProps) => {
     const {
-        startPosition, currentTable, currentFloor, disableConfirm, dispatch
+        startPosition, currentTable, currentFloor, disableConfirm,
+        selectPaymentMode, handlePaymentModeChange, gap, dispatch
     } = usePaymentBackdropViewModel()
   return (
     <div
@@ -27,8 +30,8 @@ const AcceptPaymentBackdrop = ({isAcceptPaymentBackdrop, setIsAcceptPaymentBackd
             }}
         >
         {isAcceptPaymentBackdrop && 
-            <div className="flex flex-col bg-white min-w-[600px] gap-y-[54px] rounded-[25px] accept-payment-shadow
-                            p-[20px]"
+            <div className={`flex flex-col bg-white min-w-[600px] ${gap} rounded-[25px] accept-payment-shadow
+                            p-[20px]`}
             >
                 <div className="flex justify-between items-center">
                     <div>
@@ -41,23 +44,38 @@ const AcceptPaymentBackdrop = ({isAcceptPaymentBackdrop, setIsAcceptPaymentBackd
                     </div>
                 </div>
                 <div className="flex w-[470px] justify-between flex-1 self-center">
-                    <div className="flex flex-col justify-between border-[1px] border-[#BFBFBF] rounded-[8px] p-[4px]">
+                    <div className={`flex flex-col justify-between cursor-pointer border-[1px] ${selectPaymentMode == 'UPI'?'border-[#3B82F6]':'border-[#BFBFBF]'} rounded-[8px] p-[4px]`}
+                        onClick={() => handlePaymentModeChange('UPI')}
+                    >
                         <img src={UpiIcon} />
                         <span className="font-poppins text-[12px] leading-[18px] font-[500] text-center">UPI</span>
                     </div>
-                    <div className="flex flex-col border-[1px] border-[#BFBFBF] rounded-[8px] p-[4px] pt-0">
+                    <div className={`flex flex-col justify-between cursor-pointer border-[1px] ${selectPaymentMode == 'Card'?'border-[#3B82F6]':'border-[#BFBFBF]'} rounded-[8px] p-[4px] pt-0`}
+                        onClick={() => handlePaymentModeChange('Card')}
+                    >
                         <img src={CardIcon} />
                         <span className="font-poppins text-[12px] leading-[18px] font-[500] text-center">Card</span>
                     </div>
-                    <div className="flex flex-col border-[1px] border-[#BFBFBF] rounded-[8px] p-[4px]">
+                    <div className={`flex flex-col justify-between cursor-pointer border-[1px] ${selectPaymentMode == 'Cash'?'border-[#3B82F6]':'border-[#BFBFBF]'} rounded-[8px] p-[4px]`}
+                        onClick={() => handlePaymentModeChange('Cash')}
+                    >
                         <img src={CashIcon} />
                         <span className="font-poppins text-[12px] leading-[18px] font-[500] text-center">Cash</span>
                     </div>
-                    <div className="flex flex-col justify-between border-[1px] border-[#BFBFBF] rounded-[8px] p-[4px] pe-0">
+                    <div className={`flex flex-col justify-between cursor-pointer border-[1px] ${selectPaymentMode == 'Due'?'border-[#3B82F6]':'border-[#BFBFBF]'} rounded-[8px] p-[4px]`}
+                        onClick={() => handlePaymentModeChange('Due')}
+                    >
                         <img src={CalenderIcon} />
                         <span className="font-poppins text-[12px] leading-[18px] font-[500] text-center">Due</span>
                     </div>
                 </div>
+                {
+                    selectPaymentMode == 'UPI'
+                    ?<UPI />
+                    :selectPaymentMode == 'Cash'
+                    ?<Cash />
+                    :<></>
+                }
                 <div className="flex gap-x-[16px]">
                     <div className="flex-1">
                         <button className='text-center flex items-center gap-x-[8px] fontButtonDefault bg-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[16px] pe-[24px] hover:ShadowPrimaryHover active:shadow-none'
