@@ -6,11 +6,12 @@ const usePaymentBackdropViewModel = () => {
     const currentFloor = useAppSelector(state => state.tableSelect.currentFloor)
     const [disableConfirm, setDisableConfirm] = useState(true)
     const [selectPaymentMode, setSelectPaymentMode] = useState("")
-    const gap = selectPaymentMode !== "" ?'gap-y-[32px]':'gap-y-[54px]'
+    const gap = selectPaymentMode == "Cash" ?'gap-y-[32px]':'gap-y-[54px]'
     const dispatch = useAppDispatch()
 
     const handlePaymentModeChange = (paymentMode: string) => {
         setSelectPaymentMode(paymentMode)
+        setDisableConfirm(false)
     }
 
     return {

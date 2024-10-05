@@ -44,26 +44,25 @@ const AcceptPaymentBackdrop = ({isAcceptPaymentBackdrop, setIsAcceptPaymentBackd
                     </div>
                 </div>
                 <div className="flex w-[470px] justify-between flex-1 self-center">
-                    <div className={`flex flex-col justify-between cursor-pointer border-[1px] ${selectPaymentMode == 'UPI'?'border-[#3B82F6]':'border-[#BFBFBF]'} rounded-[8px] p-[4px]`}
+                    <div className={`flex flex-col justify-between cursor-pointer  ${selectPaymentMode == 'UPI'?'border-[1px] border-[#3B82F6]':''} rounded-[8px] p-[4px]`}
                         onClick={() => handlePaymentModeChange('UPI')}
                     >
                         <img src={UpiIcon} />
                         <span className="font-poppins text-[12px] leading-[18px] font-[500] text-center">UPI</span>
                     </div>
-                    <div className={`flex flex-col justify-between cursor-pointer border-[1px] ${selectPaymentMode == 'Card'?'border-[#3B82F6]':'border-[#BFBFBF]'} rounded-[8px] p-[4px] pt-0`}
+                    <div className={`flex flex-col justify-between cursor-pointer  ${selectPaymentMode == 'Card'?'border-[1px] border-[#3B82F6]':''} rounded-[8px] p-[4px] pt-0`}
                         onClick={() => handlePaymentModeChange('Card')}
                     >
                         <img src={CardIcon} />
                         <span className="font-poppins text-[12px] leading-[18px] font-[500] text-center">Card</span>
                     </div>
-                    <div className={`flex flex-col justify-between cursor-pointer border-[1px] ${selectPaymentMode == 'Cash'?'border-[#3B82F6]':'border-[#BFBFBF]'} rounded-[8px] p-[4px]`}
+                    <div className={`flex flex-col justify-between cursor-pointer  ${selectPaymentMode == 'Cash'?'border-[1px] border-[#3B82F6]':''} rounded-[8px] p-[4px]`}
                         onClick={() => handlePaymentModeChange('Cash')}
                     >
                         <img src={CashIcon} />
                         <span className="font-poppins text-[12px] leading-[18px] font-[500] text-center">Cash</span>
                     </div>
-                    <div className={`flex flex-col justify-between cursor-pointer border-[1px] ${selectPaymentMode == 'Due'?'border-[#3B82F6]':'border-[#BFBFBF]'} rounded-[8px] p-[4px]`}
-                        onClick={() => handlePaymentModeChange('Due')}
+                    <div className={`flex flex-col justify-between rounded-[8px] p-[4px]`}
                     >
                         <img src={CalenderIcon} />
                         <span className="font-poppins text-[12px] leading-[18px] font-[500] text-center">Due</span>
