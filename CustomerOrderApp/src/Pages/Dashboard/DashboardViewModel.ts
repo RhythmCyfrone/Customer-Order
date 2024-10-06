@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../State/hooks";
 import { updateTablesList } from "../../State/Slices/tablesSlice";
-import { getAllTablesAPI } from "../../Services/HTTPServices/tables";
+import { getAllTables } from "../../Services/HTTPServices/tables";
 
 const useDashboardViewModel = () => {
     const [isNotificationsVisible, setIsNotificationsVisible] = useState(false);
@@ -39,7 +39,7 @@ const useDashboardViewModel = () => {
     useEffect(() => {
         const updateTablesListData = async () => {
             try {
-                const data = await getAllTablesAPI()
+                const data = await getAllTables()
                 if(data.status == 200) {
                     dispatch(updateTablesList(data.data))
                 }else {

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { useAppDispatch, useAppSelector } from "../../State/hooks"
 import { setStartPosition } from "../../State/Slices/BackdropSlice"
 import { OrderDTO } from "../../Models/HTTPServices/ResponseDTO"
-import { getOrderByTableIdAPI } from "../../Services/HTTPServices/orders"
+import { getOrderByTableId } from "../../Services/HTTPServices/orders"
 
 const useTableSelectedItemsViewModel = () => {
     const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
@@ -29,7 +29,7 @@ const useTableSelectedItemsViewModel = () => {
     }
     const getOrder = async () => {
       try {
-          const data = await getOrderByTableIdAPI(currentTable)
+          const data = await getOrderByTableId({tableId: currentTable})
           console.log(data)
           if(data.status == 200) {
               setOrder(data.data)

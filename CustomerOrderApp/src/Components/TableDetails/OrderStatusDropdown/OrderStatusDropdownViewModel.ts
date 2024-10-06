@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { orderStatusToColors } from "../../../Constants/OrderStatusColors"
-import { getStatusByIdAPI, updateOrderStatusAPI } from "../../../Services/HTTPServices/orders"
+import { getStatusById, updateOrderStatus } from "../../../Services/HTTPServices/orders"
 
 export type OrderStatusDropdownProps = {
     orderID: string;
@@ -13,7 +13,7 @@ export const useOrderStatusDropdown = ({orderID, currentStatus}: OrderStatusDrop
 
     const handleUpdateOrderStatus = async (orderStatusId: number) => {
         try {
-            const res = await updateOrderStatusAPI(orderID, orderStatusId)
+            const res = await updateOrderStatus({orderId: orderID, orderStatusId})
             if(res.status !== 200) {
                 throw new Error('Error fetching tables list')
             }
@@ -25,7 +25,7 @@ export const useOrderStatusDropdown = ({orderID, currentStatus}: OrderStatusDrop
     useEffect(() => {
         const getStatus = async () => {
             try {
-                const data = await getStatusByIdAPI(currentStatus)
+                const data = await getStatusById({orderStatusId: currentStatus})
                 if(data.status == 200) {
                     setOrderStatus(data.data.statusName as keyof typeof orderStatusToColors)
                 }else {
