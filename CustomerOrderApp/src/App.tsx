@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import './App.css'
-import Sidebar from './Components/Sidebar'
+import Sidebar from './Components/SidebarView'
 import TableSelectedDashboard from './Components/TableSelectedDashboard'
-import TableSelectedItemsSelect from './Components/TableSelectedItemsSelect'
-import Dashboard from './Pages/Dashboard'
-import ItemsSelect from './Pages/ItemsSelect'
-import LoginScreen from './Pages/LoginScreen'
+import TableSelectedItemsSelect from './Components/TableSelectedItemsSelectView'
+import Dashboard from './Pages/DashboardView'
+import ItemsSelect from './Pages/ItemsSelectView'
+import LoginScreen from './Pages/LoginScreenView'
 import { useAppSelector } from './State/hooks'
 
 
