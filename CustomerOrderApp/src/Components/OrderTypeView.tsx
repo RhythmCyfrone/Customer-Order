@@ -8,9 +8,15 @@ import type { OrderType } from '../State/Slices/orderTypeSlice'
 import { selectOrderType } from '../State/Slices/orderTypeSlice'
 import useOrderType from '../ViewModels/OrderTypeViewModel'
 
-const OrderTypeButton = ({buttonType}: {buttonType:  OrderType}) => {
+type OrderTypeButtonProps = {
+    buttonType:  OrderType;
+    scrollToTakeaway: () => void;
+    scrollToTables: () => void;
+}
+
+const OrderTypeButton = ({buttonType, scrollToTakeaway, scrollToTables}: OrderTypeButtonProps) => {
     const {
-        orderType, dispatch, isSelected
+        dispatch, isSelected, handleScroll
     } = useOrderType(buttonType)
     
     return (
@@ -34,7 +40,10 @@ const OrderTypeButton = ({buttonType}: {buttonType:  OrderType}) => {
             :
             <div className='flex gap-x-[8px] rounded-[1px] cursor-pointer p-[4px] justify-center items-center
                             hover:text-CustomBrand-300 hover:ShadowOrderButtonHover'
-                onClick={() => dispatch(selectOrderType(buttonType))}
+                onClick={() => {
+                    dispatch(selectOrderType(buttonType))
+                    handleScroll(scrollToTakeaway, scrollToTables)
+                }}
             >
                 {
                     buttonType == 'Dine-in'
@@ -50,12 +59,29 @@ const OrderTypeButton = ({buttonType}: {buttonType:  OrderType}) => {
 
 }
 
-const OrderTypeBar = () => {
+type OrderTypeBarProps = {
+    scrollToTakeaway: () => void;
+    scrollToTables: () => void;
+}
+
+const OrderTypeBar = ({ scrollToTakeaway, scrollToTables}: OrderTypeBarProps) => {
   return (
     <div className='flex gap-x-[16px] w-full justify-center'>
-        <OrderTypeButton buttonType='Dine-in' />
-        <OrderTypeButton buttonType='Takeaway' />
-        <OrderTypeButton buttonType='Delivery' />
+        <OrderTypeButton 
+            buttonType='Dine-in' 
+            scrollToTakeaway={scrollToTakeaway}
+            scrollToTables={scrollToTables}
+        />
+        <OrderTypeButton 
+            buttonType='Takeaway' 
+            scrollToTakeaway={scrollToTakeaway}
+            scrollToTables={scrollToTables}
+        />
+        <OrderTypeButton 
+            buttonType='Delivery' 
+            scrollToTakeaway={scrollToTakeaway}
+            scrollToTables={scrollToTables}
+        />
     </div>
   )
 }

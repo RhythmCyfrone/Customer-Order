@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useAppDispatch, useAppSelector } from "../State/hooks";
 import { updateTablesList } from "../State/Slices/tablesSlice";
 import { getAllTables } from "../Services/HTTPServices/tables";
@@ -13,6 +13,22 @@ const useDashboardViewModel = () => {
     const [tableName, setTableName] = useState<string>('')
     const [statusFlter, setStatusFilter] = useState<string>('All')
     const [takeAway, setTakeAway] = useState(false)
+    const takeawayRef = useRef<HTMLDivElement>(null);
+    const tablesRef = useRef<HTMLDivElement>(null);
+
+    const scrollToTakeaway = () => {
+        if (takeawayRef.current) {
+        takeawayRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    const scrollToTables = () => {
+        if (tablesRef.current) {
+            tablesRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+
 
     useEffect(() => {
         let tempList = []
@@ -69,7 +85,8 @@ const useDashboardViewModel = () => {
     return {
         isNotificationsVisible, setIsNotificationsVisible, startPosition, dispatch,
         loading, setLoading, tablesList,displayTables, tableName, setTableName,
-        statusFlter, setStatusFilter, takeAway, setTakeAway
+        statusFlter, setStatusFilter, takeAway, setTakeAway, takeawayRef, scrollToTakeaway,
+        tablesRef, scrollToTables
     }
 }
 

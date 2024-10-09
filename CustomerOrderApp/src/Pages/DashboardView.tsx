@@ -12,8 +12,9 @@ import Takeaway from '../Components/Takeaway'
 function Dashboard() {
     const {
         isNotificationsVisible, setIsNotificationsVisible,
-        loading, tablesList, tableName, setTableName, displayTables,
-        statusFlter, setStatusFilter, takeAway, setTakeAway
+        loading, tableName, setTableName, displayTables, statusFlter,
+        setStatusFilter, takeAway, setTakeAway, takeawayRef, scrollToTakeaway,
+        tablesRef, scrollToTables
     } = useDashboardViewModel()
 
     return (
@@ -22,7 +23,10 @@ function Dashboard() {
               isNotificationsVisible={isNotificationsVisible}
               setIsNotificationsVisible={setIsNotificationsVisible}
           />
-          <OrderTypeBar />
+          <OrderTypeBar 
+            scrollToTakeaway={scrollToTakeaway}
+            scrollToTables={scrollToTables}
+          />
           <div className='flex flex-wrap gap-y-[16px] gap-x-[16px] justify-between items-center'>
             <FloorNavbar />
             <SeachNavbar 
@@ -35,7 +39,7 @@ function Dashboard() {
             setStatusFilter={setStatusFilter}
           />
           <div className='flex flex-col gap-y-[20px] overflow-y-scroll'>
-            <div className='flex gap-x-[61px] gap-y-[20px]  flex-wrap '>
+            <div className='flex gap-x-[61px] gap-y-[20px]  flex-wrap ' ref={tablesRef}>
               {loading
               ?<span>Loading ...</span>
               :displayTables.map((table, index) => {
@@ -58,6 +62,7 @@ function Dashboard() {
             <Takeaway 
               takeAway={takeAway}
               setTakeaway={setTakeAway}
+              takeawayRef={takeawayRef}
             />
           </div>
           

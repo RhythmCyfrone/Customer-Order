@@ -1,10 +1,11 @@
 type TakeawayProps = {
     takeAway: boolean;
     setTakeaway: React.Dispatch<React.SetStateAction<boolean>>;
+    takeawayRef: React.RefObject<HTMLDivElement>;
 }
-const Takeaway = ({takeAway, setTakeaway}: TakeawayProps) => {
+const Takeaway = ({takeAway, setTakeaway, takeawayRef}: TakeawayProps) => {
   return (
-    <div className='flex w-[156px] min-h-[88px] cursor-pointer'
+    <div className='flex w-[156px] min-h-[88px] cursor-pointer' ref={takeawayRef}
     >
         <div className={`table-status w-[8px] rounded-l-[10px] bg-[#0CBB00]`}>
         </div>
