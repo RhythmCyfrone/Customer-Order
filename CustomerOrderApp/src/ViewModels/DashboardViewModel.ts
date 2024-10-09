@@ -12,6 +12,7 @@ const useDashboardViewModel = () => {
     const [displayTables, setDisplayTables] = useState(tablesList)
     const [tableName, setTableName] = useState<string>('')
     const [statusFlter, setStatusFilter] = useState<string>('All')
+    const [takeAway, setTakeAway] = useState(false)
 
     useEffect(() => {
         let tempList = []
@@ -68,7 +69,7 @@ const useDashboardViewModel = () => {
     return {
         isNotificationsVisible, setIsNotificationsVisible, startPosition, dispatch,
         loading, setLoading, tablesList,displayTables, tableName, setTableName,
-        statusFlter, setStatusFilter
+        statusFlter, setStatusFilter, takeAway, setTakeAway
     }
 }
 

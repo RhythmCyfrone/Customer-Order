@@ -8,6 +8,9 @@ import CancelBillIcon from '../Assets/Icons/x-button.svg'
 import BillOptionsBack from '../Assets/Icons/BillOptionsBack.svg'
 import MoreIcon from '../Assets/Icons/More.svg'
 import useBillDetailsViewModel from '../ViewModels/BillDetailsViewModel';
+import '../Styles/Animations.css'
+import '../Styles/Fonts.css'
+import '../Styles/Scrollbars.css'
 
 type BillDetailsProps = {
     note: boolean;
