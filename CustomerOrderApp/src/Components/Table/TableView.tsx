@@ -31,7 +31,7 @@ const Table = ({status, floor, tableNumber, time, occupancy}: TableProps) => {
         {
             currentFloor == floor && selectedTable == tableNumber
             ?
-            <div className='relative flex-1 bg-CustomBrand-300 p-[4px] flex flex-col gap-y-[7px] shadow-table'>
+            <div className='relative flex-1 bg-CustomBrand-300 p-[4px] flex flex-col gap-y-[7px] shadow-table rounded-r-[10px]'>
                 <div className='absolute top-[4px] right-[4px] rounded-[14px] w-[14px] bg-[#FFFFFF] h-[14px] flex justify-center items-center'>
                     <span className='font-poppins font-normal text-[12px]'>{occupancy}</span>
                 </div>
@@ -47,7 +47,7 @@ const Table = ({status, floor, tableNumber, time, occupancy}: TableProps) => {
                     {time}
                 </div>
             </div>
-            :<div className='table relative flex-1 bg-[#EBF3FE] p-[4px] flex flex-col gap-y-[7px] shadow-table
+            :<div className='table relative flex-1 bg-[#EBF3FE] p-[4px] flex flex-col gap-y-[7px] shadow-table rounded-r-[10px]
                             hover:bg-[#D6E6FF] hover:ShadowTableHover active:bg-[#EBF3FE]'
             >
                 <img src={TablePressedEclipse} className='hidden table-press-elipse absolute right-0 bottom-0 w-[65%]'/>

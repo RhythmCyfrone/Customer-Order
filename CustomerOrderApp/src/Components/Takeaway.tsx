@@ -12,10 +12,10 @@ const Takeaway = ({takeAway, setTakeaway, takeawayRef}: TakeawayProps) => {
         {
             takeAway
             ?
-            <div className='relative flex-1 bg-CustomBrand-300 p-[4px] flex justify-center items-center shadow-table'>
+            <div className='relative flex-1 bg-CustomBrand-300 p-[4px] flex justify-center items-center shadow-table rounded-r-[10px]'>
                 <span className="font-poppins font-[500] text-[16px] leading-[24px] text-[#0CBB00] text-wrap">Take Away</span>
             </div>
-            :<div className='flex-1 bg-[#EBF3FE] p-[4px] flex justify-center items-center shadow-table
+            :<div className='flex-1 bg-[#EBF3FE] p-[4px] flex justify-center items-center shadow-table rounded-r-[10px]
                             hover:bg-[#D6E6FF] hover:ShadowTableHover active:bg-[#EBF3FE]'
             >
                 <span className="font-poppins font-[500] text-[16px] leading-[24px] text-[#0CBB00] text-wrap">Take Away</span>
