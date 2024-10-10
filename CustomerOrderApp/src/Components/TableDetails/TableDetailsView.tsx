@@ -1,16 +1,22 @@
 import { OrderDTO } from '../../Models/HTTPServices/ResponseDTO'
+import useTableDetailsViewModel from '../../ViewModels/TableDetailsViewModel';
 import OrderStatusDropdown from './OrderStatusDropdownView'
 
 type TableDetailsProps = {
     order: OrderDTO;
     generateBill?: boolean;
+    takeaway: boolean;
 }
-const TableDetails = ({order, generateBill = false}: TableDetailsProps) => {
-
+const TableDetails = ({order, generateBill = false, takeaway = false}: TableDetailsProps) => {
+    const {
+        currentTable
+    } = useTableDetailsViewModel()
   return (
     <div className='flex w-[335px] flex-col p-[4px]'>
         <div className='flex items-center'>
-            <span className='flex-1 font-poppins text-[16px] font-medium'>Table</span>
+            <span className='flex-1 font-poppins text-[16px] font-medium'>
+                {takeaway?'Take Away':'Table'}
+            </span>
             <span className='flex-1 ms-[8px] font-quicksand text-[12px] font-normal'>Status</span>
         </div>
         <div className='flex items-start'>
@@ -22,7 +28,7 @@ const TableDetails = ({order, generateBill = false}: TableDetailsProps) => {
                 />
             </div>
         </div>
-        {!generateBill && 
+        {!generateBill && !(currentTable == 'AddTakeaway') &&
             <>
                 <div className='flex items-center mt-[8px]'>
                     <span className='flex-1 font-poppins text-[12px] font-normal'>Order Taken By</span>

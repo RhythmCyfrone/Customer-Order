@@ -6,7 +6,7 @@ import { getOrderByTableId } from "../Services/HTTPServices/orders"
 
 const useTableSelectedDashboardViewModel = () => {
   const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
-  const currentFloor = useAppSelector(state => state.tableSelect.currentFloor)
+  const takeaway = useAppSelector(state => state.tableSelect.takeaway)
   const dispatch = useAppDispatch()
 
   const [order, setOrder] = useState<OrderDTO | null>(null)
@@ -23,7 +23,20 @@ const useTableSelectedDashboardViewModel = () => {
 
     dispatch(setStartPosition({ top: clickY, left: clickX, initiator: initiator }));
 
-};
+  };
+
+  const setNullOrder = () => {
+    setOrder({
+      orderId: '',
+      tableId: '-',
+      customerId: '',
+      customerName: '',
+      orderTakerId: '',
+      orderTakerName: '',
+      orderStatusId: 1,
+      billId: 0
+    })
+  }
   const resetStates = () => {
     setNote(false)
     setDiscount(false)
@@ -35,6 +48,12 @@ const useTableSelectedDashboardViewModel = () => {
     resetStates()
     setLoading(true)
     if(currentTable == 'None') {
+      setOrder(null)
+      setLoading(false)
+      return
+    }
+    else if(currentTable == 'AddTakeaway') {
+      setNullOrder()
       setLoading(false)
       return
     }
@@ -49,17 +68,18 @@ const useTableSelectedDashboardViewModel = () => {
           }
       } catch (error) {
           console.error(error)
+          setOrder(null)
       } finally {
         setLoading(false)
       }
     }
     getOrder()
-  }, [currentTable, currentFloor])
+  }, [currentTable])
 
   return {
-    currentFloor, currentTable, dispatch, order, setOrder, loading, setLoading, note, setNote,
+    currentTable, dispatch, order, setOrder, loading, setLoading, note, setNote,
     discount, setDiscount, handleNotificationsClick, combineBills, setCombineBills, splitBills, setSplitBills,
-    generateBill, setGenerateBill
+    generateBill, setGenerateBill, takeaway
   }
 }
 

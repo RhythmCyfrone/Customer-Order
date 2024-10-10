@@ -13,13 +13,14 @@ import useTableSelectedDashboardViewModel from '../ViewModels/TableSelectedDashb
 import CombineBills from './CombileBillsView'
 import SplitBills from './SplitBillsView'
 import GenerateBill from './GenerateBillView'
+import AddTakeAwayOrderView from './AddTakeAwayOrderView'
 
 const TableSelected = () => {
 
   const {
     currentTable, dispatch, order, loading, note, setNote,
     discount, setDiscount, handleNotificationsClick, combineBills, setCombineBills,
-    splitBills, setSplitBills, generateBill, setGenerateBill
+    splitBills, setSplitBills, generateBill, setGenerateBill, takeaway
   } = useTableSelectedDashboardViewModel()
 
   return (
@@ -41,6 +42,11 @@ const TableSelected = () => {
       content='No Orders'
       handleNotificationsClick={handleNotificationsClick}
     />
+    :currentTable == 'AddTakeaway'
+    ?<AddTakeAwayOrderView
+      order={order}
+      handleNotificationsClick={handleNotificationsClick}
+    />
     :generateBill
     ?<div className='relative w-[420px] flex flex-col medium:pt-[60px] pt-[80px] pb-[40px] items-center shadow-table-selected'>
         <NotificationIcon
@@ -52,6 +58,7 @@ const TableSelected = () => {
         <TableDetails 
           order={order}
           generateBill={true}
+          takeaway={takeaway}
         />
         <GenerateBill />
         <div className='flex w-full ps-[16px] pe-[16px] justify-end mb-[8px] mt-[16px]'>
@@ -114,6 +121,7 @@ const TableSelected = () => {
         <TableDetails 
           order={order}
           generateBill={false}
+          takeaway={takeaway}
         />
         <ItemsList 
           note={note}

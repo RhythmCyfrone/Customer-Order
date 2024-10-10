@@ -9,7 +9,8 @@ import useTableSelectedItemsViewModel from '../ViewModels/TableSelectedItemsSele
 
 const TableSelected = () => {
   const {
-    currentFloor, currentTable, dispatch, viewAll, setViewAll, order, setOrder, loading, setLoading, handleNotificationsClick
+    currentTable, dispatch, viewAll, setViewAll, order, setOrder, loading, setLoading,
+    handleNotificationsClick, takeaway
   } = useTableSelectedItemsViewModel()
 
   return (
@@ -25,7 +26,7 @@ const TableSelected = () => {
       content='No table selected'
       handleNotificationsClick={handleNotificationsClick}
     />
-    :order == null || order?.length == 0
+    :order == null
     ?
     <TableSelectedPlaceholder 
       content='No Orders'
@@ -40,6 +41,8 @@ const TableSelected = () => {
         />
         <TableDetails 
           order={order}
+          generateBill={false}
+          takeaway={takeaway}
         />
         <ItemsList viewAll={viewAll} setViewAll = {setViewAll} />
         <NewItemsList viewAll={viewAll} setViewAll = {setViewAll} />

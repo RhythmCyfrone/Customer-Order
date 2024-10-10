@@ -9,7 +9,14 @@ import { Checkbox } from '@mui/material'
 import useItemsListViewModel from '../../ViewModels/ItemsListViewModel'
 import type { ItemsListProps } from '../../ViewModels/ItemsListViewModel'
 
-const ItemsList = ({viewAll = null, setViewAll, note, setNote, discount, setDiscount}: ItemsListProps) => {
+const ItemsList = ({
+        viewAll = null, 
+        setViewAll, 
+        note = false, 
+        setNote = null, 
+        discount= false, 
+        setDiscount = null
+    }: ItemsListProps) => {
     const {
         screenHeight, setScreenHeight, checkedAll, setCheckedAll, specialFeature, handleViewAll
     } = useItemsListViewModel({viewAll, setViewAll, note, discount})

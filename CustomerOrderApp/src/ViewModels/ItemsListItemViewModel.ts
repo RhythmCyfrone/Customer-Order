@@ -7,7 +7,7 @@ export type ItemsListItemProps = {
     note: boolean;
     setNote: React.Dispatch<React.SetStateAction<boolean>> | null;
     discount: boolean;
-    setDiscount: React.Dispatch<React.SetStateAction<boolean>> ;
+    setDiscount: React.Dispatch<React.SetStateAction<boolean>> | null ;
     checkedAll?: boolean
 }
 type useItemsListItemViewModelProps = {

@@ -2,17 +2,10 @@ import DeleteItemCountIcon from '../../Assets/Icons/DeleteItemCount.svg'
 import AddItemCountIcon from '../../Assets/Icons/AddItemCount.svg'
 import { Checkbox } from '@mui/material';
 import ItemStatusToggle from './ItemsStatusToggleView';
+import {ItemsListItemProps} from '../../ViewModels/ItemsListItemViewModel';
 import useItemsListItemViewModel from '../../ViewModels/ItemsListItemViewModel';
 
-type ItemsListItemProps = {
-    itemName: string;
-    itemCount: number;
-    note: boolean;
-    setNote: React.Dispatch<React.SetStateAction<boolean>> | null;
-    discount: boolean;
-    setDiscount: React.Dispatch<React.SetStateAction<boolean>> ;
-    checkedAll?: boolean
-}
+
 const ItemsListItem = ({itemName, itemCount, note, setNote, checkedAll = false, discount, setDiscount}: ItemsListItemProps) => {
     const {
         screen, displayCheckbox, displayCounters, checked, setChecked

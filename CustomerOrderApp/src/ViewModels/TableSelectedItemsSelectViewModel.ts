@@ -6,7 +6,7 @@ import { getOrderByTableId } from "../Services/HTTPServices/orders"
 
 const useTableSelectedItemsViewModel = () => {
     const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
-    const currentFloor = useAppSelector(state => state.tableSelect.currentFloor)
+    const takeaway = useAppSelector(state => state.tableSelect.takeaway)
     const [viewAll, setViewAll] = useState(false)
     const dispatch = useAppDispatch()
   
@@ -20,10 +20,28 @@ const useTableSelectedItemsViewModel = () => {
       dispatch(setStartPosition({ top: clickY, left: clickX, initiator: initiator }));
   
   };
+  const setNullOrder = () => {
+    setOrder({
+      orderId: '',
+      tableId: '-',
+      customerId: '',
+      customerName: '',
+      orderTakerId: '',
+      orderTakerName: '',
+      orderStatusId: 1,
+      billId: 0
+    })
+  }
   
   useEffect(() => {
     setLoading(true)
     if(currentTable == 'None') {
+      setOrder(null)
+      setLoading(false)
+      return
+    }
+    else if(currentTable == 'AddTakeaway') {
+      setNullOrder()
       setLoading(false)
       return
     }
@@ -38,15 +56,17 @@ const useTableSelectedItemsViewModel = () => {
           }
       } catch (error) {
           console.error(error)
+          setOrder(null)
       } finally {
         setLoading(false)
       }
     }
     getOrder()
-  }, [currentTable, currentFloor])
+  }, [currentTable])
 
     return {
-        currentFloor, currentTable, dispatch, viewAll, setViewAll, order, setOrder, loading, setLoading, handleNotificationsClick
+      currentTable, dispatch, viewAll, setViewAll, order, setOrder, loading, setLoading,
+      handleNotificationsClick, takeaway
     }
 }
 

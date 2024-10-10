@@ -38,8 +38,6 @@ const useDashboardViewModel = () => {
             tempList = [...tablesList].filter(table => table.id.toLowerCase().includes(tableName.toLowerCase()))
         }
 
-        console.log(tempList)
-
         if(statusFlter === 'All') {
             setDisplayTables(tempList.sort((a, b) => Number(a.id.slice(1)) - Number(b.id.slice(1))))
         }else if(statusFlter === 'Occupied') {

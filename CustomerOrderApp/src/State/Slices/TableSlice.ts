@@ -2,12 +2,12 @@ import { createSlice, PayloadAction} from '@reduxjs/toolkit'
 
 export type TableState = {
     selectedTable: string;
-    currentFloor: string;
+    takeaway: boolean
 }
 
 const initialState: TableState = {
     selectedTable: 'None',
-    currentFloor: '1'
+    takeaway: false
 }
 
 export const tableSlice = createSlice({
@@ -15,14 +15,14 @@ export const tableSlice = createSlice({
   initialState,
   reducers: {
     selectTable: (state, actions: PayloadAction<TableState>) => {
-      if(state.currentFloor !== actions.payload.currentFloor ||
-        state.selectedTable !== actions.payload.selectedTable
+      if(state.selectedTable !== actions.payload.selectedTable ||
+        state.takeaway !== actions.payload.takeaway
       ) { 
-          state.currentFloor = actions.payload.currentFloor
           state.selectedTable = actions.payload.selectedTable
+          state.takeaway = actions.payload.takeaway
       }else{
         state.selectedTable = 'None',
-        state.currentFloor = '1'
+        state.takeaway = false
       }
     }
   }

@@ -16,20 +16,20 @@ type TableProps = {
 
 const Table = ({status, floor, tableNumber, time, occupancy}: TableProps) => {
   const {
-      selectedTable, currentFloor, dispatch, statusColorClass, statusColorText
+      selectedTable, dispatch, statusColorClass, statusColorText
   } = useTableViewModel(status)
   
   return (
     <div className='flex w-[156px] h-[88px] cursor-pointer'
         onClick={() => dispatch(selectTable({
-            currentFloor: floor,
-            selectedTable: tableNumber
+            selectedTable: tableNumber,
+            takeaway: false
         }))}
     >
         <div className={`table-status w-[8px] rounded-l-[10px] ${statusColorClass}`}>
         </div>
         {
-            currentFloor == floor && selectedTable == tableNumber
+            selectedTable == tableNumber
             ?
             <div className='relative flex-1 bg-CustomBrand-300 p-[4px] flex flex-col gap-y-[7px] shadow-table rounded-r-[10px]'>
                 <div className='absolute top-[4px] right-[4px] rounded-[14px] w-[14px] bg-[#FFFFFF] h-[14px] flex justify-center items-center'>

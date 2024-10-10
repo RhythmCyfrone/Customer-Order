@@ -3,10 +3,10 @@ import { useState, useEffect } from "react"
 export type ItemsListProps = {
     viewAll?: boolean | null;
     setViewAll?: React.Dispatch<React.SetStateAction<boolean>> | null;
-    note: boolean;
-    setNote: React.Dispatch<React.SetStateAction<boolean>> | null;
-    discount: boolean;
-    setDiscount: React.Dispatch<React.SetStateAction<boolean>>
+    note?: boolean;
+    setNote?: React.Dispatch<React.SetStateAction<boolean>> | null;
+    discount?: boolean;
+    setDiscount?: React.Dispatch<React.SetStateAction<boolean>> | null;
 }
 
 type useItemsListViewModelProps = {
