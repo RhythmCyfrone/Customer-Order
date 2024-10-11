@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../State/hooks"
 import { setStartPosition } from "../State/Slices/BackdropSlice"
 import { OrderDTO } from "../Models/HTTPServices/ResponseDTO"
 import { getOrderByTableId } from "../Services/HTTPServices/orders"
+import { getTakeAwayOrderById } from "../Services/HTTPServices/takeaways"
 
 const useTableSelectedItemsViewModel = () => {
     const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
@@ -32,6 +33,7 @@ const useTableSelectedItemsViewModel = () => {
       billId: 0
     })
   }
+
   
   useEffect(() => {
     setLoading(true)
@@ -47,7 +49,18 @@ const useTableSelectedItemsViewModel = () => {
     }
     const getOrder = async () => {
       try {
-          const data = await getOrderByTableId({tableId: currentTable})
+          let data
+          if(takeaway) {
+              data = await getTakeAwayOrderById(currentTable)
+                          .then(res => res.data)
+                          .then(res => {
+                              console.log(res)
+                              return res
+
+                          })
+          } else {
+              data = await getOrderByTableId({tableId: currentTable})
+          }
           console.log(data)
           if(data.status == 200) {
               setOrder(data.data)

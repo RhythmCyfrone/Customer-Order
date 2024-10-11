@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { selectScreen } from "../State/Slices/ScreensSlice";
-import { useAppDispatch } from "../State/hooks";
+import { createTakeAwayOrder } from "../Services/HTTPServices/takeaways";
+import { useAppDispatch, useAppSelector } from "../State/hooks";
+import { selectTable } from "../State/Slices/TableSlice";
 
 const useAddTakeAwayOrderViewModel = () => {
+    const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
+    const takeaway = useAppSelector(state => state.tableSelect.takeaway)
     const [disableAddItem, setDisableAddItem] = useState(true); 
     const [newCustomerName, setNewCustomerName] = useState('');
     const [newCustomerMobile, setNewCustomerMobile] = useState('');
@@ -20,8 +24,19 @@ const useAddTakeAwayOrderViewModel = () => {
         setNewCustomerMobile(e.target.value);
     }
 
-    const handleAddItems = () => {
-        dispatch(selectScreen({screen: 'Items Select'}))
+    const handleAddItems = async () => {
+        try {
+            const data = await createTakeAwayOrder({customerName: newCustomerName, customerPhone: newCustomerMobile})
+            console.log(data)
+            if(data.status == 200) {
+                dispatch(selectTable({selectedTable: data.data.orderId, takeaway: true}))
+                dispatch(selectScreen({screen: 'Items Select'}))
+            }else {
+                throw new Error('Error fetching tables list')
+            }
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     return {
