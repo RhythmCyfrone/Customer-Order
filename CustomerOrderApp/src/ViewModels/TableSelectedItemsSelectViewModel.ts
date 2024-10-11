@@ -52,11 +52,18 @@ const useTableSelectedItemsViewModel = () => {
           let data
           if(takeaway) {
               data = await getTakeAwayOrderById(currentTable)
-                          .then(res => res.data)
                           .then(res => {
-                              console.log(res)
-                              return res
-
+                            res.data = {
+                              orderId: res.data.orderId,
+                              tableId: 'TW',
+                              customerId: res.data.customerId,
+                              customerName: res.data.customerName,
+                              orderTakerId: '-',
+                              orderTakerName: '-',
+                              orderStatusId: res.data.orderStatusId,
+                              billId: res.data.billId
+                            }
+                            return res
                           })
           } else {
               data = await getOrderByTableId({tableId: currentTable})
@@ -65,7 +72,7 @@ const useTableSelectedItemsViewModel = () => {
           if(data.status == 200) {
               setOrder(data.data)
           }else {
-              throw new Error('Error fetching tables list')
+              throw new Error('Error fetching table/takeaway order')
           }
       } catch (error) {
           console.error(error)

@@ -23,11 +23,13 @@ type BillDetailsProps = {
     setSplitBills: React.Dispatch<React.SetStateAction<boolean>> ;
     generateBill: boolean;
     setGenerateBill: React.Dispatch<React.SetStateAction<boolean>> ;
+    takeaway: boolean;
 }
 
 const BillDetails = ({note, setNote, discount, setDiscount, 
                       handleNotificationsClick, setCombineBills,
-                      splitBills, setSplitBills, generateBill, setGenerateBill
+                      splitBills, setSplitBills, generateBill, setGenerateBill,
+                      takeaway
                     }: BillDetailsProps) => {
     const {
         isRotated,
@@ -47,7 +49,7 @@ const BillDetails = ({note, setNote, discount, setDiscount,
         topPadding,
         translate,
         handleIconClick
-    } = useBillDetailsViewModel(note, discount)
+    } = useBillDetailsViewModel(note, discount, takeaway)
   return (
     <div className={`${!specialFeature?'hidden':''} absolute bottom-[0px] z-10`}>
         <div className={`relative w-[420px] bg-[#DDEBFF] rounded-t-[32px] flex flex-col transform-padding duration-500 ${topPadding}`}>
@@ -137,18 +139,22 @@ const BillDetails = ({note, setNote, discount, setDiscount,
                         <img src={PriceTagIcon} />
                         <span className='font-poppins font-normal text-[10px] text-white'>Discount</span>
                     </div>
-                    <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
-                        onClick={() => setSplitBills(true)}
-                    >
-                        <img src={SplitBillIcon} />
-                        <span className='font-poppins font-normal text-[10px] text-white'>Split Bill</span>
-                    </div>
-                    <div className={`p-[5.5px] ps-[12px] pe-[12px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
-                        onClick={() => setCombineBills(true)}
-                    >
-                        <img src={CombineBillIcon} />
-                        <span className='font-poppins font-normal text-[10px] text-white'>Combine</span>
-                    </div>
+                    {!takeaway &&
+                        <>
+                            <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
+                                onClick={() => setSplitBills(true)}
+                            >
+                                <img src={SplitBillIcon} />
+                                <span className='font-poppins font-normal text-[10px] text-white'>Split Bill</span>
+                            </div>
+                            <div className={`p-[5.5px] ps-[12px] pe-[12px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
+                                onClick={() => setCombineBills(true)}
+                            >
+                                <img src={CombineBillIcon} />
+                                <span className='font-poppins font-normal text-[10px] text-white'>Combine</span>
+                            </div>
+                        </>
+                    }
                     <div className={` p-[5.5px] ps-[5px] pe-[5px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
                         onClick={(e) => handleNotificationsClick(e, 'Cancel Order')}
                     >
@@ -172,35 +178,42 @@ const BillDetails = ({note, setNote, discount, setDiscount,
                         <img src={PriceTagIcon} />
                         <span className='font-poppins font-normal text-[10px] text-white'>Discount</span>
                     </div>
-                    <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
-                        onClick={() => setSplitBills(true)}
-                    >
-                        <img src={SplitBillIcon} />
-                        <span className='font-poppins font-normal text-[10px] text-white'>Split Bill</span>
-                    </div>
-                    <div className={`${viewMore?'hidden':''} p-[5.5px] ps-[20px] pe-[20px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
-                        onClick={() => setViewMore(!viewMore)}
-                    >
-                        <img src={MoreIcon} />
-                        <span className='font-poppins font-normal text-[10px] text-white'>More</span>
-                    </div>
-                    <div className={`${viewMore?'':'hidden'} p-[5.5px] ps-[12px] pe-[12px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
-                        onClick={() => setCombineBills(true)}
-                    >
-                        <img src={CombineBillIcon} />
-                        <span className='font-poppins font-normal text-[10px] text-white'>Combine</span>
-                    </div>
+                    {!takeaway && 
+                        <>
+                            <div className='p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
+                                onClick={() => setSplitBills(true)}
+                            >
+                                <img src={SplitBillIcon} />
+                                <span className='font-poppins font-normal text-[10px] text-white'>Split Bill</span>
+                            </div>
+                            <div className={`${viewMore?'hidden':''} p-[5.5px] ps-[20px] pe-[20px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
+                                onClick={() => setViewMore(!viewMore)}
+                            >
+                                <img src={MoreIcon} />
+                                <span className='font-poppins font-normal text-[10px] text-white'>More</span>
+                            </div>
+                            <div className={`${viewMore?'':'hidden'} p-[5.5px] ps-[12px] pe-[12px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
+                                onClick={() => setCombineBills(true)}
+                            >
+                                <img src={CombineBillIcon} />
+                                <span className='font-poppins font-normal text-[10px] text-white'>Combine</span>
+                            </div>
+                        </>
+                    }
                     <div className={`${viewMore?'':'hidden'} p-[5.5px] ps-[5px] pe-[5px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer`}
                         onClick={(e) => handleNotificationsClick(e, 'Cancel Order')}
                     >
                         <img src={CancelBillIcon} />
                         <span className='font-poppins font-normal text-[8.5px] text-white'>Cancel Order</span>
                     </div>
-                    <div className={`${viewMore?'':'hidden'} flex-1 flex items-center justify-end item-end pe-[24px]`}>
-                        <img src={BillOptionsBack} className='cursor-pointer'
-                            onClick={() => setViewMore(!viewMore)}
-                        />
-                    </div>
+                    {!takeaway &&
+                        <div className={`${viewMore?'':'hidden'} flex-1 flex items-center justify-end item-end pe-[24px]`}>
+                            <img src={BillOptionsBack} className='cursor-pointer'
+                                onClick={() => setViewMore(!viewMore)}
+                            />
+                        </div>
+                    }
+                    
                 </div>
             }
             

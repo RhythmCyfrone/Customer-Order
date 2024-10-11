@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../State/hooks"
 import { setStartPosition } from "../State/Slices/BackdropSlice"
 import { OrderDTO } from "../Models/HTTPServices/ResponseDTO"
 import { getOrderByTableId } from "../Services/HTTPServices/orders"
+import { getTakeAwayOrderById } from "../Services/HTTPServices/takeaways"
 
 const useTableSelectedDashboardViewModel = () => {
   const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
@@ -59,7 +60,25 @@ const useTableSelectedDashboardViewModel = () => {
     }
     const getOrder = async () => {
       try {
-          const data = await getOrderByTableId({tableId: currentTable})
+          let data
+          if(takeaway) {
+            data = await getTakeAwayOrderById(currentTable)
+                  .then(res => {
+                    res.data = {
+                      orderId: res.data.orderId,
+                      tableId: 'TW',
+                      customerId: res.data.customerId,
+                      customerName: res.data.customerName,
+                      orderTakerId: '-',
+                      orderTakerName: '-',
+                      orderStatusId: res.data.orderStatusId,
+                      billId: res.data.billId
+                    }
+                    return res
+                  })
+          } else {
+              data = await getOrderByTableId({tableId: currentTable})
+          }
           console.log(data)
           if(data.status == 200) {
               setOrder(data.data)

@@ -15,7 +15,7 @@ const TableDetails = ({order, generateBill = false, takeaway = false}: TableDeta
     <div className='flex w-[335px] flex-col p-[4px]'>
         <div className='flex items-center'>
             <span className='flex-1 font-poppins text-[16px] font-medium'>
-                {takeaway?'Take Away':'Table'}
+                Table
             </span>
             <span className='flex-1 ms-[8px] font-quicksand text-[12px] font-normal'>Status</span>
         </div>

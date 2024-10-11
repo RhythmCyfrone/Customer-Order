@@ -103,6 +103,7 @@ const TableSelected = () => {
             setSplitBills={setSplitBills}
             generateBill={generateBill}
             setGenerateBill={setGenerateBill}
+            takeaway={takeaway}
           />
           :combineBills
           ?<CombineBills 

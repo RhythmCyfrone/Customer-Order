@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-const useBillDetailsViewModel = (note: boolean, discount: boolean) => {
+const useBillDetailsViewModel = (note: boolean, discount: boolean, takeaway: boolean) => {
     const [isRotated, setIsRotated] = useState(false);
     const [viewBill, setViewBill] = useState(false)
     const [viewDetailsText, setViewDetailsText] = useState(true)
     const [closeText, setCloseText] = useState(false)
-    const [viewMore, setViewMore] = useState(false);
+    const [viewMore, setViewMore] = useState(takeaway);
     const [screenHeight, setScreenHeight] = useState(window.innerHeight);
     const specialFeature = !(note || discount)
     
