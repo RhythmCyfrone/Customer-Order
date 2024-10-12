@@ -8,11 +8,12 @@ import useDashboardViewModel from '../ViewModels/DashboardViewModel'
 import LunchBagIcon from '../Assets/Icons/lunch-bag.svg'
 import SeparatingLine from '../Assets/Icons/SeparatingLine.svg'
 import Takeaway from '../Components/Takeaway'
+import TakeawayTableView from '../Components/TakeawayTableView'
 
 function Dashboard() {
     const {
         isNotificationsVisible, setIsNotificationsVisible,
-        loading, tableName, setTableName, displayTables, statusFlter,
+        loadingTable, loadingTakeaways, takeawaysList, tableName, setTableName, displayTables, statusFlter,
         setStatusFilter, takeAway, setTakeAway, takeawayRef, scrollToTakeaway,
         tablesRef, scrollToTables
     } = useDashboardViewModel()
@@ -40,7 +41,7 @@ function Dashboard() {
           />
           <div className='flex flex-col gap-y-[20px] overflow-y-scroll'>
             <div className='flex gap-x-[61px] gap-y-[20px]  flex-wrap ' ref={tablesRef}>
-              {loading
+              {loadingTable
               ?<span>Loading ...</span>
               :displayTables.map((table, index) => {
                   return <Table
@@ -59,11 +60,24 @@ function Dashboard() {
                 <img src={LunchBagIcon} />
                 <span className='font-poppins text-nowrap font-normal text-[14px]'>Take away</span>
             </div>
-            <Takeaway 
-              takeAway={takeAway}
-              setTakeaway={setTakeAway}
-              takeawayRef={takeawayRef}
-            />
+            <div className='flex gap-x-[61px] gap-y-[20px] flex-wrap ' ref={takeawayRef}>
+              <Takeaway 
+                takeAway={takeAway}
+                setTakeaway={setTakeAway}
+              />
+              {loadingTakeaways
+              ?<span>Loading ...</span>
+              :takeawaysList.map((takeaway, index) => {
+                  return <TakeawayTableView
+                      key={index}
+                      tableNumber={takeaway['orderId']}
+                      status={takeaway['curr_status']}
+                  />
+                })
+
+              }
+            </div>
+            
           </div>
           
         </div>

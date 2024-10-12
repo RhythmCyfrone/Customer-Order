@@ -27,3 +27,14 @@ export type TableDTO = {
 	curr_status: Status;
 	branchID: string
 }
+
+export type TakeAwayDTO = {
+    orderId: string;
+	customerId: string;
+    customerName: string;
+    customerPhone: string;
+	orderStatusId: number;
+    curr_status: Status;
+	billId: number;
+    branchID: string;
+}

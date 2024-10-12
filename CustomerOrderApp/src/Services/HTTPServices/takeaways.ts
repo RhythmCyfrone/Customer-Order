@@ -1,4 +1,5 @@
 import { createTakeAwayOrderDTO } from "../../Models/HTTPServices/RequestDTO";
+import { TakeAwayDTO } from "../../Models/HTTPServices/ResponseDTO";
 import { apiClient } from "./api";
 import { AxiosResponse } from 'axios';
 
@@ -6,7 +7,7 @@ export const createTakeAwayOrder = async (customerDetails: createTakeAwayOrderDT
     return apiClient.post('/takeaways/createTakeAwayOrder', customerDetails);
 }
 
-export const getAllTakeAwayOrders = async (): Promise<AxiosResponse<any>> => {
+export const getAllTakeAwayOrders = async (): Promise<AxiosResponse<TakeAwayDTO[]>> => {
     return apiClient.get('/takeaways/getAllTakeAwayOrders');
 }
 

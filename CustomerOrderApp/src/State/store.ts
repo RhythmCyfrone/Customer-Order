@@ -7,6 +7,7 @@ import ScreensReducer from './Slices/ScreensSlice'
 import FoodSelectorNavbarReducer from './Slices/FoodSelectorNavbarSlice'
 import BackdropReducer from './Slices/BackdropSlice'
 import tableDataReducer from './Slices/tablesSlice'
+import takeawaysDataReducer from './Slices/takeawaySlice'
 
 export const store = configureStore({
   reducer: {
@@ -17,7 +18,8 @@ export const store = configureStore({
     screen: ScreensReducer,
     foodSelector: FoodSelectorNavbarReducer,
     backdrop: BackdropReducer,
-    tablesList: tableDataReducer
+    tablesList: tableDataReducer,
+    takeawaysList: takeawaysDataReducer
   }
 })
 

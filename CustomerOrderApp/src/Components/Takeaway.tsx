@@ -3,14 +3,13 @@ import useTakeawayViewModel from "../ViewModels/TakeawayViewModel";
 type TakeawayProps = {
     takeAway: boolean;
     setTakeaway: React.Dispatch<React.SetStateAction<boolean>>;
-    takeawayRef: React.RefObject<HTMLDivElement>;
 }
-const Takeaway = ({takeAway, setTakeaway, takeawayRef}: TakeawayProps) => {
+const Takeaway = ({takeAway, setTakeaway}: TakeawayProps) => {
     const {
         selectedTable, handleTakeaway
     } = useTakeawayViewModel()
   return (
-    <div className='flex w-[156px] min-h-[88px] cursor-pointer' ref={takeawayRef}
+    <div className='flex w-[156px] min-h-[88px] cursor-pointer'
         onClick={() => handleTakeaway()}
     >
         <div className={`table-status w-[8px] rounded-l-[10px] bg-[#0CBB00]`}>

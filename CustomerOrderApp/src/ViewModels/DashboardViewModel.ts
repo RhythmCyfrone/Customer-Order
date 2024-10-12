@@ -2,13 +2,17 @@ import { useEffect, useState, useRef } from "react";
 import { useAppDispatch, useAppSelector } from "../State/hooks";
 import { updateTablesList } from "../State/Slices/tablesSlice";
 import { getAllTables } from "../Services/HTTPServices/tables";
+import { getAllTakeAwayOrders } from "../Services/HTTPServices/takeaways";
+import { updateTakeAwaysList } from "../State/Slices/takeawaySlice";
 
 const useDashboardViewModel = () => {
     const [isNotificationsVisible, setIsNotificationsVisible] = useState(false);
     const startPosition = useAppSelector(state => state.backdrop)
-    const [loading, setLoading] = useState(true)
+    const [loadingTable, setLoadingTable] = useState(true)
+    const [loadingTakeaways, setLoadingTakeaways] = useState(true)
     const dispatch = useAppDispatch()
     const tablesList = useAppSelector(state => state.tablesList)
+    const takeawaysList = useAppSelector(state => state.takeawaysList)
     const [displayTables, setDisplayTables] = useState(tablesList)
     const [tableName, setTableName] = useState<string>('')
     const [statusFlter, setStatusFilter] = useState<string>('All')
@@ -55,7 +59,7 @@ const useDashboardViewModel = () => {
         const updateTablesListData = async () => {
             try {
                 const data = await getAllTables()
-                if(data.status == 200) {
+                if(data.status == 200 && data.data !== null) {
                     dispatch(updateTablesList(data.data))
                 }else {
                     throw new Error('Error fetching tables list')
@@ -63,10 +67,29 @@ const useDashboardViewModel = () => {
             } catch (error) {
                 console.error(error)
             } finally {
-                setLoading(false)
+                setLoadingTable(false)
             }
         }
         updateTablesListData()
+    }, [])
+
+    useEffect(() => {
+        const updateTakeAwaysListData = async () => {
+            try {
+                const data = await getAllTakeAwayOrders()
+                console.log(data)
+                if(data.status == 200 && data.data !== null) {
+                    dispatch(updateTakeAwaysList(data.data))
+                }else {
+                    throw new Error('Error fetching takeaways list')
+                }
+            } catch (error) {
+                console.error(error)
+            } finally {
+                setLoadingTakeaways(false)
+            }
+        }
+        updateTakeAwaysListData()
     }, [])
 
     useEffect(() => {
@@ -82,8 +105,8 @@ const useDashboardViewModel = () => {
 
     return {
         isNotificationsVisible, setIsNotificationsVisible, startPosition, dispatch,
-        loading, setLoading, tablesList,displayTables, tableName, setTableName,
-        statusFlter, setStatusFilter, takeAway, setTakeAway, takeawayRef, scrollToTakeaway,
+        loadingTable, setLoadingTable, loadingTakeaways, setLoadingTakeaways, tablesList, takeawaysList, displayTables, 
+        tableName, setTableName, statusFlter, setStatusFilter, takeAway, setTakeAway, takeawayRef, scrollToTakeaway,
         tablesRef, scrollToTables
     }
 }
