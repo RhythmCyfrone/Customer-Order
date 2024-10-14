@@ -46,11 +46,11 @@ const useDashboardViewModel = () => {
             setDisplayTables(tempList.sort((a, b) => Number(a.id.slice(1)) - Number(b.id.slice(1))))
         }else if(statusFlter === 'Occupied') {
             setDisplayTables(tempList.filter(table => {
-                return ['Occupied', 'Served', 'Billed'].includes(table.curr_status)
+                return ['Assigned','Ordered', 'Served', 'Billed', 'Paid'].includes(table.curr_status)
             }))
-        }else if(statusFlter === 'Assigned') {
+        }else if(statusFlter !== '') {
             setDisplayTables(tempList.filter(table => {
-                return ['Reserved', 'Assigned'].includes(table.curr_status)
+                return table.curr_status == statusFlter
             }))
         }
     }, [tableName, tablesList, statusFlter])
@@ -60,7 +60,9 @@ const useDashboardViewModel = () => {
             try {
                 const data = await getAllTables()
                 if(data.status == 200 && data.data !== null) {
-                    dispatch(updateTablesList(data.data))
+                    dispatch(updateTablesList(data.data.filter(tableData => {
+                        return !['Free', 'Reserved'].includes(tableData.curr_status)
+                    })))
                 }else {
                     throw new Error('Error fetching tables list')
                 }

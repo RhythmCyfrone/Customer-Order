@@ -1,7 +1,7 @@
 import type { TableSelectorNavbarProps } from '../ViewModels/TableSelectorNavbarViewModel';
 import useTableSelectorNavbarViewModel from '../ViewModels/TableSelectorNavbarViewModel';
 
-type selectorType = 'All' | 'Assigned' | 'Occupied' | 'Free'
+type selectorType = 'All' | 'Reserved' | 'Occupied' | 'Free' | 'Assigned' | 'Ordered' | 'Served' | 'Billed' | 'Paid';
 
 interface SelectorButtonProps extends TableSelectorNavbarProps {
     selectorName: selectorType;
@@ -35,14 +35,26 @@ const TableSelectorNavbar = ({statusFlter, setStatusFilter}: TableSelectorNavbar
         screen
     } = useTableSelectorNavbarViewModel({statusFlter, setStatusFilter})
   return (
-    <div className='flex gap-x-[24px]'>
+    <div className='flex gap-x-[20px] flex-wrap gap-y-[20px]'>
         <SelectorButton selectorName='All' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
         {
-            screen == 'Table Management' &&
-            <SelectorButton selectorName='Free' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
+            screen == 'Table Management'
+            ?
+            <>
+                <SelectorButton selectorName='Free' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
+                <SelectorButton selectorName='Reserved' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
+                <SelectorButton selectorName='Occupied' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
+            </>
+            :
+            <>
+                <SelectorButton selectorName='Assigned' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
+                <SelectorButton selectorName='Ordered' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
+                <SelectorButton selectorName='Served' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
+                <SelectorButton selectorName='Billed' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
+                <SelectorButton selectorName='Paid' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
+            </>
         }
-        <SelectorButton selectorName='Assigned' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
-        <SelectorButton selectorName='Occupied' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
+        
     </div>
     
   )
