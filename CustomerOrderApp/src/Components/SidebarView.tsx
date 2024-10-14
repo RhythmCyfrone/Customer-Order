@@ -4,14 +4,15 @@ import PosSelectedSidebarIcon from '../Assets/Icons/PosSelectedSidebar.svg'
 import PosUnselectedSidebarIcon from '../Assets/Icons/PosUnselectedSidebar.svg'
 import TableSidebarUnselectedIcon from '../Assets/Icons/TableSidebarUnselected.svg'
 import TableSidebarSelectedIcon from '../Assets/Icons/TableSidebarSelected.svg'
-import { useAppSelector, useAppDispatch } from '../State/hooks'
-import {toggle} from '../State/Slices/sidebarSlice'
+import useSidebarViewModel from '../ViewModels/SidebarViewModel'
 
 
 
 const Sidebar = () => {
-  const sidebarTab = useAppSelector(state => state.sidebar.currentTab)
-  const dispatch = useAppDispatch()
+  const {
+    sidebarTab, handleToggle
+  } = useSidebarViewModel()
+
   return (
     <div className='relative w-[80px] shadow-sidebar p-[10px] pt-[15px] pb-[15px]'>
       <div className='fontSidebarHeading text-CustomBrand-300 text-[25px]'>
@@ -27,14 +28,14 @@ const Sidebar = () => {
             <img src={PosSelectedSidebarIcon} />
           </div>
           <div className='rounded-[5px] flex justify-center ps-[8px] pe-[8px] pt-[7px] pb-[7px] cursor-pointer hover:bg-[#EBF3FE]'
-            onClick={() => dispatch(toggle())}  
+            onClick={() => handleToggle()}  
           >
             <img src={TableSidebarUnselectedIcon} />
           </div>
         </>
         :<>
           <div className='rounded-[5px] flex justify-center p-[11px] cursor-pointer hover:bg-[#EBF3FE]'
-            onClick={() => dispatch(toggle())}
+            onClick={() => handleToggle()}
           >
             <img src={PosUnselectedSidebarIcon} />
           </div>

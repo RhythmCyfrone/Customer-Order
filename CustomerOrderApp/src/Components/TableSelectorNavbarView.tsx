@@ -1,7 +1,7 @@
 import type { TableSelectorNavbarProps } from '../ViewModels/TableSelectorNavbarViewModel';
 import useTableSelectorNavbarViewModel from '../ViewModels/TableSelectorNavbarViewModel';
 
-type selectorType = 'All' | 'Assigned' | 'Occupied'
+type selectorType = 'All' | 'Assigned' | 'Occupied' | 'Free'
 
 interface SelectorButtonProps extends TableSelectorNavbarProps {
     selectorName: selectorType;
@@ -31,9 +31,16 @@ const SelectorButton = ({selectorName, statusFlter, setStatusFilter}: SelectorBu
 }
 
 const TableSelectorNavbar = ({statusFlter, setStatusFilter}: TableSelectorNavbarProps) => {
+    const {
+        screen
+    } = useTableSelectorNavbarViewModel({statusFlter, setStatusFilter})
   return (
     <div className='flex gap-x-[24px]'>
         <SelectorButton selectorName='All' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
+        {
+            screen == 'Table Management' &&
+            <SelectorButton selectorName='Free' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
+        }
         <SelectorButton selectorName='Assigned' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
         <SelectorButton selectorName='Occupied' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
     </div>

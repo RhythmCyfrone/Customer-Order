@@ -1,6 +1,7 @@
 import BackArrowIcon from '../Assets/Icons/BackArrow.svg'
 import FoodTypeNavbar from '../Components/FoodTypeNavbar/FoodTypeNavbarView'
 import SearchIcon from '../Assets/Icons/Search.svg'
+import CancelSearch from '../Assets/Icons/CancelSearch.svg'
 import SeparatingLine from '../Assets/Icons/SeparatingLine.svg'
 import { selectScreen } from '../State/Slices/ScreensSlice'
 import FoodSelectorNavbar from '../Components/FoodSelectorNavbarView'
@@ -11,7 +12,7 @@ import useItemsSelectViewModel from '../ViewModels/ItemsSelectViewModel'
 
 const ItemsSelect = () => {
     const {
-        itemName, maxWidth,  isFoodItemBackdropVisible, setIsFoodItemBackdropVisible,
+        itemName, setItemName, maxWidth,  isFoodItemBackdropVisible, setIsFoodItemBackdropVisible,
         isNotificationsVisible, setIsNotificationsVisible, startPosition, dispatch, scrollContainerRef,
         handleScrollLeft, handleScrollRight, handleInputChange
     } = useItemsSelectViewModel()
@@ -43,6 +44,12 @@ const ItemsSelect = () => {
                     placeholder='Search Items'
                     className='bg-transparent font-poppins font-normal text-[16px] outline-none w-full'
                 />
+                {
+                    itemName !== '' && 
+                    <img src={CancelSearch} className='cursor-pointer'
+                        onClick={() => setItemName('')}
+                    />
+                }
             </div>
         </div>
         <FoodSelectorNavbar />
