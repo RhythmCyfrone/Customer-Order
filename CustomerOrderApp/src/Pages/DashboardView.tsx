@@ -9,6 +9,7 @@ import LunchBagIcon from '../Assets/Icons/lunch-bag.svg'
 import SeparatingLine from '../Assets/Icons/SeparatingLine.svg'
 import Takeaway from '../Components/Takeaway'
 import TakeawayTableView from '../Components/TakeawayTableView'
+import TableStatisticsView from '../Components/TableStatisticsView'
 
 function Dashboard() {
     const {
@@ -39,7 +40,7 @@ function Dashboard() {
             statusFlter={statusFlter}
             setStatusFilter={setStatusFilter}
           />
-          <div className='flex flex-col gap-y-[20px] overflow-y-scroll'>
+          <div className='flex-1 flex flex-col gap-y-[20px] overflow-y-scroll'>
             <div className='flex gap-x-[61px] gap-y-[20px]  flex-wrap ' ref={tablesRef}>
               {loadingTable
               ?<span>Loading ...</span>
@@ -79,7 +80,7 @@ function Dashboard() {
             </div>
             
           </div>
-          
+          <TableStatisticsView />
         </div>
     )
   }
