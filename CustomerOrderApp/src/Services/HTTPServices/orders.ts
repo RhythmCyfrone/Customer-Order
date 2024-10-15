@@ -1,14 +1,14 @@
 import { AxiosResponse } from "axios";
 import { apiClient } from "./api";
-import { OrderDTO, StatusDTO } from "../../Models/HTTPServices/ResponseDTO";
+import { getOrderByTableIdResponseDTO, getStatusByIdResponseDTO } from "../../Models/HTTPServices/ResponseDTO";
 import { getOrderByTableIdDTO, getStatusByIdDTO, updateOrderStatusDTO } from "../../Models/HTTPServices/RequestDTO";
 
 
-export const getOrderByTableId = async ({tableId}: getOrderByTableIdDTO): Promise<AxiosResponse<OrderDTO> > => {
+export const getOrderByTableId = async ({tableId}: getOrderByTableIdDTO): Promise<AxiosResponse<getOrderByTableIdResponseDTO> > => {
     return apiClient.get(`/orders/getOrderByTableId/${tableId}`);
 }
 
-export const getStatusById = async ({orderStatusId}: getStatusByIdDTO): Promise<AxiosResponse<StatusDTO>> => {
+export const getStatusById = async ({orderStatusId}: getStatusByIdDTO): Promise<AxiosResponse<getStatusByIdResponseDTO>> => {
     return apiClient.get(`/orders/getStatusById/${orderStatusId}`);
 }
 

@@ -8,6 +8,7 @@ import FoodSelectorNavbarReducer from './Slices/FoodSelectorNavbarSlice'
 import BackdropReducer from './Slices/BackdropSlice'
 import tableDataReducer from './Slices/tablesSlice'
 import takeawaysDataReducer from './Slices/takeawaySlice'
+import tableStatisticsReducer from './Slices/tableStatisticsSlice'
 
 export const store = configureStore({
   reducer: {
@@ -19,7 +20,8 @@ export const store = configureStore({
     foodSelector: FoodSelectorNavbarReducer,
     backdrop: BackdropReducer,
     tablesList: tableDataReducer,
-    takeawaysList: takeawaysDataReducer
+    takeawaysList: takeawaysDataReducer,
+    tableStastics: tableStatisticsReducer
   }
 })
 

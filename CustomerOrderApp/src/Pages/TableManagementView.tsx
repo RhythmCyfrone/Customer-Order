@@ -11,9 +11,8 @@ const TableManagementView
  = () => {
     const {
         isNotificationsVisible, setIsNotificationsVisible,
-        loadingTable, loadingTakeaways, takeawaysList, tableName, setTableName, displayTables, statusFlter,
-        setStatusFilter, takeAway, setTakeAway, takeawayRef, scrollToTakeaway,
-        tablesRef, scrollToTables
+        loadingTable, tableName, setTableName, displayTables, statusFlter,
+        setStatusFilter, tablesRef, tableStastics
     } = useTableManagementViewModel()
     
     return (
@@ -41,10 +40,10 @@ const TableManagementView
               :displayTables.map((table, index) => {
                   return <Table
                       key={index}
-                      tableNumber={table['id']}
-                      floor={table['floor']}
-                      occupancy={table['siting']}
-                      status={table['curr_status']}
+                      tableNumber={table.tableName}
+                      floor={'1st floor'}
+                      occupancy={table.tableMaxPax}
+                      status={table.tableTrackingStatusName}
                       time='30 mins'
                     />
                 })

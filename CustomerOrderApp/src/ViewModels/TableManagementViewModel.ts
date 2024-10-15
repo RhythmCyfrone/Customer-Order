@@ -2,17 +2,15 @@ import { useEffect, useState, useRef } from "react";
 import { useAppDispatch, useAppSelector } from "../State/hooks";
 import { updateTablesList } from "../State/Slices/tablesSlice";
 import { getAllTables } from "../Services/HTTPServices/tables";
-import { getAllTakeAwayOrders } from "../Services/HTTPServices/takeaways";
-import { updateTakeAwaysList } from "../State/Slices/takeawaySlice";
+import { updateTableStatistics } from "../State/Slices/tableStatisticsSlice";
 
 const useTableManagementViewModel = () => {
     const [isNotificationsVisible, setIsNotificationsVisible] = useState(false);
     const startPosition = useAppSelector(state => state.backdrop)
     const [loadingTable, setLoadingTable] = useState(true)
-    const [loadingTakeaways, setLoadingTakeaways] = useState(true)
     const dispatch = useAppDispatch()
     const tablesList = useAppSelector(state => state.tablesList)
-    const takeawaysList = useAppSelector(state => state.takeawaysList)
+    const tableStastics = useAppSelector(state => state.tableStastics)
     const [displayTables, setDisplayTables] = useState(tablesList)
     const [tableName, setTableName] = useState<string>('')
     const [statusFlter, setStatusFilter] = useState<string>('All')
@@ -37,20 +35,20 @@ const useTableManagementViewModel = () => {
     useEffect(() => {
         let tempList = []
         if(tableName === '') {
-            tempList = [...tablesList].sort((a, b) => Number(a.id.slice(1)) - Number(b.id.slice(1)))
+            tempList = [...tablesList].sort((a, b) => Number(a.tableName.slice(1)) - Number(b.tableName.slice(1)))
         }else {
-            tempList = [...tablesList].filter(table => table.id.toLowerCase().includes(tableName.toLowerCase()))
+            tempList = [...tablesList].filter(table => table.tableName.toLowerCase().includes(tableName.toLowerCase()))
         }
 
         if(statusFlter === 'All') {
-            setDisplayTables(tempList.sort((a, b) => Number(a.id.slice(1)) - Number(b.id.slice(1))))
+            setDisplayTables(tempList.sort((a, b) => Number(a.tableName.slice(1)) - Number(b.tableName.slice(1))))
         }else if(statusFlter === 'Occupied') {
             setDisplayTables(tempList.filter(table => {
-                return ['Assigned','Ordered', 'Served', 'Billed', 'Paid'].includes(table.curr_status)
+                return ['Assigned','Ordered', 'Served', 'Billed', 'Paid'].includes(table.tableTrackingStatusName)
             }))
         }else if(statusFlter !== '') {
             setDisplayTables(tempList.filter(table => {
-                return table.curr_status == statusFlter
+                return table.tableTrackingStatusName == statusFlter
             }))
         }
     }, [tableName, tablesList, statusFlter])
@@ -60,7 +58,12 @@ const useTableManagementViewModel = () => {
             try {
                 const data = await getAllTables()
                 if(data.status == 200 && data.data !== null) {
-                    dispatch(updateTablesList(data.data))
+                    dispatch(updateTablesList(data.data.servingTableDetails))
+                    dispatch(updateTableStatistics({
+                        countOfActualCapacity: data.data.countOfActualCapacity,
+                        avgTableOccupancy: data.data.avgTableOccupancy,
+                        avgTableTurnOverTime: data.data.avgTableTurnOverTime
+                    }))
                 }else {
                     throw new Error('Error fetching tables list')
                 }
@@ -71,25 +74,6 @@ const useTableManagementViewModel = () => {
             }
         }
         updateTablesListData()
-    }, [])
-
-    useEffect(() => {
-        const updateTakeAwaysListData = async () => {
-            try {
-                const data = await getAllTakeAwayOrders()
-                console.log(data)
-                if(data.status == 200 && data.data !== null) {
-                    dispatch(updateTakeAwaysList(data.data))
-                }else {
-                    throw new Error('Error fetching takeaways list')
-                }
-            } catch (error) {
-                console.error(error)
-            } finally {
-                setLoadingTakeaways(false)
-            }
-        }
-        updateTakeAwaysListData()
     }, [])
 
     useEffect(() => {
@@ -105,9 +89,9 @@ const useTableManagementViewModel = () => {
 
     return {
         isNotificationsVisible, setIsNotificationsVisible, startPosition, dispatch,
-        loadingTable, setLoadingTable, loadingTakeaways, setLoadingTakeaways, tablesList, takeawaysList, displayTables, 
+        loadingTable, setLoadingTable, tablesList, displayTables, 
         tableName, setTableName, statusFlter, setStatusFilter, takeAway, setTakeAway, takeawayRef, scrollToTakeaway,
-        tablesRef, scrollToTables
+        tablesRef, scrollToTables, tableStastics
     }
 }
 

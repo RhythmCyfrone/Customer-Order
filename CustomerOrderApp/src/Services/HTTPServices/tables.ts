@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 import { apiClient } from "./api";
-import { TableDTO } from "../../Models/HTTPServices/ResponseDTO";
+import { getAllTablesResponseDTO } from "../../Models/HTTPServices/ResponseDTO";
 
-export const getAllTables = async (): Promise<AxiosResponse<TableDTO[]> > => {
-    return apiClient.get('/tables/getAllTables');
+export const getAllTables = async (): Promise<AxiosResponse<getAllTablesResponseDTO> > => {
+    return apiClient.get('/PointOfSale/GetAllPosTables');
 }

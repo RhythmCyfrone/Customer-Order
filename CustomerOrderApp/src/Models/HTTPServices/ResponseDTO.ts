@@ -12,6 +12,7 @@ export type OrderDTO = {
 	orderStatusId: number;
 	billId: number;
 }
+export type getOrderByTableIdResponseDTO = OrderDTO
 
 export type StatusDTO = {
     statusId: number;
@@ -19,13 +20,22 @@ export type StatusDTO = {
     statusColor: string;
 
 }
+export type getStatusByIdResponseDTO = StatusDTO
 
 export type TableDTO = {
-    id:string;
-	floor: string;
-	siting: number;  
-	curr_status: Status;
-	branchID: string
+    tableId:string;
+    tableName: string;
+    tableMapperId: number;
+    tableMaxPax: number;
+    dateTimeSinceLastStatusChange: string;
+    tableTrackingStatusId: number;
+    tableTrackingStatusName: Status;
+}
+export type getAllTablesResponseDTO = {
+    countOfActualCapacity: number;
+    avgTableOccupancy: number;
+    avgTableTurnOverTime: number;
+    servingTableDetails: TableDTO[]
 }
 
 export type TakeAwayDTO = {
@@ -38,3 +48,8 @@ export type TakeAwayDTO = {
 	billId: number;
     branchID: string;
 }
+export type createTakeAwayOrderResponseDTO = any
+
+export type getAllTakeAwayOrdersResponseDTO = TakeAwayDTO[]
+
+export type getTakeAwayOrderByIdResponseDTO = any
