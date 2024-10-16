@@ -29,7 +29,7 @@ const useAddTakeAwayOrderViewModel = () => {
             const data = await createTakeAwayOrder({customerName: newCustomerName, customerPhone: newCustomerMobile})
             console.log(data)
             if(data.status == 200) {
-                dispatch(selectTable({selectedTable: data.data.orderId, takeaway: true}))
+                dispatch(selectTable({selectedTable: data.data.orderId, takeaway: true, selectedTableId: 0}))
                 dispatch(selectScreen({screen: 'Items Select'}))
             }else {
                 throw new Error('Error fetching tables list')

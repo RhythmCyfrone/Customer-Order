@@ -13,7 +13,8 @@ const useTakeawayTableViewModel = (status: Status) => {
     const handleTakeAwayClick = (tableNumber: string) => {
         dispatch(selectTable({
             selectedTable: tableNumber,
-            takeaway: true
+            takeaway: true,
+            selectedTableId: 0
         }))
     }
     return {

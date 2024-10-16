@@ -8,7 +8,8 @@ const useTakeawayViewModel = () => {
     const handleTakeaway = () => {
         dispatch(selectTable({
             selectedTable: 'AddTakeaway',
-            takeaway: true
+            takeaway: true,
+            selectedTableId: 0
         }))
     }
     return {

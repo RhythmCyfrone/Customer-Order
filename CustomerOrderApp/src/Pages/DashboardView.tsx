@@ -47,6 +47,7 @@ function Dashboard() {
               :displayTables.map((table, index) => {
                   return <Table
                       key={index}
+                      tableId = {table.tableId}
                       tableNumber={table.tableName}
                       floor={'1st floor'}
                       occupancy={table.tableMaxPax}

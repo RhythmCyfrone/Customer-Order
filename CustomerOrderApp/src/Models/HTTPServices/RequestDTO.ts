@@ -1,5 +1,5 @@
 export type getOrderByTableIdDTO = {
-    tableId: string;
+    tableId: number;
 }
 
 export type getStatusByIdDTO = {

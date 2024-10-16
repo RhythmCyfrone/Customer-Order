@@ -1,19 +1,19 @@
 export const statusToColors = {
-    'Free': 'bg-[#41C5FF]',
-    'Reserved': 'bg-[#FFB800]',
+    'Free': 'bg-[#6C0141]',
+    'Reserved': 'bg-[#FF8800]',
     'Assigned': 'bg-[#3B82F6]',
-    'Ordered': 'bg-[#E64980]',
+    'Ordered': 'bg-[#FF377D]',
     'Served': 'bg-[#00D930]',
-    'Billed': 'bg-[#A1007E]',
-    'Paid': 'bg-[#40E0D0]'
+    'Billed': 'bg-[#9700DE]',
+    'Paid': 'bg-[#005858]'
 } as const
 
 export const statusToTextColors = {
-    'Free': 'text-[#41C5FF]',
-    'Reserved': 'text-[#FFB800]',
+    'Free': 'text-[#6C0141]',
+    'Reserved': 'text-[#FF8800]',
     'Assigned': 'text-[#3B82F6]',
-    'Ordered': 'text-[#E64980]',
+    'Ordered': 'text-[#FF377D]',
     'Served': 'text-[#00D930]',
-    'Billed': 'text-[#A1007E]',
-    'Paid': 'text-[#40E0D0]'
+    'Billed': 'text-[#9700DE]',
+    'Paid': 'text-[#005858]'
 } as const

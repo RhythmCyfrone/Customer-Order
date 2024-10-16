@@ -15,7 +15,7 @@ type AcceptPaymentBackdropProps = {
 
 const AcceptPaymentBackdrop = ({isAcceptPaymentBackdrop, setIsAcceptPaymentBackdrop}: AcceptPaymentBackdropProps) => {
     const {
-        startPosition, currentTable, currentFloor, disableConfirm,
+        startPosition, currentTable, disableConfirm,
         selectPaymentMode, handlePaymentModeChange, gap, dispatch
     } = usePaymentBackdropViewModel()
   return (

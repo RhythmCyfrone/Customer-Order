@@ -23,7 +23,7 @@ export type StatusDTO = {
 export type getStatusByIdResponseDTO = StatusDTO
 
 export type TableDTO = {
-    tableId:string;
+    tableId:number;
     tableName: string;
     tableMapperId: number;
     tableMaxPax: number;

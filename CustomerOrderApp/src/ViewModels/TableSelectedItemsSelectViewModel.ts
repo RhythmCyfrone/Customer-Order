@@ -7,6 +7,7 @@ import { getTakeAwayOrderById } from "../Services/HTTPServices/takeaways"
 
 const useTableSelectedItemsViewModel = () => {
     const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
+    const currentTableId = useAppSelector(state => state.tableSelect.selectedTableId)
     const takeaway = useAppSelector(state => state.tableSelect.takeaway)
     const [viewAll, setViewAll] = useState(false)
     const dispatch = useAppDispatch()
@@ -66,7 +67,7 @@ const useTableSelectedItemsViewModel = () => {
                             return res
                           })
           } else {
-              data = await getOrderByTableId({tableId: currentTable})
+              data = await getOrderByTableId({tableId: currentTableId})
           }
           console.log(data)
           if(data.status == 200) {

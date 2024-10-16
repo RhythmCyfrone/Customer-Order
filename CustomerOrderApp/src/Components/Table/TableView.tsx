@@ -8,13 +8,14 @@ import { Status } from '../../ViewModels/TableViewModel'
 
 type TableProps = {
     status: Status;
+    tableId: number;
     tableNumber: string;
     floor: string;
     time: string;
     occupancy: number
 }
 
-const Table = ({status, floor, tableNumber, time, occupancy}: TableProps) => {
+const Table = ({status, tableId, floor, tableNumber, time, occupancy}: TableProps) => {
   const {
       selectedTable, dispatch, statusColorClass, statusColorText
   } = useTableViewModel(status)
@@ -23,7 +24,8 @@ const Table = ({status, floor, tableNumber, time, occupancy}: TableProps) => {
     <div className='flex w-[156px] h-[88px] cursor-pointer'
         onClick={() => dispatch(selectTable({
             selectedTable: tableNumber,
-            takeaway: false
+            takeaway: false,
+            selectedTableId: tableId
         }))}
     >
         <div className={`table-status w-[8px] rounded-l-[10px] ${statusColorClass}`}>
