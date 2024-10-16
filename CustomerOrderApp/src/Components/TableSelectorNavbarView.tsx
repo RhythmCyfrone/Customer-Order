@@ -32,10 +32,11 @@ const SelectorButton = ({selectorName, statusFlter, setStatusFilter}: SelectorBu
 
 const TableSelectorNavbar = ({statusFlter, setStatusFilter}: TableSelectorNavbarProps) => {
     const {
-        screen
+        screen, screenWidth
     } = useTableSelectorNavbarViewModel({statusFlter, setStatusFilter})
+
   return (
-    <div className='flex gap-x-[20px] flex-wrap gap-y-[20px]'>
+    <div className={`flex ${screenWidth <= 1150?'gap-x-[10px] gap-y-[10px]':'gap-x-[20px] gap-y-[20px]'} flex-wrap `}>
         <SelectorButton selectorName='All' statusFlter={statusFlter} setStatusFilter={setStatusFilter} />
         {
             screen == 'Table Management'

@@ -16,11 +16,11 @@ function Dashboard() {
         isNotificationsVisible, setIsNotificationsVisible,
         loadingTable, loadingTakeaways, takeawaysList, tableName, setTableName, displayTables, statusFlter,
         setStatusFilter, takeAway, setTakeAway, takeawayRef, scrollToTakeaway,
-        tablesRef, scrollToTables, tableStastics
+        tablesRef, scrollToTables, tableStastics, screenWidth
     } = useDashboardViewModel()
 
     return (
-        <div className='flex-1 flex flex-col gap-y-[24px] pt-[34px] pb-[34px] ms-[80px] me-[40px]'>
+        <div className={`flex-1 flex flex-col gap-y-[24px] ${screenWidth <= 1200?'pb-[16px]':'pb-[34px]'} pt-[34px] ms-[80px] me-[40px]`}>
           <BackdropHandler 
               isNotificationsVisible={isNotificationsVisible}
               setIsNotificationsVisible={setIsNotificationsVisible}

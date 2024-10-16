@@ -21,6 +21,7 @@ const useDashboardViewModel = () => {
     const [takeAway, setTakeAway] = useState(false)
     const takeawayRef = useRef<HTMLDivElement>(null);
     const tablesRef = useRef<HTMLDivElement>(null);
+    const screenWidth = document.body.clientWidth;
 
     const scrollToTakeaway = () => {
         if (takeawayRef.current) {
@@ -116,7 +117,7 @@ const useDashboardViewModel = () => {
         isNotificationsVisible, setIsNotificationsVisible, startPosition, dispatch,
         loadingTable, setLoadingTable, loadingTakeaways, setLoadingTakeaways, tablesList, takeawaysList, displayTables, 
         tableName, setTableName, statusFlter, setStatusFilter, takeAway, setTakeAway, takeawayRef, scrollToTakeaway,
-        tablesRef, scrollToTables, tableStastics
+        tablesRef, scrollToTables, tableStastics, screenWidth
     }
 }
 

@@ -7,12 +7,13 @@ export type TableSelectorNavbarProps = {
 
 const useTableSelectorNavbarViewModel = ({statusFlter, setStatusFilter}: TableSelectorNavbarProps) => {
     const screen = useAppSelector(state => state.screen.screen)
+    const screenWidth = document.body.clientWidth
     const updateStatusSelector = (selectorName: string) => {
         setStatusFilter(selectorName)
     }
     
     return {
-        screen, updateStatusSelector
+        screen, screenWidth, updateStatusSelector
     }
 }  
 

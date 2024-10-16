@@ -17,6 +17,7 @@ const useTableManagementViewModel = () => {
     const [takeAway, setTakeAway] = useState(false)
     const takeawayRef = useRef<HTMLDivElement>(null);
     const tablesRef = useRef<HTMLDivElement>(null);
+    const screenWidth = document.body.clientWidth;
 
     const scrollToTakeaway = () => {
         if (takeawayRef.current) {
@@ -91,7 +92,7 @@ const useTableManagementViewModel = () => {
         isNotificationsVisible, setIsNotificationsVisible, startPosition, dispatch,
         loadingTable, setLoadingTable, tablesList, displayTables, 
         tableName, setTableName, statusFlter, setStatusFilter, takeAway, setTakeAway, takeawayRef, scrollToTakeaway,
-        tablesRef, scrollToTables, tableStastics
+        tablesRef, scrollToTables, tableStastics, screenWidth
     }
 }
 

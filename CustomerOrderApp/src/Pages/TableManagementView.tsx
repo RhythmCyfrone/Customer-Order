@@ -12,11 +12,11 @@ const TableManagementView
     const {
         isNotificationsVisible, setIsNotificationsVisible,
         loadingTable, tableName, setTableName, displayTables, statusFlter,
-        setStatusFilter, tablesRef, tableStastics
+        setStatusFilter, tablesRef, tableStastics, screenWidth
     } = useTableManagementViewModel()
     
     return (
-        <div className='flex-1 flex flex-col gap-y-[24px] pt-[90px] pb-[34px] ms-[80px] me-[40px]'>
+        <div className={`flex-1 flex flex-col gap-y-[24px] pt-[90px] ${screenWidth <= 1200?'pb-[16px]':'pb-[34px]'} ms-[80px] me-[40px]`}>
           <BackdropHandler 
               isNotificationsVisible={isNotificationsVisible}
               setIsNotificationsVisible={setIsNotificationsVisible}
