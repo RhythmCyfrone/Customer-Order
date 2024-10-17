@@ -9,6 +9,7 @@ import BackdropReducer from './Slices/BackdropSlice'
 import tableDataReducer from './Slices/tablesSlice'
 import takeawaysDataReducer from './Slices/takeawaySlice'
 import tableStatisticsReducer from './Slices/tableStatisticsSlice'
+import cacheReducer from './Slices/cacheSlice'
 
 export const store = configureStore({
   reducer: {
@@ -21,7 +22,8 @@ export const store = configureStore({
     backdrop: BackdropReducer,
     tablesList: tableDataReducer,
     takeawaysList: takeawaysDataReducer,
-    tableStastics: tableStatisticsReducer
+    tableStastics: tableStatisticsReducer,
+    cache: cacheReducer
   }
 })
 
