@@ -41,8 +41,6 @@ const TableSelected = () => {
         />
         <TableDetails 
           order={order}
-          generateBill={false}
-          takeaway={takeaway}
         />
         <ItemsList viewAll={viewAll} setViewAll = {setViewAll} />
         <NewItemsList viewAll={viewAll} setViewAll = {setViewAll} />

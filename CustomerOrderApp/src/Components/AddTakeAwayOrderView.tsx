@@ -1,10 +1,11 @@
 import NotificationIcon from './NotificationIconView'
 import ProfilePlaceholderIcon from '../Assets/Icons/ProfilePlaceholder.svg'
 import { OrderDTO } from '../Models/HTTPServices/ResponseDTO'
-import TableDetails from './TableDetails/TableDetailsView'
+import { orderStatusToColors } from '../Constants/OrderStatusColors'
 import DropDownIcon from '../Assets/Icons/DropDown.svg'
 import useAddTakeAwayOrderViewModel from '../ViewModels/AddTakeAwayOrderViewModel'
 
+type orderStatusType = keyof typeof orderStatusToColors
 type AddTakeAwayOrderViewProps = {
   order: OrderDTO;
   handleNotificationsClick: (e: React.MouseEvent<HTMLImageElement | HTMLDivElement>, initiator: string) => void
@@ -23,11 +24,23 @@ const AddTakeAwayOrderView = ({order, handleNotificationsClick}: AddTakeAwayOrde
         <img src={ProfilePlaceholderIcon} className='absolute left-[83%] top-[21px] cursor-pointer' 
           onClick={(e) => handleNotificationsClick(e, 'Profile')}
         />
-        <TableDetails 
-          order={order}
-          generateBill={false}
-          takeaway={true}
-        />
+        <div className='flex w-[335px] flex-col p-[4px]'>
+            <div className='flex items-center'>
+                <span className='flex-1 font-poppins text-[16px] font-medium'>
+                    Table
+                </span>
+                <span className='flex-1 ms-[8px] font-quicksand text-[12px] font-normal'>Status</span>
+            </div>
+            <div className='flex items-start'>
+                <span className='flex-1 font-poppins text-[24px] font-medium text-[#FFB800]'>TW</span>
+                <div className='relative flex-1'>
+                    <div className='flex w-full h-full p-[8px] rounded-[8px] gap-x-[8px] items-center hover:bg-[#EBF3FE]'>
+                        <div className={`w-[16px] h-[16px] rounded-[50%] ${orderStatusToColors['Ordered' as orderStatusType]}`}></div>
+                        <span className='flex-1 font-opensans text-[16px] font-medium'>Free</span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <span className='font-poppins font-[600] text-[12px] leading-[18px] w-[335px] text-start'>Customer Name</span>
         <input
               className='outline-none bg-[#DDEBFF] p-[11px] w-[335px] mt-[8px] rounded-[11px]'

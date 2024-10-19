@@ -109,10 +109,14 @@ function App() {
             {
               screen == 'Table Management'
               ?<TableManagementView />
+              :screen == 'Items Select'
+              ?<ItemsSelect />
               :<></>
             }
             {
-              <TableSelectedDashboard />
+              screen == 'Items Select'
+              ?<TableSelectedItemsSelect />
+              :<TableSelectedDashboard />
             }
           </div>
         }

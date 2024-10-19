@@ -4,7 +4,7 @@ import { store } from '../../State/store';
 import { RootState } from '../../State/store';
 import { setCache, clearCache } from '../../State/Slices/cacheSlice';
 
-const API_BASE_URL = import.meta.env.VITE_APP_COVIDB_BASE_URL_PROD
+const API_BASE_URL = import.meta.env.VITE_APP_COVIDB_BASE_URL_DEV
 export const apiClient: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
   headers: {

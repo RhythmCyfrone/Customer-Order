@@ -4,10 +4,8 @@ import OrderStatusDropdown from './OrderStatusDropdownView'
 
 type TableDetailsProps = {
     order: OrderDTO;
-    generateBill?: boolean;
-    takeaway: boolean;
 }
-const TableDetails = ({order, generateBill = false, takeaway = false}: TableDetailsProps) => {
+const TableDetails = ({order}: TableDetailsProps) => {
     const {
         currentTable
     } = useTableDetailsViewModel()
@@ -20,7 +18,7 @@ const TableDetails = ({order, generateBill = false, takeaway = false}: TableDeta
             <span className='flex-1 ms-[8px] font-quicksand text-[12px] font-normal'>Status</span>
         </div>
         <div className='flex items-start'>
-            <span className='flex-1 font-poppins text-[24px] font-medium text-[#FFB800]'>{order.tableId}</span>
+            <span className='flex-1 font-poppins text-[24px] font-medium text-[#FFB800]'>{currentTable}</span>
             <div className='relative flex-1'>
                 <OrderStatusDropdown 
                     orderID={order.orderId} 
@@ -28,7 +26,7 @@ const TableDetails = ({order, generateBill = false, takeaway = false}: TableDeta
                 />
             </div>
         </div>
-        {!generateBill && !(currentTable == 'AddTakeaway') &&
+        {!(currentTable == 'AddTakeaway') &&
             <>
                 <div className='flex items-center mt-[8px]'>
                     <span className='flex-1 font-poppins text-[12px] font-normal'>Order Taken By</span>
