@@ -11,7 +11,7 @@ import useTableSelectedDashboardViewModel from '../ViewModels/TableSelectedDashb
 import CombineBills from './CombileBillsView'
 import SplitBills from './SplitBillsView'
 import AddTakeAwayOrderView from './AddTakeAwayOrderView'
-import TableSelectedDashboardFreeView from './TableSelectedDashboardFreeView'
+import TableSelectedDashboardFreeView from './TableSelectedDashboardFree/TableSelectedDashboardFreeView'
 import TableSelectedDashboardGenerateBillView from './TableSelectedDashboardGenerateBillView'
 
 const TableSelected = () => {
