@@ -17,7 +17,7 @@ const TableSelectedDashboardFreeView = ({handleNotificationsClick}: TableSelecte
         currentTable, view, handleViews, newCustomerMail, handleNewCustomerMailChange,
         newCustomerName, newCustomerMobile, handleNewCustomerNameChange, handleNewCustomerMobileChange,
         countPersons, updateCountPersons, disableConfirmQuickActions, dateInput, handleDateInputChange,
-        timeInput, handleTimeInputChange, showCalender, handleShowCalender
+        timeInput, handleTimeInputChange, showCalender, handleShowCalender, showTimePicker, handleShowTimePicker
     } = useTableSelectedDashboardFreeViewModel()
 
   return (
@@ -82,12 +82,14 @@ const TableSelectedDashboardFreeView = ({handleNotificationsClick}: TableSelecte
                 handleTimeInputChange={handleTimeInputChange}
                 showCalender={showCalender}
                 handleShowCalender={handleShowCalender}
+                showTimePicker={showTimePicker}
+                handleShowTimePicker={handleShowTimePicker}
             />
             :<></>
         }
         {
             (view === 'Default' || view === 'Quick Actions') &&
-            <div className='flex justify-between w-[335px] mt-[24px]'>
+            <div className='flex justify-between w-[335px] mt-[24px] mb-[36px]'>
                 <div className='w-[64px] p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
                     onClick={() => handleViews('Reserve')}
                 >

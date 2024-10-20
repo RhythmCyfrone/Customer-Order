@@ -6,6 +6,7 @@ import CalenderIcon from '../../Assets/Icons/Calendar.svg'
 import TimerIcon from '../../Assets/Icons/Timer.svg'
 import CalenderView from './Calender'
 import { Dayjs } from 'dayjs'
+import TimePickerView from './TimePicker'
 
 
 type ReserveViewProps = {
@@ -23,18 +24,19 @@ type ReserveViewProps = {
   handleTimeInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   showCalender: boolean;
   handleShowCalender: (value: Dayjs | null) => void;
-
+  showTimePicker: boolean;
+  handleShowTimePicker: (value: Dayjs | null) => void;
 }
 
 const ReserveView = ({
   newCustomerName, newCustomerMobile, newCustomerMail, countPersons, updateCountPersons,
   handleNewCustomerNameChange, handleNewCustomerMobileChange, handleNewCustomerMailChange,
   dateInput, handleDateInputChange, timeInput, handleTimeInputChange,showCalender, 
-  handleShowCalender
+  handleShowCalender, showTimePicker, handleShowTimePicker
 }: ReserveViewProps) => {
 
   return (
-    <div className='flex w-[335px] flex-col p-[4px] mt-[16px] mb-[16px]'>
+    <div className='flex w-[335px] flex-col p-[4px] mt-[16px] mb-[36px]'>
       <div className='flex gap-x-[8px]'>
         <img src={ReserveIcon} />
         <span className='font-poppins font-[500] text-[20px] leading-[30px]'>Reserve Table</span>
@@ -56,6 +58,10 @@ const ReserveView = ({
           <CalenderView 
               showCalender={showCalender}
               handleShowCalender={handleShowCalender}
+          />
+          <TimePickerView
+              showTimePicker={showTimePicker}
+              handleShowTimePicker={handleShowTimePicker}
           />
       </div>
       <span className='font-poppins font-[600] text-[12px] leading-[18px] w-[335px] text-start'>Customer Name</span>
@@ -85,7 +91,9 @@ const ReserveView = ({
               value={timeInput}
               onChange={(e) => handleTimeInputChange(e)}
           />
-          <img src={TimerIcon} />
+          <img src={TimerIcon} 
+              onClick={() => handleShowTimePicker(null)}
+          />
         </div>
       </div>
       <span className='font-poppins font-[600] mt-[8px] text-[12px] leading-[18px] w-[335px] text-start'>

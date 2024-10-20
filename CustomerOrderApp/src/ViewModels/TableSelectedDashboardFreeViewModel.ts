@@ -44,6 +44,13 @@ const useTableSelectedDashboardFreeViewModel = () => {
         setShowCalender(!showCalender)
     }
 
+    const handleShowTimePicker = (value: Dayjs | null) => {
+        if (showTimePicker && value !== null) {
+            setTimeInput(value.format('HH:mm'))
+        }
+        setShowTimePicker(!showTimePicker)
+    }
+
     const handleDateInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setDateInput(e.target.value)
     }
@@ -79,7 +86,8 @@ const useTableSelectedDashboardFreeViewModel = () => {
         currentTable, view, handleViews, newCustomerMail, handleNewCustomerMailChange,
         newCustomerName, newCustomerMobile, handleNewCustomerNameChange, handleNewCustomerMobileChange,
         countPersons, updateCountPersons, disableConfirmQuickActions, dateInput, handleDateInputChange, 
-        formatDataInput, timeInput, handleTimeInputChange, showCalender, handleShowCalender
+        formatDataInput, timeInput, handleTimeInputChange, showCalender, handleShowCalender,
+        showTimePicker, handleShowTimePicker
     }
 }
 
