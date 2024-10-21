@@ -13,6 +13,7 @@ import SplitBills from './SplitBillsView'
 import AddTakeAwayOrderView from './AddTakeAwayOrderView'
 import TableSelectedDashboardFreeView from './TableSelectedDashboardFree/TableSelectedDashboardFreeView'
 import TableSelectedDashboardGenerateBillView from './TableSelectedDashboardGenerateBillView'
+import TableSelectedDashboardReserveView from './TableSelectedDashboardReserveView'
 
 const TableSelected = () => {
 
@@ -37,6 +38,11 @@ const TableSelected = () => {
     />
     :currentTableStatus == 'Free'
     ?<TableSelectedDashboardFreeView
+      handleNotificationsClick={handleNotificationsClick}
+    />
+    :currentTableStatus == 'Reserved'
+    ?<TableSelectedDashboardReserveView
+      currentTable={currentTable}
       handleNotificationsClick={handleNotificationsClick}
     />
     :order == null
