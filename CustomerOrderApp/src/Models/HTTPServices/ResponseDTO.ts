@@ -50,6 +50,61 @@ export type TakeAwayDTO = {
 	billId: number;
     branchID: string;
 }
+
+export type MenutItemDTO = {
+    menuItemId: number,
+    menuItemName: string,
+    menuItemDescription: string,
+    menuItemLocaleDescription: null,
+    uomId: number,
+    finalQty: number,
+    cuisineId: number,
+    dietId: number,
+    courceId: number,
+    noOfItems: number,
+    spiceLevelRanking: number,
+    allergensInfo: string,
+    allergensInfoLocale: string,
+    oneLinerMenuDescription: string,
+    oneLinerMenuDescriptionLocale: string,
+    sellingPriceExcludTax: number,
+    isVisible: boolean,
+    visibilityTimePeriodStructureInJson: string,
+    recipeInstructions: string,
+    prepTimeInMinutes: number,
+    cookTimeInMinutes: number,
+    targetCostInPerc: number,
+    actualCost: number,
+    grossProfit: number,
+    profitMarginInPerc: number,
+    nutritionalInfo: string,
+    imgLink: string
+}
+
+export type DietDTO = {
+    dietId: number,
+    dietName: string,
+    dietLocaleName: string, 
+}
+export type getAllDietsResponseDTO = DietDTO[]
+
+export type CuisineDTO = {
+    cuisineId: number,
+    cuisineName: string,
+    cuisineLocaleName: string, 
+}
+export type getAllCuisinesResponseDTO = CuisineDTO[]
+
+export type MealCourseDTO = {
+    mealCourseId: number,
+    mealCourseName: string,
+    mealCourseLocaleName: string, 
+}
+export type getAllMealCoursesResponseDTO = MealCourseDTO[]
+
+
+export type getAllMenuItemsResponseDTO = MenutItemDTO[]
+
 export type createTakeAwayOrderResponseDTO = any
 
 export type getAllTakeAwayOrdersResponseDTO = TakeAwayDTO[]

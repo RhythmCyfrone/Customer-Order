@@ -10,6 +10,9 @@ const useItemsSelectViewModel = () => {
     const startPosition = useAppSelector(state => state.backdrop)
     const dispatch = useAppDispatch()
     const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const menuItems = useAppSelector(state => state.master.masterData['menuItems'])
+    const [courseSelector, setCourseSelector] = useState(0)
+
 
     const handleScrollRight = () => {
         if (scrollContainerRef.current) {
@@ -64,7 +67,7 @@ const useItemsSelectViewModel = () => {
     return {
         itemName, setItemName, screenWidth, maxWidth, setMaxWidth, isFoodItemBackdropVisible, setIsFoodItemBackdropVisible,
         isNotificationsVisible, setIsNotificationsVisible, startPosition, dispatch, scrollContainerRef,
-        handleScrollLeft, handleScrollRight, handleInputChange
+        handleScrollLeft, handleScrollRight, handleInputChange, menuItems, courseSelector, setCourseSelector
     }
 
 }

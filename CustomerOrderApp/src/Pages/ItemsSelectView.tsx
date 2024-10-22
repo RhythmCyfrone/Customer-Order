@@ -12,9 +12,9 @@ import useItemsSelectViewModel from '../ViewModels/ItemsSelectViewModel'
 
 const ItemsSelect = () => {
     const {
-        itemName, setItemName, maxWidth,  isFoodItemBackdropVisible, setIsFoodItemBackdropVisible,
-        isNotificationsVisible, setIsNotificationsVisible, startPosition, dispatch, scrollContainerRef,
-        handleScrollLeft, handleScrollRight, handleInputChange
+        itemName, setItemName, maxWidth, isNotificationsVisible, setIsNotificationsVisible, 
+        startPosition, dispatch, scrollContainerRef, handleScrollLeft, handleScrollRight, 
+        handleInputChange, menuItems, courseSelector, setCourseSelector
     } = useItemsSelectViewModel()
 
   return (
@@ -52,7 +52,10 @@ const ItemsSelect = () => {
                 }
             </div>
         </div>
-        <FoodSelectorNavbar />
+        <FoodSelectorNavbar 
+            courseSelector={courseSelector}
+            setCourseSelector={setCourseSelector}
+        />
         <div className=' flex flex-col gap-y-[8px] overflow-y-scroll ps-[80px] desktop-max:ps-[20px]'>
             <div className={`relative flex flex-col gap-y-[16px]  w-full overflow-visible`} style={{ maxWidth: `${maxWidth}px` }}>
                 <span className='font-poppins font-semibold text-[12px] leading-[18px]'>
