@@ -49,11 +49,11 @@ const useDashboardViewModel = () => {
             setDisplayTables(tempList.sort((a, b) => Number(a.tableName.slice(1)) - Number(b.tableName.slice(1))))
         }else if(statusFlter === 'Occupied') {
             setDisplayTables(tempList.filter(table => {
-                return ['Assigned','Ordered', 'Served', 'Billed', 'Paid'].includes(table.tableTrackingStatusName)
+                return ['Assigned','Ordered', 'Served', 'Billed', 'Paid'].includes(table.tableStatusName)
             }))
         }else if(statusFlter !== '') {
             setDisplayTables(tempList.filter(table => {
-                return table.tableTrackingStatusName == statusFlter
+                return table.tableStatusName == statusFlter
             }))
         }
     }, [tableName, tablesList, statusFlter])
@@ -62,9 +62,10 @@ const useDashboardViewModel = () => {
         const updateTablesListData = async () => {
             try {
                 const data = await getAllTables()
+                console.log(data)
                 if(data.status == 200 && data.data !== null) {
                     dispatch(updateTablesList(data.data.servingTableDetails.filter(tableData => {
-                        return !['Free', 'Reserved'].includes(tableData.tableTrackingStatusName)
+                        return !['Free', 'Reserved'].includes(tableData.tableStatusName)
                     })))
                     dispatch(updateTableStatistics({
                         countOfActualCapacity: data.data.countOfActualCapacity,

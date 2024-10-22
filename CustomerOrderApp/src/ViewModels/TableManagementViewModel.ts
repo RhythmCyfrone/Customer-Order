@@ -45,11 +45,11 @@ const useTableManagementViewModel = () => {
             setDisplayTables(tempList.sort((a, b) => Number(a.tableName.slice(1)) - Number(b.tableName.slice(1))))
         }else if(statusFlter === 'Occupied') {
             setDisplayTables(tempList.filter(table => {
-                return ['Assigned','Ordered', 'Served', 'Billed', 'Paid'].includes(table.tableTrackingStatusName)
+                return ['Assigned','Ordered', 'Served', 'Billed', 'Paid'].includes(table.tableStatusName)
             }))
         }else if(statusFlter !== '') {
             setDisplayTables(tempList.filter(table => {
-                return table.tableTrackingStatusName == statusFlter
+                return table.tableStatusName == statusFlter
             }))
         }
     }, [tableName, tablesList, statusFlter])

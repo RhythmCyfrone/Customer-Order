@@ -51,7 +51,7 @@ function Dashboard() {
                       tableNumber={table.tableName}
                       floor={'1st floor'}
                       occupancy={table.tableMaxPax}
-                      status={table.tableTrackingStatusName}
+                      status={table.tableStatusName}
                       time='30 mins'
                     />
                 })

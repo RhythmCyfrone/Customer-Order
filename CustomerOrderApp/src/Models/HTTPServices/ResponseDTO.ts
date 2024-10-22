@@ -24,12 +24,14 @@ export type getStatusByIdResponseDTO = StatusDTO
 
 export type TableDTO = {
     tableId:number;
+    tableLocaleName: string;
     tableName: string;
-    tableMapperId: number;
+    tableSeatingAssignmentId: number;
+    tableHexCode: string;
     tableMaxPax: number;
-    dateTimeSinceLastStatusChange: string;
-    tableTrackingStatusId: number;
-    tableTrackingStatusName: Status;
+    tableStatusId: number;
+    tableStatusName: Status;
+    tableLocaleStatusName: string;
 }
 export type getAllTablesResponseDTO = {
     countOfActualCapacity: number;
