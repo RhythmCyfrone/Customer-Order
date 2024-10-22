@@ -8,7 +8,7 @@ import { getTakeAwayOrderById } from "../Services/HTTPServices/takeaways"
 const useTableSelectedDashboardViewModel = () => {
   const currentTable = useAppSelector(state => state.tableSelect.selectedTable)
   const currentTableId = useAppSelector(state => state.tableSelect.selectedTableId)
-  const currentTableStatus = useAppSelector(state => state.tablesList[currentTableId]?.tableTrackingStatusName)
+  const currentTableStatus = useAppSelector(state => state.tablesList[currentTableId]?.tableStatusName)
   const takeaway = useAppSelector(state => state.tableSelect.takeaway)
   const dispatch = useAppDispatch()
 

@@ -1,3 +1,4 @@
+import { MealCourseDTO } from '../Models/HTTPServices/ResponseDTO';
 import { useFoodSelectorNavbarViewModel } from '../ViewModels/FoodSelectorNavbarViewModel'
 
 type SelectorButtonProps = {
@@ -12,9 +13,8 @@ const SelectorButton = ({
     courseSelector,
     setCourseSelector
 }: SelectorButtonProps) => {
-    const {
-        padding
-    } = useFoodSelectorNavbarViewModel(selectorName)
+
+    const padding = selectorName == 'All'?'ps-[20px] pe-[20px]':'ps-[10px] pe-[10px]'
     
     return (
         selectorId == courseSelector
@@ -41,6 +41,11 @@ type FoodSelectorNavbarProps = {
 const FoodSelectorNavbar = ({
     courseSelector, setCourseSelector
 }: FoodSelectorNavbarProps) => {
+
+    const {
+        mealCourses
+    } = useFoodSelectorNavbarViewModel()
+  
   return (
     <div className='flex gap-x-[8px] ps-[80px] desktop-max:ps-[20px]'>
         <SelectorButton 
@@ -49,30 +54,19 @@ const FoodSelectorNavbar = ({
             courseSelector = {courseSelector}
             setCourseSelector = {setCourseSelector}
         />
-        <SelectorButton 
-            selectorName='Starters' 
-            selectorId = {1}
-            courseSelector = {courseSelector}
-            setCourseSelector = {setCourseSelector}
-        />
-        <SelectorButton 
-            selectorName='Main Course' 
-            selectorId = {3}
-            courseSelector = {courseSelector}
-            setCourseSelector = {setCourseSelector}
-        />
-        <SelectorButton 
-            selectorName='Snacks' 
-            selectorId = {4}
-            courseSelector = {courseSelector}
-            setCourseSelector = {setCourseSelector}
-        />
-        <SelectorButton 
-            selectorName='Desserts' 
-            selectorId = {5}
-            courseSelector = {courseSelector}
-            setCourseSelector = {setCourseSelector}
-        />
+        {
+            mealCourses?.map((course: MealCourseDTO, index: number) => {
+                return (
+                    <SelectorButton 
+                        key={index}
+                        selectorName={course.mealCourseName} 
+                        selectorId = {course.mealCourseId}
+                        courseSelector = {courseSelector}
+                        setCourseSelector = {setCourseSelector}
+                    />
+                )
+            })
+        }
     </div>
     
   )

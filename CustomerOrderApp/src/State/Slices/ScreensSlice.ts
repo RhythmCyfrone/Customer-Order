@@ -5,7 +5,7 @@ export type ScreenState = {
 }
 
 const initialState: ScreenState = {
-    screen: 'Dashboard'
+    screen: 'Items Select'
 }
 
 export const screenSlice = createSlice({

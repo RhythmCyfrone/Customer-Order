@@ -1,8 +1,10 @@
-export const useFoodSelectorNavbarViewModel = (selectorName: string) => {
-    const padding = selectorName == 'All'?'ps-[20px] pe-[20px]':'ps-[10px] pe-[10px]'
+import { useAppSelector } from "../State/hooks"
+
+export const useFoodSelectorNavbarViewModel = () => {
+    const mealCourses = useAppSelector(state => state.master.masterData['mealCourses']?.data as any)
 
     return {
-        padding
+        mealCourses
     }
 
 }
