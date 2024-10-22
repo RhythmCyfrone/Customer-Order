@@ -3,6 +3,7 @@ import PersonAddIcon from '../../Assets/Icons/PersonAdd.svg'
 import PersonSubtractIcon from '../../Assets/Icons/PersonSubtract.svg'
 import DropDownIcon from '../../Assets/Icons/DropDown.svg'
 import CalenderIcon from '../../Assets/Icons/Calendar.svg'
+import SearchIcon from '../../Assets/Icons/MobileSearch.svg'
 import TimerIcon from '../../Assets/Icons/Timer.svg'
 import CalenderView from './Calender'
 import { Dayjs } from 'dayjs'
@@ -41,8 +42,8 @@ const ReserveView = ({
         <img src={ReserveIcon} />
         <span className='font-poppins font-[500] text-[20px] leading-[30px]'>Reserve Table</span>
       </div>
-      <span className='font-poppins font-[500] text-[16px] leading-[24px] w-[335px] text-start mt-[8px]'>No. of Persons</span>
-      <div className='relative flex justify-center w-full items-center gap-x-[8px] mt-[16px]'>
+      <span className='font-poppins font-[500] text-[18px] leading-[30px] w-[335px] text-center mt-[8px]'>No. of Persons</span>
+      <div className='relative flex justify-center w-full items-center gap-x-[16px] mt-[16px]'>
           <img src={PersonAddIcon} className='cursor-pointer' 
               onClick={() => updateCountPersons(countPersons+1)}
           />
@@ -96,19 +97,22 @@ const ReserveView = ({
           />
         </div>
       </div>
-      <span className='font-poppins font-[600] mt-[8px] text-[12px] leading-[18px] w-[335px] text-start'>
-          Mobile Number
-      </span>
-      <div className='flex gap-x-[16px] w-[335px] mt-[4px]'>
-        <div className=' bg-[#DDEBFF] rounded-[11px] flex justify-center items-center gap-x-[8px] p-[8px]'>
-            <img src={DropDownIcon} />
-            <span className='font-quicksand font-[500] text-[16px] leading-[20px]'>91</span>
-        </div>
-        <input className='outline-none bg-[#DDEBFF] p-[11px] flex-1 rounded-[11px]'
-                type='text'
-                value={newCustomerMobile}
-                onChange={(e) => handleNewCustomerMobileChange(e)}
-        />
+      <span className='font-poppins font-[600] mt-[12px] text-[12px] leading-[18px] w-[335px] text-start'>Mobile Number</span>
+      <div className='flex gap-x-[16px] w-[335px] mt-[8px]'>
+          <div className=' bg-[#DDEBFF] rounded-[11px] flex justify-center items-center gap-x-[8px] p-[8px]'>
+              <img src={DropDownIcon} />
+              <span className='font-quicksand font-[500] text-[16px] leading-[20px]'>91</span>
+          </div>
+          <div className='flex flex-1'>
+              <input className='outline-none bg-[#DDEBFF] p-[11px] flex-1 rounded-l-[11px]'
+                      type='text'
+                      value={newCustomerMobile}
+                      onChange={(e) => handleNewCustomerMobileChange(e)}
+              />
+              <div className='rounded-r-[11px] bg-[#3B82F6] p-[11px] flex justify-center items-center'>
+                  <img src={SearchIcon}/>
+              </div>
+          </div>
       </div>
       <span className='font-poppins font-[600] text-[12px] mt-[8px] leading-[18px] w-[335px] text-start'>Mail Id</span>
       <input

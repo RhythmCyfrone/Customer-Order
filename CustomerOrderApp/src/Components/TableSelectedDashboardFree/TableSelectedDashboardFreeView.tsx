@@ -47,17 +47,6 @@ const TableSelectedDashboardFreeView = ({handleNotificationsClick}: TableSelecte
         </div>
         {
             view === 'Default'
-            ?<div className='flex w-[335px] flex-col p-[4px] gap-y-[12px] mt-[16px]'>
-                <span className='flex-1 font-poppins text-[16px] leading-[24px] font-medium'>
-                    Quick Actions
-                </span>
-                <div className='m-[8px] flex justify-center items-center fontButtonDefault bg-gradient-to-r from-[#3B82F6] to-[#0053DB] cursor-pointer rounded-[8px] p-[12px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover active:shadow-none'
-                    onClick={() => handleViews('Quick Actions')}
-                >
-                    <span>Assign</span>
-                </div>
-            </div>
-            :view === 'Quick Actions'
             ?<QuickActionsView
                 newCustomerName={newCustomerName}
                 newCustomerMobile={newCustomerMobile}
@@ -88,46 +77,45 @@ const TableSelectedDashboardFreeView = ({handleNotificationsClick}: TableSelecte
             :<></>
         }
         {
-            (view === 'Default' || view === 'Quick Actions') &&
-            <div className='flex justify-between w-[335px] mt-[24px] mb-[36px]'>
-                <div className='w-[64px] p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
-                    onClick={() => handleViews('Reserve')}
-                >
-                    <img src={ReserveIcon} />
-                    <span className='font-poppins font-[300] text-[9px] leading-[10px] text-white'>Reserve</span>
-                </div>
-                <div className='w-[64px] p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
-                    onClick={() => handleViews('Split')}
-                >
-                    <img src={ReserveIcon} />
-                    <span className='font-poppins font-[300] text-[9px] leading-[10px] text-white'>Split</span>
-                </div>
-                <div className='w-[64px] p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
-                    onClick={() => handleViews('Combine')}
-                >
-                    <img src={CombineIcon} />
-                    <span className='font-poppins font-[300] text-[9px] leading-[10px] text-white'>Combine</span>
+            view === 'Default' &&
+            <div className='flex w-[335px] flex-col mt-[12px]'>
+                <span className='font-poppins font-[500] text-[20px] leading-[30px] w-[335px] text-start'>Quick Actions</span>
+                <div className='flex justify-between w-[335px] mt-[12px] mb-[36px]'>
+                    <div className='w-[64px] p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
+                        onClick={() => handleViews('Reserve')}
+                    >
+                        <img src={ReserveIcon} />
+                        <span className='font-poppins font-[300] text-[9px] leading-[10px] text-white'>Reserve</span>
+                    </div>
+                    <div className='w-[64px] p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
+                        onClick={() => handleViews('Split')}
+                    >
+                        <img src={ReserveIcon} />
+                        <span className='font-poppins font-[300] text-[9px] leading-[10px] text-white'>Split</span>
+                    </div>
+                    <div className='w-[64px] p-[5.5px] ps-[14px] pe-[14px] bg-[#4E659F] rounded-[5px] text-center flex flex-col items-center justify-center gap-y-[4px] cursor-pointer'
+                        onClick={() => handleViews('Combine')}
+                    >
+                        <img src={CombineIcon} />
+                        <span className='font-poppins font-[300] text-[9px] leading-[10px] text-white'>Combine</span>
+                    </div>
                 </div>
             </div>
         }
-        {
-            view !== 'Default' &&
-            <div className='flex w-[335px] gap-x-[12px] justify-between '>
-                <button className='flex-1 text-center fontSecondaryButtonDefault border-[1px] border-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover
-                    hover:bg-CustomBrand-200 active:shadow-none active:bg-white'
-                    onClick={() => handleViews('Default')}
-                >
-                    Cancel
-                </button>
-                <button className='flex-1 text-center bg-[#3B82F6] fontButtonDefault border-[1px] border-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover
-                    hover:ShadowPrimaryHover active:shadow-none disabled:cursor-default disabled:bg-[#292929] disabled:bg-opacity-20 disabled:text-[#292929] disabled:opacity-80 disabled:border-[0px] disabled:shadow-none'
-                    disabled={disableConfirmQuickActions}
-                >
-                    Confirm
-                </button>
-            </div>
-
-        }
+        <div className='flex w-[335px] gap-x-[12px] justify-between '>
+            <button className='flex-1 text-center fontSecondaryButtonDefault border-[1px] border-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover
+                hover:bg-CustomBrand-200 active:shadow-none active:bg-white'
+                onClick={() => handleViews('Default')}
+            >
+                Cancel
+            </button>
+            <button className='flex-1 text-center bg-[#3B82F6] fontButtonDefault border-[1px] border-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[24px] pe-[24px] hover:ShadowPrimaryHover
+                hover:ShadowPrimaryHover active:shadow-none disabled:cursor-default disabled:bg-[#292929] disabled:bg-opacity-20 disabled:text-[#292929] disabled:opacity-80 disabled:border-[0px] disabled:shadow-none'
+                disabled={disableConfirmQuickActions}
+            >
+                Confirm
+            </button>
+        </div>
     </div>
   )
 }
