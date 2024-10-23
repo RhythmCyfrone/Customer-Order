@@ -6,7 +6,7 @@ import type { SearchNavbarProps } from '../ViewModels/SearchNavbarViewModel'
 
 const SearchNavbar = ({tableName, setTableName}: SearchNavbarProps) => {
     const {
-        screen, handleInputChange
+        screen, handleInputChange, handleScreenChange
     } = useSearchNavbarViewModel({tableName, setTableName})
 
   return (
@@ -31,6 +31,7 @@ const SearchNavbar = ({tableName, setTableName}: SearchNavbarProps) => {
             screen == 'Dashboard' &&
             <button className='text-center flex items-center gap-x-[8px] fontSecondaryButtonDefault border-[1px] border-CustomBrand-300 cursor-pointer rounded-[8px] p-[8px] ps-[8px] pe-[16px] hover:ShadowPrimaryHover
                     hover:bg-CustomBrand-200 active:shadow-none active:bg-white'
+                onClick={() => handleScreenChange()}
             >
                 <img src={AddIcon} alt="My Icon" className="icon-class" />
                 Assign New Table
